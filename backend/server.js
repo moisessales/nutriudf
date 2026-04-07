@@ -87,13 +87,24 @@ const generalLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-// Rate limiting auth: 10 tentativas / 15 min por IP
+// Rate limiting login: 10 tentativas / 15 min por IP
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 10,
   message: { error: 'Muitas tentativas de login. Tente novamente em 15 minutos.' },
   standardHeaders: true,
   legacyHeaders: false,
+  keyGenerator: (req) => req.ip + ':auth',
+});
+
+// Rate limiting registro: 5 cadastros / 15 min por IP
+const registerLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  message: { error: 'Muitas tentativas de cadastro. Tente novamente em 15 minutos.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => req.ip + ':register',
 });
 
 app.use(generalLimiter);
@@ -130,7 +141,11 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '100kb' }));
 app.use(sanitizeBody);
 
 // Rotas versionadas (v1)
-app.use('/api/v1/auth', authLimiter, authRoutes);
+app.use('/api/v1/auth/login', authLimiter);
+app.use('/api/v1/auth/forgot-password', authLimiter);
+app.use('/api/v1/auth/register', registerLimiter);
+app.use('/api/v1/auth/resend-verification', registerLimiter);
+app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/patients', patientRoutes);
 app.use('/api/v1/plans', planRoutes);
 app.use('/api/v1/reports', reportRoutes);
@@ -139,7 +154,11 @@ app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/consultations', consultationRoutes);
 
 // Compatibilidade: /api/* redireciona para /api/v1/*
-app.use('/api/auth', authLimiter, authRoutes);
+app.use('/api/auth/login', authLimiter);
+app.use('/api/auth/forgot-password', authLimiter);
+app.use('/api/auth/register', registerLimiter);
+app.use('/api/auth/resend-verification', registerLimiter);
+app.use('/api/auth', authRoutes);
 app.use('/api/patients', patientRoutes);
 app.use('/api/plans', planRoutes);
 app.use('/api/reports', reportRoutes);

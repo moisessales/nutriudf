@@ -40,7 +40,7 @@ function getEmailTemplate(content) {
 }
 
 async function sendVerificationEmail(toEmail, toName, token) {
-  const verifyUrl = `${APP_URL}/nutri_saas_mockup_v2.html?action=verify&token=${token}`;
+  const verifyUrl = `${APP_URL}/?action=verify&token=${token}`;
 
   const html = getEmailTemplate(`
     <h2 style="margin:0 0 8px;color:#1F2937;font-size:18px;">Confirme seu email</h2>
@@ -64,7 +64,7 @@ async function sendVerificationEmail(toEmail, toName, token) {
 }
 
 async function sendPasswordResetEmail(toEmail, toName, token) {
-  const resetUrl = `${APP_URL}/nutri_saas_mockup_v2.html?action=reset&token=${token}`;
+  const resetUrl = `${APP_URL}/?action=reset&token=${token}`;
 
   const html = getEmailTemplate(`
     <h2 style="margin:0 0 8px;color:#1F2937;font-size:18px;">Redefinir sua senha</h2>
