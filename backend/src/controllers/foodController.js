@@ -1,6 +1,29 @@
 // Food Controller - Busca no banco MySQL (TBCA importada)
 const pool = require('../config/database');
 
+// Cache em memória para buscas frequentes (TTL 10min)
+const searchCache = new Map();
+const CACHE_TTL = 10 * 60 * 1000;
+
+function getCached(key) {
+  const entry = searchCache.get(key);
+  if (!entry) return null;
+  if (Date.now() - entry.time > CACHE_TTL) {
+    searchCache.delete(key);
+    return null;
+  }
+  return entry.data;
+}
+
+function setCache(key, data) {
+  // Limitar cache a 200 entradas
+  if (searchCache.size > 200) {
+    const oldest = searchCache.keys().next().value;
+    searchCache.delete(oldest);
+  }
+  searchCache.set(key, { data, time: Date.now() });
+}
+
 /**
  * Listar alimentos ou filtrar por query em /foods
  */
@@ -9,6 +32,14 @@ exports.listFoods = async (req, res) => {
     const { query, q, name, limit } = req.query;
     const searchTerm = query || q || name;
     const maxResults = Math.min(parseInt(limit) || 20, 100);
+
+    // Verificar cache
+    const cacheKey = `list:${searchTerm || ''}:${maxResults}`;
+    const cached = getCached(cacheKey);
+    if (cached) {
+      res.set('X-Cache', 'HIT');
+      return res.json(cached);
+    }
 
     const connection = await pool.getConnection();
 
@@ -33,6 +64,8 @@ exports.listFoods = async (req, res) => {
     }
 
     connection.release();
+    setCache(cacheKey, foods);
+    res.set('X-Cache', 'MISS');
     res.json(foods);
   } catch (error) {
     console.error('Erro ao buscar alimentos:', error);
@@ -50,6 +83,14 @@ exports.getFoodByName = async (req, res) => {
 
     if (!name || !name.trim()) {
       return res.status(400).json({ error: 'Nome do alimento é obrigatório' });
+    }
+
+    // Verificar cache
+    const cacheKey = `food:${name}:${limit || 20}`;
+    const cached = getCached(cacheKey);
+    if (cached) {
+      res.set('X-Cache', 'HIT');
+      return res.json(cached);
     }
 
     const connection = await pool.getConnection();
@@ -81,6 +122,7 @@ exports.getFoodByName = async (req, res) => {
 
       food.nutrients = nutrients;
       connection.release();
+      setCache(cacheKey, food);
       return res.json(food);
     }
 
@@ -99,6 +141,7 @@ exports.getFoodByName = async (req, res) => {
     );
 
     connection.release();
+    setCache(cacheKey, foods);
     res.json(foods);
   } catch (error) {
     console.error('Erro ao buscar alimento:', error);

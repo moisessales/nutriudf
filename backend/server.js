@@ -158,10 +158,29 @@ app.get('/health', (req, res) => {
   res.json({ status: 'API is running', environment: process.env.NODE_ENV });
 });
 
-// SPA fallback: qualquer rota não-API serve o frontend
+// SPA fallback: qualquer rota não-API serve o frontend (com cache 1h)
+const indexPath = path.join(__dirname, 'public', 'index.html');
+let cachedIndex = null;
+let cachedIndexTime = 0;
+
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api')) return next();
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  // Cache o HTML em memória por 1h em produção
+  if (isProd) {
+    const now = Date.now();
+    if (!cachedIndex || now - cachedIndexTime > 3600000) {
+      try {
+        cachedIndex = require('fs').readFileSync(indexPath);
+        cachedIndexTime = now;
+      } catch (e) {
+        return res.sendFile(indexPath);
+      }
+    }
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    res.set('Cache-Control', 'no-cache');
+    return res.send(cachedIndex);
+  }
+  res.sendFile(indexPath);
 });
 
 // 404 handler (apenas para rotas /api)
@@ -185,4 +204,16 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   logger.info(`Servidor rodando em http://localhost:${PORT}`);
   logger.info(`Ambiente: ${process.env.NODE_ENV || 'development'}`);
+
+  // Self-ping: manter servidor acordado no Render Free (a cada 14min)
+  if (isProd) {
+    const https = require('https');
+    const APP_URL = process.env.APP_URL;
+    if (APP_URL) {
+      setInterval(() => {
+        https.get(`${APP_URL}/health`, () => {}).on('error', () => {});
+      }, 14 * 60 * 1000); // 14 minutos
+      logger.info('Self-ping ativado (14min interval)');
+    }
+  }
 });
