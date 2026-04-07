@@ -146,7 +146,13 @@ app.get('/health', (req, res) => {
   res.json({ status: 'API is running', environment: process.env.NODE_ENV });
 });
 
-// 404 handler
+// SPA fallback: qualquer rota não-API serve o frontend
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) return next();
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// 404 handler (apenas para rotas /api)
 app.use((req, res) => {
   res.status(404).json({ error: 'Rota não encontrada' });
 });
