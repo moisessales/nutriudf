@@ -37,21 +37,18 @@ exports.register = async (req, res) => {
       return res.status(400).json({ error: 'Email inválido' });
     }
 
-    const connection = await pool.getConnection();
-    
     // Verificar se usuário já existe
-    const [rows] = await connection.query('SELECT id, email_verified FROM app_user WHERE email = ?', [email]);
+    const [rows] = await pool.query('SELECT id, email_verified FROM app_user WHERE email = ?', [email]);
     if (rows.length > 0) {
       // Se existe mas não verificou, permitir reenvio
       if (!rows[0].email_verified) {
         const token = generateSecureToken();
         const expires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24h
 
-        await connection.query(
+        await pool.query(
           'UPDATE app_user SET verification_token = ?, verification_expires = ? WHERE email = ?',
           [token, expires, email]
         );
-        connection.release();
 
         sendVerificationEmail(email, full_name, token).catch(emailErr => {
           console.warn('⚠️ Erro ao enviar email de verificação:', emailErr.message);
@@ -62,7 +59,6 @@ exports.register = async (req, res) => {
           requiresVerification: true
         });
       }
-      connection.release();
       return res.status(400).json({ error: 'Email já cadastrado' });
     }
 
@@ -75,12 +71,10 @@ exports.register = async (req, res) => {
 
     // Inserir usuário como não verificado
     const userId = crypto.randomUUID();
-    await connection.query(
+    await pool.query(
       'INSERT INTO app_user (id, email, password_hash, full_name, role, email_verified, verification_token, verification_expires) VALUES (?, ?, ?, ?, ?, FALSE, ?, ?)',
       [userId, email, hashedPassword, full_name, role || 'NUTRITIONIST', verificationToken, verificationExpires]
     );
-
-    connection.release();
 
     // Enviar email de verificação (fire-and-forget, não bloqueia resposta)
     sendVerificationEmail(email, full_name, verificationToken).catch(emailErr => {
@@ -105,15 +99,12 @@ exports.verifyEmail = async (req, res) => {
       return res.status(400).json({ error: 'Token de verificação não fornecido' });
     }
 
-    const connection = await pool.getConnection();
-
-    const [rows] = await connection.query(
+const [rows] = await pool.query(
       'SELECT id, full_name, email, verification_expires FROM app_user WHERE verification_token = ? AND email_verified = FALSE',
       [token]
     );
 
     if (rows.length === 0) {
-      connection.release();
       return res.status(400).json({ error: 'Token inválido ou já utilizado' });
     }
 
@@ -121,17 +112,14 @@ exports.verifyEmail = async (req, res) => {
 
     // Verificar expiração
     if (new Date() > new Date(user.verification_expires)) {
-      connection.release();
       return res.status(400).json({ error: 'Token expirado. Faça o cadastro novamente.' });
     }
 
     // Ativar conta
-    await connection.query(
+    await pool.query(
       'UPDATE app_user SET email_verified = TRUE, verification_token = NULL, verification_expires = NULL WHERE id = ?',
       [user.id]
     );
-
-    connection.release();
 
     res.json({ 
       message: 'Email verificado com sucesso! Você já pode fazer login.',
@@ -151,16 +139,13 @@ exports.login = async (req, res) => {
       return res.status(400).json({ error: 'Email e senha são obrigatórios' });
     }
 
-    const connection = await pool.getConnection();
-    
     // Buscar usuário
-    const [rows] = await connection.query(
+    const [rows] = await pool.query(
       'SELECT id, email, password_hash, full_name, role, email_verified FROM app_user WHERE email = ?',
       [email]
     );
     
     if (rows.length === 0) {
-      connection.release();
       return res.status(401).json({ error: 'Email ou senha inválidos' });
     }
 
@@ -168,7 +153,6 @@ exports.login = async (req, res) => {
 
     // Verificar se conta está ativa
     if (!user.email_verified) {
-      connection.release();
       return res.status(403).json({ 
         error: 'Conta não verificada. Verifique seu email para ativar.',
         needsVerification: true
@@ -179,7 +163,6 @@ exports.login = async (req, res) => {
     const isPasswordValid = await bcrypt.compare(password, user.password_hash);
     
     if (!isPasswordValid) {
-      connection.release();
       return res.status(401).json({ error: 'Email ou senha inválidos' });
     }
 
@@ -189,8 +172,6 @@ exports.login = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRE }
     );
-
-    connection.release();
 
     res.json({
       token,
@@ -215,23 +196,20 @@ exports.forgotPassword = async (req, res) => {
       return res.status(400).json({ error: 'Email é obrigatório' });
     }
 
-    const connection = await pool.getConnection();
-
-    const [rows] = await connection.query(
+    const [rows] = await pool.query(
       'SELECT id, full_name, email FROM app_user WHERE email = ? AND email_verified = TRUE',
       [email]
     );
 
     // Sempre retorna sucesso (segurança: não revelar se email existe)
     if (rows.length === 0) {
-      connection.release();
       return res.json({ message: 'Se o email estiver cadastrado, você receberá um link de redefinição.' });
     }
 
     const user = rows[0];
 
     // Invalidar tokens anteriores
-    await connection.query(
+    await pool.query(
       'UPDATE password_reset_token SET used = TRUE WHERE user_id = ? AND used = FALSE',
       [user.id]
     );
@@ -240,19 +218,15 @@ exports.forgotPassword = async (req, res) => {
     const resetToken = generateSecureToken();
     const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hora
 
-    await connection.query(
+    await pool.query(
       'INSERT INTO password_reset_token (user_id, token, expires_at) VALUES (?, ?, ?)',
       [user.id, resetToken, expiresAt]
     );
 
-    connection.release();
-
-    // Enviar email
-    try {
-      await sendPasswordResetEmail(email, user.full_name, resetToken);
-    } catch (emailErr) {
+    // Enviar email (fire-and-forget)
+    sendPasswordResetEmail(email, user.full_name, resetToken).catch(emailErr => {
       console.warn('⚠️ Erro ao enviar email de reset:', emailErr.message);
-    }
+    });
 
     res.json({ message: 'Se o email estiver cadastrado, você receberá um link de redefinição.' });
   } catch (error) {
@@ -282,15 +256,12 @@ exports.resetPassword = async (req, res) => {
       return res.status(400).json({ error: 'A senha deve conter pelo menos um caractere especial (!@#$%...)' });
     }
 
-    const connection = await pool.getConnection();
-
-    const [rows] = await connection.query(
+    const [rows] = await pool.query(
       'SELECT prt.id, prt.user_id, prt.expires_at, u.full_name FROM password_reset_token prt JOIN app_user u ON u.id = prt.user_id WHERE prt.token = ? AND prt.used = FALSE',
       [token]
     );
 
     if (rows.length === 0) {
-      connection.release();
       return res.status(400).json({ error: 'Token inválido ou já utilizado' });
     }
 
@@ -298,25 +269,22 @@ exports.resetPassword = async (req, res) => {
 
     // Verificar expiração
     if (new Date() > new Date(resetRecord.expires_at)) {
-      await connection.query('UPDATE password_reset_token SET used = TRUE WHERE id = ?', [resetRecord.id]);
-      connection.release();
+      await pool.query('UPDATE password_reset_token SET used = TRUE WHERE id = ?', [resetRecord.id]);
       return res.status(400).json({ error: 'Token expirado. Solicite um novo link.' });
     }
 
     // Atualizar senha
     const hashedPassword = await bcrypt.hash(password, 10);
-    await connection.query(
+    await pool.query(
       'UPDATE app_user SET password_hash = ?, updated_at = NOW() WHERE id = ?',
       [hashedPassword, resetRecord.user_id]
     );
 
     // Marcar token como usado
-    await connection.query(
+    await pool.query(
       'UPDATE password_reset_token SET used = TRUE WHERE id = ?',
       [resetRecord.id]
     );
-
-    connection.release();
 
     res.json({ message: 'Senha redefinida com sucesso! Faça login com sua nova senha.' });
   } catch (error) {
@@ -333,15 +301,12 @@ exports.resendVerification = async (req, res) => {
       return res.status(400).json({ error: 'Email é obrigatório' });
     }
 
-    const connection = await pool.getConnection();
-
-    const [rows] = await connection.query(
+    const [rows] = await pool.query(
       'SELECT id, full_name, email_verified FROM app_user WHERE email = ?',
       [email]
     );
 
     if (rows.length === 0 || rows[0].email_verified) {
-      connection.release();
       return res.json({ message: 'Se o email precisar de verificação, um novo link será enviado.' });
     }
 
@@ -349,18 +314,15 @@ exports.resendVerification = async (req, res) => {
     const token = generateSecureToken();
     const expires = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
-    await connection.query(
+    await pool.query(
       'UPDATE app_user SET verification_token = ?, verification_expires = ? WHERE id = ?',
       [token, expires, user.id]
     );
 
-    connection.release();
-
-    try {
-      await sendVerificationEmail(email, user.full_name, token);
-    } catch (emailErr) {
+    // Email fire-and-forget
+    sendVerificationEmail(email, user.full_name, token).catch(emailErr => {
       console.warn('⚠️ Erro ao reenviar verificação:', emailErr.message);
-    }
+    });
 
     res.json({ message: 'Email de verificação reenviado. Verifique sua caixa de entrada.' });
   } catch (error) {

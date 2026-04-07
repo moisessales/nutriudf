@@ -1,16 +1,32 @@
 const nodemailer = require('nodemailer');
 
-// Configuração do transportador de email
-// Em produção, use um serviço real (Gmail, SendGrid, AWS SES, etc.)
+// Configuração do transportador de email com connection pooling
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: parseInt(process.env.SMTP_PORT || '587'),
   secure: process.env.SMTP_SECURE === 'true',
+  pool: true,
+  maxConnections: 3,
+  maxMessages: 50,
+  rateDelta: 1000,
+  rateLimit: 5,
   auth: {
     user: process.env.SMTP_USER || '',
     pass: process.env.SMTP_PASS || ''
-  }
+  },
+  connectionTimeout: 5000,
+  greetingTimeout: 5000,
+  socketTimeout: 10000
 });
+
+// Verificar conexão SMTP no startup (não bloqueia)
+if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+  transporter.verify().then(() => {
+    console.log('[Email] ✅ SMTP pool pronto');
+  }).catch(err => {
+    console.warn('[Email] ⚠️ SMTP não conectou:', err.message);
+  });
+}
 
 const FROM_NAME = process.env.EMAIL_FROM_NAME || 'NutriApp';
 const FROM_EMAIL = process.env.EMAIL_FROM || process.env.SMTP_USER || 'noreply@nutriapp.com';
