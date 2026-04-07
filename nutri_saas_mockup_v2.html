@@ -937,6 +937,30 @@
               </div>
             </div>
 
+            <!-- Lanche da Tarde -->
+            <div class="meal-card" id="meal-lanche">
+              <div class="meal-header">
+                <div class="meal-name">🍎 Lanche da Tarde</div>
+                <div class="meal-kcal">0 kcal · P 0g · C 0g · G 0g</div>
+              </div>
+              <div class="add-food-row">
+                <input class="search-input" placeholder="Buscar alimento na TBCA..." oninput="handleSearch(this,'lanche')" onfocus="showR('lanche')" onblur="setTimeout(()=>hideR('lanche'),200)">
+                <div id="results-lanche" class="search-dropdown" style="display:none"></div>
+              </div>
+            </div>
+
+            <!-- Janta -->
+            <div class="meal-card" id="meal-janta">
+              <div class="meal-header">
+                <div class="meal-name">🌙 Janta</div>
+                <div class="meal-kcal">0 kcal · P 0g · C 0g · G 0g</div>
+              </div>
+              <div class="add-food-row">
+                <input class="search-input" placeholder="Buscar alimento na TBCA..." oninput="handleSearch(this,'janta')" onfocus="showR('janta')" onblur="setTimeout(()=>hideR('janta'),200)">
+                <div id="results-janta" class="search-dropdown" style="display:none"></div>
+              </div>
+            </div>
+
           </div>
 
           <!-- Right sidebar -->
@@ -1928,7 +1952,7 @@ if (authToken && !isTokenValid(authToken)) {
 let appInitialized = false;
 
 const PATIENT_COLORS = ['#4A9B5F', '#6366F1', '#F59E0B', '#EC4899', '#3B82F6'];
-const PLAN_MEAL_CARD_MAP = { cafe: 'meal-cafe', almoco: 'meal-almoco' };
+const PLAN_MEAL_CARD_MAP = { cafe: 'meal-cafe', almoco: 'meal-almoco', lanche: 'meal-lanche', janta: 'meal-janta' };
 let currentPlanDate = getLocalDateString();
 
 function getLocalDateString(date = new Date()) {
@@ -3553,12 +3577,16 @@ const fallbackFoods = Object.keys(foodData).map(name => ({
 
 const foodSearchResults = {
   cafe: [],
-  almoco: []
+  almoco: [],
+  lanche: [],
+  janta: []
 };
 
 const foodSearchState = {
   cafe: { timer: null, requestId: 0 },
-  almoco: { timer: null, requestId: 0 }
+  almoco: { timer: null, requestId: 0 },
+  lanche: { timer: null, requestId: 0 },
+  janta: { timer: null, requestId: 0 }
 };
 
 const MICRO_REFERENCE_VALUES = {
@@ -3949,7 +3977,7 @@ window.patients = [
 ];
 
 // Current plan data
-let currentPlan = { cafe: [], almoco: [] };
+let currentPlan = { cafe: [], almoco: [], lanche: [], janta: [] };
 
 // Patients functions
 function renderPatientRows(list) {
@@ -4506,6 +4534,14 @@ function normalizeStoredMealKey(key) {
     return 'almoco';
   }
 
+  if (normalizedKey.includes('lanche') || normalizedKey.includes('snack') || normalizedKey.includes('tarde')) {
+    return 'lanche';
+  }
+
+  if (normalizedKey.includes('janta') || normalizedKey.includes('jantar') || normalizedKey.includes('dinner')) {
+    return 'janta';
+  }
+
   return null;
 }
 
@@ -4547,7 +4583,7 @@ function serializeFoodRow(row) {
 }
 
 function collectCurrentPlanMeals() {
-  const meals = { cafe: [], almoco: [] };
+  const meals = { cafe: [], almoco: [], lanche: [], janta: [] };
 
   Object.entries(PLAN_MEAL_CARD_MAP).forEach(([mealKey, cardId]) => {
     const meal = document.getElementById(cardId);
@@ -4562,7 +4598,7 @@ function collectCurrentPlanMeals() {
 }
 
 function normalizeStoredPlanData(planSource) {
-  const normalizedMeals = { cafe: [], almoco: [] };
+  const normalizedMeals = { cafe: [], almoco: [], lanche: [], janta: [] };
 
   if (!planSource) {
     return normalizedMeals;
