@@ -93,10 +93,11 @@ app.use(morgan(isProd ? 'combined' : 'dev', { stream: logger.stream }));
 // CORS
 app.use(cors({
   origin: function(origin, callback) {
-    // Em produção, exigir origin e validar contra lista
+    // Em produção, validar contra lista (same-origin sem header é permitido)
     if (isProd) {
+      if (!origin) return callback(null, true); // same-origin ou server-to-server
       const allowed = (process.env.CORS_ORIGIN || '').split(',').map(s => s.trim()).filter(Boolean);
-      if (!origin || !allowed.includes(origin)) {
+      if (!allowed.includes(origin)) {
         return callback(new Error('CORS not allowed'));
       }
       return callback(null, true);
