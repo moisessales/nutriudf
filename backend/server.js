@@ -221,10 +221,14 @@ app.use((err, req, res, next) => {
 });
 
 // ── Iniciar servidor ──────────────────────────────────────────
+const autoMigrate = require('./src/config/autoMigrate');
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   logger.info(`Servidor rodando em http://localhost:${PORT}`);
   logger.info(`Ambiente: ${process.env.NODE_ENV || 'development'}`);
+
+  // Auto-migrate: cria tabelas faltantes
+  try { await autoMigrate(); } catch (e) { logger.error('AutoMigrate falhou:', e.message); }
 
   if (isProd) {
     const https = require('https');
