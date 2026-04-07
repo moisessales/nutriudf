@@ -2,7 +2,7 @@ services:
   - type: web
     name: nutriudf-api
     runtime: node
-    region: sao-paulo
+    region: oregon
     rootDir: backend
     buildCommand: npm install && npm run build:frontend
     startCommand: node server.js
@@ -42,7 +42,7 @@ services:
   - type: web
     name: nutriudf-api-sg
     runtime: node
-    region: sao-paulo
+    region: oregon
     rootDir: backend
     buildCommand: npm install && npm run build:frontend
     startCommand: node server.js
