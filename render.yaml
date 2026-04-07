@@ -4,9 +4,11 @@ services:
     runtime: node
     region: oregon
     rootDir: backend
-    buildCommand: npm install
+    buildCommand: npm install && npm run build:frontend
     startCommand: node server.js
     plan: free
+    healthCheckPath: /health
+    autoDeployTrigger: commit
     envVars:
       - key: NODE_ENV
         value: production
@@ -25,7 +27,7 @@ services:
       - key: JWT_EXPIRE
         value: 7d
       - key: CORS_ORIGIN
-        value: https://nutriudf-api.onrender.com
+        value: https://nutriudf-api.onrender.com,https://nutriudf-web.onrender.com,https://nutriudf-api-sg.onrender.com
       - key: SMTP_HOST
         value: smtp.gmail.com
       - key: SMTP_PORT
@@ -36,3 +38,61 @@ services:
         sync: false
       - key: APP_URL
         value: https://nutriudf-api.onrender.com
+
+  - type: web
+    name: nutriudf-api-sg
+    runtime: node
+    region: singapore
+    rootDir: backend
+    buildCommand: npm install && npm run build:frontend
+    startCommand: node server.js
+    plan: free
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        value: gateway01.ap-northeast-1.prod.aws.tidbcloud.com
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_USER
+        value: 3LHa2iJiwx2pESx.root
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: nutriudf
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: CORS_ORIGIN
+        value: https://nutriudf-api.onrender.com,https://nutriudf-web.onrender.com,https://nutriudf-api-sg.onrender.com
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        value: moisessales150@gmail.com
+      - key: SMTP_PASS
+        sync: false
+      - key: APP_URL
+        value: https://nutriudf-api-sg.onrender.com
+
+  - type: web
+    name: nutriudf-web
+    runtime: static
+    buildCommand: cd backend && npm install && npm run build:frontend
+    staticPublishPath: backend/public
+    autoDeployTrigger: commit
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
