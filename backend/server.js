@@ -61,14 +61,20 @@ app.use(compression({
   }
 }));
 
-// Servir arquivos estáticos com cache
+// Servir arquivos estáticos com cache agressivo
 app.use(express.static(path.join(__dirname, 'public'), {
-  maxAge: isProd ? '7d' : '0',
+  maxAge: isProd ? '30d' : '0',
   etag: true,
   lastModified: true,
+  immutable: true,
   setHeaders(res, filePath) {
     if (filePath.endsWith('.html')) {
       res.setHeader('Cache-Control', 'no-cache');
+      // Resource hints para fonts
+      res.setHeader('Link', [
+        '<https://fonts.googleapis.com>; rel=preconnect',
+        '<https://fonts.gstatic.com>; rel=preconnect; crossorigin'
+      ].join(', '));
     }
   }
 }));
