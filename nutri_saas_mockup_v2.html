@@ -4235,7 +4235,7 @@ function handleSearch(input, mealId) {
     state.timer = null;
   }
   
-  if (!q) { 
+  if (!q || q.length < 2) { 
     if (el) {
       el.style.display = 'none';
       el.innerHTML = '';
@@ -4260,7 +4260,7 @@ function handleSearch(input, mealId) {
       el.innerHTML = `<div style="padding:12px;font-size:12px;color:var(--muted);text-align:center">Erro ao buscar alimentos: ${escapeHtml(error.message)}</div>`;
       el.style.display = 'block';
     }
-  }, 180);
+  }, 350);
 }
 
 function addFoodAlert(name, kcal, p, c, g) {
