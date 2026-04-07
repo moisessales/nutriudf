@@ -11,28 +11,28 @@ services:
       - key: NODE_ENV
         value: production
       - key: DB_HOST
-        sync: false
+        value: gateway01.ap-northeast-1.prod.aws.tidbcloud.com
       - key: DB_PORT
-        sync: false
+        value: "4000"
       - key: DB_USER
-        sync: false
+        value: 3LHa2iJiwx2pESx.root
       - key: DB_PASSWORD
         sync: false
       - key: DB_NAME
-        sync: false
+        value: nutriudf
       - key: JWT_SECRET
         generateValue: true
       - key: JWT_EXPIRE
         value: 7d
       - key: CORS_ORIGIN
-        sync: false
+        value: https://nutriudf-api.onrender.com
       - key: SMTP_HOST
         value: smtp.gmail.com
       - key: SMTP_PORT
         value: "587"
       - key: SMTP_USER
-        sync: false
+        value: moisessales150@gmail.com
       - key: SMTP_PASS
         sync: false
       - key: APP_URL
-        sync: false
+        value: https://nutriudf-api.onrender.com
