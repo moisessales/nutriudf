@@ -17,6 +17,7 @@ if (missing.length > 0) {
 }
 
 const express = require('express');
+const compression = require('compression');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -50,6 +51,16 @@ if (isProd) {
 
 const path = require('path');
 
+// Compressão gzip/br — ANTES de tudo
+app.use(compression({
+  level: 6,
+  threshold: 1024,
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) return false;
+    return compression.filter(req, res);
+  }
+}));
+
 // Servir arquivos estáticos com cache
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: isProd ? '7d' : '0',
@@ -67,10 +78,10 @@ app.use(helmet({
   contentSecurityPolicy: false, // desabilitar CSP para não bloquear o frontend
 }));
 
-// Rate limiting geral: 100 requests / 15 min por IP
+// Rate limiting geral: 200 requests / 15 min por IP
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 100,
+  max: 200,
   message: { error: 'Muitas requisições. Tente novamente em 15 minutos.' },
   standardHeaders: true,
   legacyHeaders: false,
