@@ -53,11 +53,9 @@ exports.register = async (req, res) => {
         );
         connection.release();
 
-        try {
-          await sendVerificationEmail(email, full_name, token);
-        } catch (emailErr) {
+        sendVerificationEmail(email, full_name, token).catch(emailErr => {
           console.warn('⚠️ Erro ao enviar email de verificação:', emailErr.message);
-        }
+        });
 
         return res.status(200).json({ 
           message: 'Email de verificação reenviado. Verifique sua caixa de entrada.',
@@ -84,12 +82,10 @@ exports.register = async (req, res) => {
 
     connection.release();
 
-    // Enviar email de verificação
-    try {
-      await sendVerificationEmail(email, full_name, verificationToken);
-    } catch (emailErr) {
+    // Enviar email de verificação (fire-and-forget, não bloqueia resposta)
+    sendVerificationEmail(email, full_name, verificationToken).catch(emailErr => {
       console.warn('⚠️ Erro ao enviar email de verificação:', emailErr.message);
-    }
+    });
 
     res.status(201).json({ 
       message: 'Cadastro realizado! Verifique seu email para ativar sua conta.',
