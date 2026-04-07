@@ -10,16 +10,18 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   waitForConnections: true,
-  connectionLimit: isProd ? 5 : 10,
-  queueLimit: 0,
+  connectionLimit: isProd ? 10 : 10,
+  maxIdle: isProd ? 5 : 10,
+  idleTimeout: 60000,
+  connectTimeout: 10000,
   enableKeepAlive: true,
-  keepAliveInitialDelay: 30000,
+  keepAliveInitialDelay: 10000,
   ssl: isProd ? { rejectUnauthorized: true } : undefined
 });
 
-// Pre-warm: abrir 1 conexao ao iniciar para evitar latencia na 1a request
-pool.getConnection()
-  .then(conn => { conn.query('SELECT 1'); conn.release(); console.log('DB pool pre-warmed'); })
+// Pre-warm: abrir conexão no startup
+pool.query('SELECT 1')
+  .then(() => console.log('DB pool pre-warmed'))
   .catch(err => console.error('DB pre-warm failed:', err.message));
 
 module.exports = pool;

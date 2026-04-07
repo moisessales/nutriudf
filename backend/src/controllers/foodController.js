@@ -1,13 +1,16 @@
-// Food Controller - Busca em memória (catálogo TBCA pré-carregado)
+// Food Controller — Catálogo TBCA em memória + SQL para nutrientes
+// ~3500 alimentos (~2MB RAM) = busca < 1ms vs 50-200ms no TiDB Cloud
 const pool = require('../config/database');
 
-// ── Catálogo em memória ──────────────────────────────────────
-let foodCatalog = [];        // array completo de alimentos
-let foodCatalogLower = [];   // nomes/categorias em lowercase para busca rápida
-let catalogReady = false;
+// ── Catálogo em memória com índices ──────────────────────────
+let allFoods = [];           // array ordenado por nome
+const foodById = new Map();  // O(1) lookup por UUID
+const foodByCode = new Map();// O(1) lookup por código TBCA
+let searchIndex = [];        // nomes/categorias pré-normalizados
+let ready = false;
 
-function normalize(str) {
-  return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+function normalize(s) {
+  return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
 async function loadCatalog() {
@@ -15,182 +18,147 @@ async function loadCatalog() {
     const [rows] = await pool.query(
       'SELECT id, tbca_code, name, category, kcal, protein_g, carbs_g, fat_g, fiber_g, sodium_mg FROM food ORDER BY name'
     );
-    foodCatalog = rows;
-    foodCatalogLower = rows.map(f => ({
-      name: normalize(f.name),
-      category: normalize(f.category),
-      tbca_code: (f.tbca_code || '').toLowerCase()
-    }));
-    catalogReady = true;
-    console.log(`[FoodController] Catálogo carregado: ${rows.length} alimentos em memória`);
+
+    allFoods = rows;
+    foodById.clear();
+    foodByCode.clear();
+    searchIndex = new Array(rows.length);
+
+    for (let i = 0; i < rows.length; i++) {
+      const f = rows[i];
+      foodById.set(f.id, f);
+      if (f.tbca_code) foodByCode.set(f.tbca_code, f);
+      searchIndex[i] = {
+        name: normalize(f.name),
+        category: normalize(f.category),
+        code: (f.tbca_code || '').toLowerCase()
+      };
+    }
+
+    ready = true;
+    console.log(`[Foods] ${rows.length} alimentos carregados em memória`);
   } catch (err) {
-    console.error('[FoodController] Erro ao carregar catálogo:', err.message);
-    // Retry após 5s
-    setTimeout(loadCatalog, 5000);
+    console.error('[Foods] Falha ao carregar catálogo:', err.message);
+    setTimeout(loadCatalog, 3000);
   }
 }
 
-// Carregar ao iniciar
 loadCatalog();
-
-// Recarregar a cada 1h para pegar eventuais atualizações
 setInterval(loadCatalog, 60 * 60 * 1000);
 
-function searchInMemory(searchTerm, maxResults) {
-  const term = normalize(searchTerm);
-  const startsWithResults = [];
-  const containsResults = [];
+// Expor status para health check
+exports.isReady = () => ready;
 
-  for (let i = 0; i < foodCatalog.length; i++) {
-    const lc = foodCatalogLower[i];
-    if (lc.name.startsWith(term)) {
-      startsWithResults.push(foodCatalog[i]);
-    } else if (lc.name.includes(term) || lc.category.includes(term) || lc.tbca_code.includes(term)) {
-      containsResults.push(foodCatalog[i]);
+// ── Busca em memória com ranking (exact > startsWith > contains) ──
+function search(term, limit) {
+  const q = normalize(term);
+  const exact = [];
+  const prefix = [];
+  const partial = [];
+
+  for (let i = 0; i < allFoods.length; i++) {
+    const idx = searchIndex[i];
+    if (idx.name === q) {
+      exact.push(allFoods[i]);
+    } else if (idx.name.startsWith(q)) {
+      prefix.push(allFoods[i]);
+    } else if (idx.name.includes(q) || idx.category.includes(q) || idx.code.includes(q)) {
+      partial.push(allFoods[i]);
     }
-    if (startsWithResults.length + containsResults.length >= maxResults) break;
+    if (exact.length + prefix.length + partial.length >= limit) break;
   }
 
-  return startsWithResults.concat(containsResults).slice(0, maxResults);
+  return exact.concat(prefix, partial).slice(0, limit);
 }
 
-// Cache para buscas por ID/código com nutrientes (TTL 10min)
-const detailCache = new Map();
-const CACHE_TTL = 10 * 60 * 1000;
+// ── Cache de nutrientes (500 entries, 30min TTL) ──
+const nutrientCache = new Map();
+const NUTRIENT_TTL = 30 * 60 * 1000;
 
-function getCachedDetail(key) {
-  const entry = detailCache.get(key);
-  if (!entry) return null;
-  if (Date.now() - entry.time > CACHE_TTL) {
-    detailCache.delete(key);
-    return null;
-  }
-  return entry.data;
+function getCachedNutrients(foodId) {
+  const e = nutrientCache.get(foodId);
+  if (!e) return null;
+  if (Date.now() - e.t > NUTRIENT_TTL) { nutrientCache.delete(foodId); return null; }
+  return e.d;
 }
 
-function setCacheDetail(key, data) {
-  if (detailCache.size > 200) {
-    const oldest = detailCache.keys().next().value;
-    detailCache.delete(oldest);
+function cacheNutrients(foodId, data) {
+  if (nutrientCache.size >= 500) {
+    nutrientCache.delete(nutrientCache.keys().next().value);
   }
-  detailCache.set(key, { data, time: Date.now() });
+  nutrientCache.set(foodId, { d: data, t: Date.now() });
 }
 
-/**
- * Listar alimentos ou filtrar por query em /foods (busca em memória)
- */
-exports.listFoods = async (req, res) => {
-  try {
-    const { query, q, name, limit } = req.query;
-    const searchTerm = query || q || name;
-    const maxResults = Math.min(parseInt(limit) || 20, 100);
+// ── GET /foods?query=xxx&limit=8 — busca leve (sem nutrientes) ──
+exports.listFoods = (req, res) => {
+  const { query, q, name, limit } = req.query;
+  const searchTerm = query || q || name;
+  const max = Math.min(parseInt(limit) || 20, 100);
 
-    // Se catálogo não carregou ainda, fallback para DB
-    if (!catalogReady) {
-      const [foods] = await pool.query(
-        'SELECT id, tbca_code, name, category, kcal, protein_g, carbs_g, fat_g, fiber_g, sodium_mg FROM food ORDER BY name LIMIT ?',
-        [maxResults]
-      );
-      return res.json(foods);
-    }
-
-    let foods;
-    if (searchTerm) {
-      foods = searchInMemory(searchTerm, maxResults);
-    } else {
-      foods = foodCatalog.slice(0, maxResults);
-    }
-
-    res.set('X-Cache', 'MEM');
-    res.json(foods);
-  } catch (error) {
-    console.error('Erro ao buscar alimentos:', error);
-    res.status(500).json({ error: 'Erro ao buscar alimentos' });
+  if (!ready) {
+    return sqlFallbackSearch(searchTerm, max, res);
   }
+
+  const foods = searchTerm ? search(searchTerm, max) : allFoods.slice(0, max);
+  res.set('X-Cache', 'MEM');
+  res.json(foods);
 };
 
-/**
- * Buscar alimento por nome/ID com micronutrientes completos
- */
+// ── GET /foods/:name — busca detalhada (com nutrientes para ID/código) ──
 exports.getFoodByName = async (req, res) => {
   try {
     const { name } = req.params;
     const { limit } = req.query;
 
     if (!name || !name.trim()) {
-      return res.status(400).json({ error: 'Nome do alimento é obrigatório' });
+      return res.status(400).json({ error: 'Parâmetro obrigatório' });
     }
 
-    // Verificar cache de detalhes
-    const cacheKey = `food:${name}:${limit || 20}`;
-    const cached = getCachedDetail(cacheKey);
-    if (cached) {
-      res.set('X-Cache', 'HIT');
-      return res.json(cached);
-    }
-
-    // Se for UUID ou código TBCA, buscar exato
+    // UUID ou código TBCA → busca exata com nutrientes completos
     if (/^[0-9a-f-]{36}$/i.test(name) || /^BRC\d+/i.test(name)) {
-      // Buscar no catálogo em memória primeiro
-      let food = null;
-      if (catalogReady) {
-        const isCode = /^BRC/i.test(name);
-        food = foodCatalog.find(f => isCode ? f.tbca_code === name : f.id === name);
-      }
+      const isCode = /^BRC/i.test(name);
+
+      // O(1) lookup no Map em memória
+      let food = ready
+        ? (isCode ? foodByCode.get(name) : foodById.get(name))
+        : null;
 
       if (!food) {
-        const field = /^BRC/i.test(name) ? 'tbca_code' : 'id';
+        const field = isCode ? 'tbca_code' : 'id';
         const [rows] = await pool.query(
-          `SELECT id, tbca_code, name, category, kcal, protein_g, carbs_g, fat_g, fiber_g, sodium_mg FROM food WHERE ${field} = ?`,
+          `SELECT id, tbca_code, name, category, kcal, protein_g, carbs_g, fat_g, fiber_g, sodium_mg FROM food WHERE ${field} = ? LIMIT 1`,
           [name]
         );
-        if (rows.length === 0) {
-          return res.status(404).json({ error: 'Alimento não encontrado' });
-        }
+        if (!rows.length) return res.status(404).json({ error: 'Não encontrado' });
         food = rows[0];
       } else {
         food = { ...food };
       }
 
-      // Buscar micronutrientes (precisa do banco)
-      const [nutrients] = await pool.query(
-        `SELECT n.slug, n.display_name, n.unit, fn.amount_per_base as amount
-         FROM food_nutrient fn
-         JOIN nutrient n ON n.id = fn.nutrient_id
-         WHERE fn.food_id = ?
-         ORDER BY n.display_name`,
-        [food.id]
-      );
+      // Nutrientes (cache 30min)
+      let nutrients = getCachedNutrients(food.id);
+      if (!nutrients) {
+        const [rows] = await pool.query(
+          `SELECT n.slug, n.display_name, n.unit, fn.amount_per_base AS amount
+           FROM food_nutrient fn JOIN nutrient n ON n.id = fn.nutrient_id
+           WHERE fn.food_id = ? ORDER BY n.display_name`,
+          [food.id]
+        );
+        nutrients = rows;
+        cacheNutrients(food.id, nutrients);
+      }
 
       food.nutrients = nutrients;
-      setCacheDetail(cacheKey, food);
-      res.set('X-Cache', 'MISS');
       return res.json(food);
     }
 
-    // Busca por nome parcial — usar memória
-    const maxResults = Math.min(parseInt(limit) || 20, 100);
-
-    if (catalogReady) {
-      const foods = searchInMemory(name, maxResults);
-      setCacheDetail(cacheKey, foods);
-      res.set('X-Cache', 'MEM');
-      return res.json(foods);
+    // Busca por nome parcial (sem nutrientes)
+    const max = Math.min(parseInt(limit) || 20, 100);
+    if (ready) {
+      return res.json(search(name, max));
     }
 
-    // Fallback para DB
-    const term = `%${name}%`;
-    const [foods] = await pool.query(
-      `SELECT id, tbca_code, name, category, kcal, protein_g, carbs_g, fat_g, fiber_g, sodium_mg
-       FROM food
-       WHERE name LIKE ? OR category LIKE ?
-       ORDER BY CASE WHEN name LIKE ? THEN 0 ELSE 1 END, name
-       LIMIT ?`,
-      [term, term, `${name}%`, maxResults]
-    );
-
-    setCacheDetail(cacheKey, foods);
-    res.json(foods);
+    return sqlFallbackSearch(name, max, res);
   } catch (error) {
     console.error('Erro ao buscar alimento:', error);
     res.status(500).json({ error: 'Erro ao buscar alimento' });
@@ -198,3 +166,28 @@ exports.getFoodByName = async (req, res) => {
 };
 
 exports.searchFoods = exports.listFoods;
+
+// ── SQL fallback (cold start, antes do catálogo carregar) ──
+async function sqlFallbackSearch(searchTerm, max, res) {
+  try {
+    let rows;
+    if (searchTerm) {
+      const term = `%${searchTerm}%`;
+      [rows] = await pool.query(
+        `SELECT id, tbca_code, name, category, kcal, protein_g, carbs_g, fat_g, fiber_g, sodium_mg
+         FROM food WHERE name LIKE ? OR category LIKE ?
+         ORDER BY CASE WHEN name LIKE ? THEN 0 ELSE 1 END, name LIMIT ?`,
+        [term, term, `${searchTerm}%`, max]
+      );
+    } else {
+      [rows] = await pool.query(
+        'SELECT id, tbca_code, name, category, kcal, protein_g, carbs_g, fat_g, fiber_g, sodium_mg FROM food ORDER BY name LIMIT ?',
+        [max]
+      );
+    }
+    res.set('X-Cache', 'SQL');
+    return res.json(rows);
+  } catch (e) {
+    return res.status(503).json({ error: 'Catálogo indisponível, tente em alguns segundos' });
+  }
+}
