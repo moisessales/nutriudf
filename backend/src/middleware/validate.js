@@ -52,7 +52,7 @@ function sanitizeBody(req, res, next) {
 
 // Middleware: validate patient create/update
 function validatePatient(req, res, next) {
-  const { name, email, age, weight, height } = req.body;
+  const { name, email, age, weight, height, sex, notes } = req.body;
   const errors = [];
 
   if (req.method === 'POST') {
@@ -67,6 +67,8 @@ function validatePatient(req, res, next) {
 
   if (weight !== undefined && !validateNumber(weight, { min: 0.1, max: 500 })) errors.push('Peso deve ser entre 0.1 e 500 kg');
   if (height !== undefined && !validateNumber(height, { min: 0.3, max: 3 })) errors.push('Altura deve ser entre 0.3 e 3.0 m');
+  if (sex !== undefined && sex !== null && sex !== '' && !['F', 'M', 'Masculino', 'Feminino'].includes(sex)) errors.push('Sexo inválido');
+  if (notes !== undefined && !validateString(notes, { minLen: 0, maxLen: 5000 })) errors.push('Observações muito longas');
 
   if (errors.length > 0) return res.status(400).json({ error: errors.join('. ') });
   next();

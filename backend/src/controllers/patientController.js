@@ -1,31 +1,49 @@
 const pool = require('../config/database');
 const crypto = require('crypto');
 
+function calculateAge(birthDate) {
+  if (!birthDate) return 0;
+  return Math.floor((Date.now() - new Date(birthDate).getTime()) / 31557600000);
+}
+
+function serializePatient(row) {
+  const age = calculateAge(row.birth_date);
+  const weight = parseFloat(row.weight_kg) || 0;
+  const height = parseFloat(row.height_cm) || 0;
+  const imc = (weight > 0 && height > 0) ? (weight / (height * height)).toFixed(2) : '0.00';
+
+  return {
+    ...row,
+    name: row.name || row.full_name,
+    goal: row.goal || row.goal_summary || 'Sem objetivo',
+    age,
+    weight,
+    height,
+    imc
+  };
+}
+
+async function fetchPatientRow(patientId, nutritionistId) {
+  const [rows] = await pool.query(
+    `SELECT id, full_name AS name, email, birth_date, sex, weight_kg, height_cm, status, goal_summary AS goal, notes, created_at, updated_at
+     FROM patient WHERE id = ? AND nutritionist_id = ?`,
+    [patientId, nutritionistId]
+  );
+
+  return rows[0] || null;
+}
+
 exports.listPatients = async (req, res) => {
   try {
-    const connection = await pool.getConnection();
     const nutritionistId = req.userId;
 
-    const [rows] = await connection.query(
+    const [rows] = await pool.query(
       `SELECT id, full_name AS name, email, birth_date, sex, weight_kg, height_cm, status, goal_summary AS goal, notes, created_at, updated_at
        FROM patient WHERE nutritionist_id = ? ORDER BY created_at DESC`,
       [nutritionistId]
     );
 
-    connection.release();
-
-    const patients = rows.map(p => {
-      let age = 0;
-      if (p.birth_date) {
-        age = Math.floor((Date.now() - new Date(p.birth_date).getTime()) / 31557600000);
-      }
-      const weight = parseFloat(p.weight_kg) || 0;
-      const heightM = parseFloat(p.height_cm) || 0;
-      const imc = (weight > 0 && heightM > 0) ? (weight / (heightM * heightM)).toFixed(2) : '0.00';
-      return { ...p, age, weight: weight, height: heightM, imc };
-    });
-
-    res.json(patients);
+    res.json(rows.map(serializePatient));
   } catch (error) {
     console.error('Erro ao listar pacientes:', error);
     res.status(500).json({ error: 'Erro ao listar pacientes' });
@@ -35,31 +53,15 @@ exports.listPatients = async (req, res) => {
 exports.getPatient = async (req, res) => {
   try {
     const { id } = req.params;
-    const connection = await pool.getConnection();
     const nutritionistId = req.userId;
 
-    const [rows] = await connection.query(
-      `SELECT id, full_name AS name, email, birth_date, sex, weight_kg, height_cm, status, goal_summary AS goal, notes, created_at, updated_at
-       FROM patient WHERE id = ? AND nutritionist_id = ?`,
-      [id, nutritionistId]
-    );
+    const patient = await fetchPatientRow(id, nutritionistId);
 
-    if (rows.length === 0) {
-      connection.release();
+    if (!patient) {
       return res.status(404).json({ error: 'Paciente não encontrado' });
     }
 
-    const p = rows[0];
-    let age = 0;
-    if (p.birth_date) {
-      age = Math.floor((Date.now() - new Date(p.birth_date).getTime()) / 31557600000);
-    }
-    const weight = parseFloat(p.weight_kg) || 0;
-    const heightM = parseFloat(p.height_cm) || 0;
-    const imc = (weight > 0 && heightM > 0) ? (weight / (heightM * heightM)).toFixed(2) : '0.00';
-
-    connection.release();
-    res.json({ ...p, age, weight, height: heightM, imc });
+    res.json(serializePatient(patient));
   } catch (error) {
     console.error('Erro ao buscar paciente:', error);
     res.status(500).json({ error: 'Erro ao buscar paciente' });
@@ -81,34 +83,16 @@ exports.createPatient = async (req, res) => {
     const weightVal = parseFloat(weight) || null;
     const heightVal = parseFloat(height) || null;
 
-    const connection = await pool.getConnection();
-
     try {
       const patientId = crypto.randomUUID();
-      const [result] = await connection.query(
+      await pool.query(
         'INSERT INTO patient (id, nutritionist_id, full_name, email, birth_date, sex, weight_kg, height_cm, goal_summary, notes, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [patientId, nutritionistId, name, email, birth_date, sex || null, weightVal, heightVal, goal || 'Sem objetivo', notes || '', 'ACTIVE']
       );
 
-      connection.release();
-
-      const imc = (weightVal && heightVal) ? (weightVal / (heightVal * heightVal)).toFixed(2) : '0.00';
-
-      res.status(201).json({
-        id: patientId,
-        name,
-        email,
-        age: age_int,
-        weight: weightVal || 0,
-        height: heightVal || 0,
-        sex: sex || null,
-        imc,
-        goal: goal || 'Sem objetivo',
-        notes: notes || '',
-        nutritionist_id: nutritionistId
-      });
+      const createdPatient = await fetchPatientRow(patientId, nutritionistId);
+      res.status(201).json(serializePatient(createdPatient));
     } catch (dbError) {
-      connection.release();
       console.error('❌ Erro no banco:', dbError.message);
       
       if (dbError.message.includes('Duplicate entry') || dbError.code === 'ER_DUP_ENTRY') {
@@ -126,18 +110,15 @@ exports.createPatient = async (req, res) => {
 exports.updatePatient = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, email, age, weight, height, goal, sex } = req.body;
+    const { name, email, age, weight, height, goal, sex, notes } = req.body;
     const nutritionistId = req.userId;
 
-    const connection = await pool.getConnection();
-
-    const [rows] = await connection.query(
+    const [rows] = await pool.query(
       'SELECT id FROM patient WHERE id = ? AND nutritionist_id = ?',
       [id, nutritionistId]
     );
 
     if (rows.length === 0) {
-      connection.release();
       return res.status(404).json({ error: 'Paciente não encontrado' });
     }
 
@@ -155,24 +136,27 @@ exports.updatePatient = async (req, res) => {
       values.push(`${birth_year}-01-01`);
     }
     if (goal !== undefined) { updates.push('goal_summary = ?'); values.push(goal); }
+    if (notes !== undefined) { updates.push('notes = ?'); values.push(notes); }
 
     if (updates.length === 0) {
-      connection.release();
       return res.json({ message: 'Nenhum campo para atualizar' });
     }
 
     updates.push('updated_at = NOW()');
     values.push(id);
 
-    await connection.query(
+    await pool.query(
       `UPDATE patient SET ${updates.join(', ')} WHERE id = ?`,
       values
     );
 
-    connection.release();
-    res.json({ message: 'Paciente atualizado com sucesso' });
+    const updatedPatient = await fetchPatientRow(id, nutritionistId);
+    res.json(serializePatient(updatedPatient));
   } catch (error) {
     console.error('Erro ao atualizar paciente:', error);
+    if (error.code === 'ER_DUP_ENTRY') {
+      return res.status(400).json({ error: 'Email já cadastrado' });
+    }
     res.status(500).json({ error: 'Erro ao atualizar paciente' });
   }
 };

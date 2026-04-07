@@ -61,6 +61,8 @@ CREATE TABLE IF NOT EXISTS patient (
   full_name TEXT NOT NULL,
   birth_date DATE,
   sex TEXT,
+  weight_kg NUMERIC(6,2),
+  height_cm NUMERIC(6,2),
   phone TEXT,
   email TEXT,
   status patient_status NOT NULL DEFAULT 'ACTIVE',

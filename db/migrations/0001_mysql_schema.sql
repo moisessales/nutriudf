@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS patient (
   full_name VARCHAR(255) NOT NULL,
   birth_date DATE,
   sex VARCHAR(50),
+  weight_kg DECIMAL(6,2),
+  height_cm DECIMAL(6,2),
   phone VARCHAR(20),
   email VARCHAR(255),
   status VARCHAR(50) NOT NULL DEFAULT 'ACTIVE',

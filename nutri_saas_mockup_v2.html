@@ -6067,17 +6067,10 @@ async function saveNovoPaciente(event) {
     notes: form.querySelector('[name="notes"]').value
   };
   
-  if (!formData.name || !formData.email || !formData.age) {
-    Toast.error('Por favor, preencha nome, email e idade!');
+  if (!formData.name || !formData.email || !formData.age || !formData.weight || !formData.height || !formData.goal) {
+    Toast.error('Por favor, preencha todos os campos obrigatórios do paciente!');
     return;
   }
-  
-  // Calcular IMC
-  const imc = (formData.weight / (formData.height * formData.height)).toFixed(2);
-  formData.imc = imc;
-  
-  // Transformar para campo esperado pela API
-  formData.nutritionist_id = currentUser?.id || 1;
   
   console.log('📤 [CREATE] Enviando novo paciente:', formData);
   
@@ -6087,18 +6080,10 @@ async function saveNovoPaciente(event) {
     console.log('✅ [CREATE] Paciente criado com ID:', result?.id);
     
     if (result && result.id) {
-      // Adicionar ao array local  
-      window.patients.push({
-        id: result.id,
-        ...formData,
-        initials: formData.name.split(' ').map(n => n[0]).join('').toUpperCase(),
-        color: PATIENT_COLORS[window.patients.length % PATIENT_COLORS.length],
-        status: 'new',
-        plan: formData.goal,
-        lastVisit: 'Hoje'
-      });
+      const normalizedPatient = normalizePatientRecord(result, window.patients.length);
+      window.patients.push(normalizedPatient);
 
-      currentReportPatient = result.id;
+      currentReportPatient = normalizedPatient.id;
       
       console.log('✅ [CREATE] Paciente adicionado ao array local');
       
@@ -6109,10 +6094,10 @@ async function saveNovoPaciente(event) {
       // Sincronizar TODAS as visualizações
       await refreshAllViews();
       
-      Toast.success(`Paciente "${formData.name}" criado com sucesso! IMC: ${imc}`);
+      Toast.success(`Paciente "${normalizedPatient.name}" criado com sucesso! IMC: ${normalizedPatient.imc}`);
       
       // Recarregar dados da API
-      setTimeout(() => loadPatientsFromAPI(result.id), 1000);
+      setTimeout(() => loadPatientsFromAPI(normalizedPatient.id), 300);
     } else {
       Toast.error('Erro ao criar paciente. Tente novamente.');
     }
@@ -6562,22 +6547,22 @@ async function saveEditedPatient(event) {
     notes: form.querySelector('[name="notes"]').value
   };
   
-  const imc = (formData.weight > 0 && formData.height > 0) 
-    ? (formData.weight / (formData.height * formData.height)).toFixed(2) : '0.00';
-  formData.imc = imc;
-  
   console.log('📝 [EDIT] Atualizando paciente ID:', patientId, formData);
   
   try {
     const result = await api.request(`/patients/${patientId}`, 'PUT', formData);
     
-    if (result) {
+    if (result && result.id) {
       console.log('✅ [EDIT] Paciente atualizado com sucesso');
       
       // Atualizar dados locais
       const patientIndex = window.patients.findIndex(p => String(p.id) === String(patientId));
       if (patientIndex !== -1) {
-        window.patients[patientIndex] = { ...window.patients[patientIndex], ...formData, id: patientId };
+        window.patients[patientIndex] = normalizePatientRecord({
+          ...window.patients[patientIndex],
+          ...result,
+          id: patientId
+        }, patientIndex);
         console.log('✅ [EDIT] Array local atualizado');
       }
       
@@ -6588,10 +6573,10 @@ async function saveEditedPatient(event) {
       // Sincronizar TODAS as visualizações
       await refreshAllViews();
       
-      Toast.success(`Paciente "${formData.name}" atualizado com sucesso! IMC: ${imc}`);
+      Toast.success(`Paciente "${result.name}" atualizado com sucesso! IMC: ${result.imc}`);
       
       // Recarregar dados da API
-      setTimeout(() => loadPatientsFromAPI(patientId), 1000);
+      setTimeout(() => loadPatientsFromAPI(patientId), 300);
     } else {
       Toast.error('Erro ao atualizar paciente. Tente novamente.');
     }
