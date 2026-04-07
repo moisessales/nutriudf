@@ -1,0 +1,41 @@
+# Ambiente
+.env
+.env.local
+.env.production
+backend/.env
+
+# Dependências
+node_modules/
+backend/node_modules/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+dist/
+build/
+
+# Dados de scraping (grandes, regeneráveis)
+db/import_tbca/templates/*.json
+db/import_tbca/templates/foods_tbca_extra*
+db/import_tbca/templates/foods_tbca_merged*
+
+# Arquivos de teste (não devem ir para produção)
+backend/create_test_user.js
+backend/test_connection.js
+backend/test-login.js
+backend/test-http.js
+backend/EXEMPLO_INTEGRACAO.js
+db/seed_test_user.sql

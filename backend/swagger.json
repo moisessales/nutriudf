@@ -1,0 +1,311 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "NutriUDF API",
+    "description": "API para a plataforma SaaS de gestão nutricional NutriUDF",
+    "version": "1.0.0",
+    "contact": { "name": "NutriUDF", "email": "suporte@nutriudf.com" }
+  },
+  "servers": [
+    { "url": "http://localhost:3000/api/v1", "description": "Desenvolvimento" }
+  ],
+  "tags": [
+    { "name": "Auth", "description": "Autenticação e registro" },
+    { "name": "Patients", "description": "Gerenciamento de pacientes" },
+    { "name": "Plans", "description": "Planos alimentares" },
+    { "name": "Reports", "description": "Relatórios nutricionais" },
+    { "name": "Foods", "description": "Banco de alimentos TBCA" },
+    { "name": "Dashboard", "description": "Estatísticas do painel" },
+    { "name": "Consultations", "description": "Agendamento de consultas" }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string", "example": "Erro na requisição" }
+        }
+      },
+      "Patient": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "name": { "type": "string", "example": "Maria Silva" },
+          "email": { "type": "string", "format": "email" },
+          "age": { "type": "integer", "example": 30 },
+          "sex": { "type": "string", "enum": ["M", "F", "O"] },
+          "weight": { "type": "number", "example": 65.5 },
+          "height": { "type": "number", "example": 1.65 },
+          "imc": { "type": "string", "example": "24.07" },
+          "goal": { "type": "string", "example": "Emagrecimento" },
+          "notes": { "type": "string" },
+          "created_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "Consultation": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "patient_id": { "type": "string", "format": "uuid" },
+          "starts_at": { "type": "string", "format": "date-time" },
+          "ends_at": { "type": "string", "format": "date-time" },
+          "title": { "type": "string" },
+          "notes": { "type": "string" },
+          "status": { "type": "string", "enum": ["SCHEDULED", "COMPLETED", "CANCELLED", "NO_SHOW"] }
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": {
+          "email": { "type": "string", "format": "email" },
+          "password": { "type": "string", "minLength": 6 }
+        }
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "token": { "type": "string" },
+          "user": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "format": "uuid" },
+              "name": { "type": "string" },
+              "email": { "type": "string" },
+              "role": { "type": "string" }
+            }
+          }
+        }
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "required": ["name", "email", "password"],
+        "properties": {
+          "name": { "type": "string", "maxLength": 200 },
+          "email": { "type": "string", "format": "email" },
+          "password": { "type": "string", "minLength": 6, "maxLength": 128 }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Registrar novo usuário",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RegisterRequest" } } } },
+        "responses": {
+          "201": { "description": "Usuário criado — email de verificação enviado" },
+          "400": { "description": "Dados inválidos", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "409": { "description": "Email já cadastrado" }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Fazer login",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LoginRequest" } } } },
+        "responses": {
+          "200": { "description": "Login bem-sucedido", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LoginResponse" } } } },
+          "401": { "description": "Credenciais inválidas" },
+          "429": { "description": "Rate limit atingido" }
+        }
+      }
+    },
+    "/auth/verify-email": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Verificar email via token",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "token": { "type": "string" } } } } } },
+        "responses": { "200": { "description": "Email verificado" }, "400": { "description": "Token inválido ou expirado" } }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Solicitar redefinição de senha",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "email": { "type": "string", "format": "email" } } } } } },
+        "responses": { "200": { "description": "Email de redefinição enviado" } }
+      }
+    },
+    "/auth/reset-password": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Redefinir senha com token",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "token": { "type": "string" }, "password": { "type": "string", "minLength": 6 } } } } } },
+        "responses": { "200": { "description": "Senha redefinida" }, "400": { "description": "Token inválido" } }
+      }
+    },
+    "/auth/resend-verification": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Reenviar email de verificação",
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "email": { "type": "string", "format": "email" } } } } } },
+        "responses": { "200": { "description": "Email reenviado" } }
+      }
+    },
+    "/patients": {
+      "get": {
+        "tags": ["Patients"],
+        "summary": "Listar pacientes do nutricionista",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Lista de pacientes", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Patient" } } } } },
+          "401": { "description": "Não autenticado" }
+        }
+      },
+      "post": {
+        "tags": ["Patients"],
+        "summary": "Criar paciente",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Patient" } } } },
+        "responses": {
+          "201": { "description": "Paciente criado" },
+          "400": { "description": "Dados inválidos" }
+        }
+      }
+    },
+    "/patients/{id}": {
+      "get": {
+        "tags": ["Patients"],
+        "summary": "Obter paciente por ID",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": { "200": { "description": "Dados do paciente" }, "404": { "description": "Não encontrado" } }
+      },
+      "put": {
+        "tags": ["Patients"],
+        "summary": "Atualizar paciente",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Patient" } } } },
+        "responses": { "200": { "description": "Atualizado" }, "400": { "description": "Dados inválidos" } }
+      },
+      "delete": {
+        "tags": ["Patients"],
+        "summary": "Deletar paciente",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": { "200": { "description": "Deletado" }, "404": { "description": "Não encontrado" } }
+      }
+    },
+    "/consultations": {
+      "get": {
+        "tags": ["Consultations"],
+        "summary": "Listar consultas",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Lista de consultas" } }
+      },
+      "post": {
+        "tags": ["Consultations"],
+        "summary": "Agendar consulta",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Consultation" } } } },
+        "responses": { "201": { "description": "Consulta criada" }, "400": { "description": "Dados inválidos" } }
+      }
+    },
+    "/consultations/{id}": {
+      "get": {
+        "tags": ["Consultations"],
+        "summary": "Obter consulta por ID",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": { "200": { "description": "Dados da consulta" } }
+      },
+      "put": {
+        "tags": ["Consultations"],
+        "summary": "Atualizar consulta",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Consultation" } } } },
+        "responses": { "200": { "description": "Atualizada" } }
+      },
+      "delete": {
+        "tags": ["Consultations"],
+        "summary": "Cancelar consulta",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": { "200": { "description": "Deletada" } }
+      }
+    },
+    "/plans": {
+      "post": {
+        "tags": ["Plans"],
+        "summary": "Criar plano alimentar",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "patientId": { "type": "string" }, "planDate": { "type": "string", "format": "date" }, "mealData": { "type": "object" } } } } } },
+        "responses": { "201": { "description": "Plano criado" } }
+      }
+    },
+    "/plans/patient/{patientId}": {
+      "get": {
+        "tags": ["Plans"],
+        "summary": "Obter plano do paciente",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "patientId", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } },
+          { "name": "date", "in": "query", "schema": { "type": "string", "format": "date" } }
+        ],
+        "responses": { "200": { "description": "Plano alimentar" } }
+      }
+    },
+    "/foods": {
+      "get": {
+        "tags": ["Foods"],
+        "summary": "Buscar alimentos",
+        "parameters": [
+          { "name": "query", "in": "query", "schema": { "type": "string" }, "description": "Termo de busca (nome ou código TBCA)" },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 20 } }
+        ],
+        "responses": { "200": { "description": "Lista de alimentos com macros e micros" } }
+      }
+    },
+    "/reports/{patientId}/{reportType}/{period}": {
+      "get": {
+        "tags": ["Reports"],
+        "summary": "Obter dados de relatório",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "patientId", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } },
+          { "name": "reportType", "in": "path", "required": true, "schema": { "type": "string", "enum": ["nutritional", "progress", "compliance", "recommendations"] } },
+          { "name": "period", "in": "path", "required": true, "schema": { "type": "string", "enum": ["7d", "30d", "90d"] } }
+        ],
+        "responses": { "200": { "description": "Dados do relatório" } }
+      }
+    },
+    "/reports/generate-pdf": {
+      "post": {
+        "tags": ["Reports"],
+        "summary": "Gerar relatório em PDF",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "type": "object", "properties": { "patient_id": { "type": "string" }, "report_type": { "type": "string" } } } } } },
+        "responses": { "200": { "description": "Arquivo PDF", "content": { "application/pdf": {} } } }
+      }
+    },
+    "/dashboard/stats": {
+      "get": {
+        "tags": ["Dashboard"],
+        "summary": "Estatísticas gerais do dashboard",
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "Métricas do painel (pacientes, consultas, planos)" } }
+      }
+    },
+    "/dashboard/patient/{patientId}": {
+      "get": {
+        "tags": ["Dashboard"],
+        "summary": "Estatísticas avançadas do paciente",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{ "name": "patientId", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }],
+        "responses": { "200": { "description": "Estatísticas do paciente" } }
+      }
+    }
+  }
+}

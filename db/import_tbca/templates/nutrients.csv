@@ -1,0 +1,4 @@
+nutrient_slug,display_name,unit,daily_reference_value,reference_source
+calcio,Calcio,mg,1000,ANVISA RDC 269/2005
+ferro,Ferro,mg,14,ANVISA RDC 269/2005
+vitamina_c,Vitamina C,mg,45,ANVISA RDC 269/2005

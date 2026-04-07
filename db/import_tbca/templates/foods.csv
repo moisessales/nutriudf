@@ -1,0 +1,1001 @@
+tbca_code,name,category,kcal,protein_g,carbs_g,fat_g,fiber_g,sodium_mg
+BRC0001D,"Azeite, dendê, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0002D,"Azeite, oliva, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0003D,"Gordura, vegetal, hidrogenada, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0004D,"Manteiga (média várias amostras, c/ e s/ sal), Brasil","Gorduras e óleos",673,0.39,0.52,74.4,0,324
+BRC0005D,"Manteiga, levemente salgada, light, Brasil","Gorduras e óleos",427,0.12,1.21,46.9,0,390
+BRC0006D,"Manteiga, s/ sal, Brasil","Gorduras e óleos",775,0.4,0,86,0,3.85
+BRC0007D,"Manteiga, c/ sal, Brasil","Gorduras e óleos",743,0.52,0,82.3,0,578
+BRC0008D,"Margarina (média várias amostras, c/ e s/ sal), Brasil","Gorduras e óleos",640,0,0,71.1,0,813
+BRC0009D,"Margarina, c/ sal, Brasil","Gorduras e óleos",540,0,0,60,0,711
+BRC0010D,"Margarina, c/ óleo hidrogenado (65% lipídeos), c/ sal, Brasil","Gorduras e óleos",606,0,0,67.4,0,894
+BRC0011D,"Margarina, c/ óleo hidrogenado (80% lipídeos), s/ sal, Brasil","Gorduras e óleos",735,0,0,81.7,0,77.9
+BRC0012D,"Margarina, c/ óleo interesterificado (65% lipídeos), c/ sal, Brasil","Gorduras e óleos",603,0,0,67.1,0,33.2
+BRC0013D,"Margarina, c/ óleo interesterificado (65% lipídeos), s/ sal, Brasil","Gorduras e óleos",603,0,0,67.1,0,33.2
+BRC0014D,"Manteiga e margarina, c/ sal, Brasil","Gorduras e óleos",720,0.15,0,80,0,1200
+BRC0015D,"Manteiga e margarina, s/ sal, Brasil","Gorduras e óleos",720,0.15,0,80,0,26.7
+BRC0016D,"Margarina, c/ leite, c/ sal, Brasil","Gorduras e óleos",552,1.3,1.9,60,0,1000
+BRC0017D,"Margarina, c/ leite, s/ sal, Brasil","Gorduras e óleos",552,1.3,1.9,60,0,0
+BRC0018D,"Manteiga, cacau, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0019D,"Óleo, abacate, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0020D,"Óleo, algodão, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0021D,"Óleo, amendoim, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0022D,"Óleo, arroz, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0023D,"Óleo, babaçu","Gorduras e óleos",900,0,0,100,0,0
+BRC0024D,"Óleo, canola, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0025D,"Óleo, composto (85% soja, 15% oliva), Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0026D,"Óleo, cação, fígado (média de diferentes amostras), Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0027D,"Óleo, girassol, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0028D,"Óleo, milho, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0029D,"Óleo, cobertura, sardinha enlatada (média de diferentes amostras), Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0030D,"Óleo, soja, Brasil","Gorduras e óleos",900,0,0,100,0,0
+BRC0031D,"Maionese, molho, c/ ovos, industrializado, Brasil","Gorduras e óleos",308,0.58,7.9,30.5,0,786
+BRC0032D,"Patê (média de diferentes sabores), Brasil","Gorduras e óleos",225,8.65,2.79,19.9,0,1378
+BRC0033D,"Patê, peito de peru, defumado, vidro, Brasil","Gorduras e óleos",223,7.66,2.73,20.2,0,828
+BRC0034D,"Patê, presunto, vidro, Brasil","Gorduras e óleos",226,9.63,2.85,19.7,0,983
+BRC0001U,"Amêndoa, torrada, c/ sal, Brasil","Nozes e sementes",615,20.6,10.7,52,11.1,277
+BRC0002U,"Caju, castanha, torrada, c/ sal, Brasil","Nozes e sementes",616,20.7,20,49.6,4.09,125
+BRC0003U,"Castanha do Brasil, crua, Brasil","Nozes e sementes",673,14.5,7.15,63.5,7.93,0.4
+BRC0017U,"Babaçu, mesocarpo, farinha, crua, Brasil","Nozes e sementes",288,1.41,61.3,0.2,17.9,12.5
+BRC0016U,"Gergelim, semente, crua, Brasil","Nozes e sementes",601,21.2,9.75,50.4,11.9,2.58
+BRC0006U,"Linhaça, semente, Brasil","Nozes e sementes",452,14.1,9.81,32.3,33.5,8.67
+BRC0007U,"Pinhão, cozido, s/ sal, Brasil","Nozes e sementes",175,3.15,33.1,1,10.7,0.86
+BRC0008U,"Pupunha (palmito), fruto, cozido, s/ óleo, s/ sal, Brasil","Nozes e sementes",212,2.59,29,8.14,6.39,0.32
+BRC0009U,"Noz, crua, Brasil","Nozes e sementes",649,14,11.1,59.4,7.25,4.57
+BRC0010U,"Coquetel de frutas secas, s/ casca, s/ sal, Brasil","Nozes e sementes",539,19.6,44.6,31.2,1,365
+BRC0011U,"Amêndoa, crua, s/ sal, Brasil","Nozes e sementes",595,21.2,9.04,49.9,12.5,1
+BRC0012U,"Castanha de caju, crua, s/ sal, Brasil","Nozes e sementes",581,18.2,26.9,43.9,3.3,12
+BRC0013U,"Avelã , crua, s/ sal (dado importado)","Nozes e sementes",673,15,8.2,62.4,9.4,0
+BRC0014U,"Macadâmia, crua, s/ sal (dado importado)","Nozes e sementes",751,7.91,5.22,75.8,8.6,5
+BRC0015U,"Pistache, cru, s/ sal (dado importado)","Nozes e sementes",576,20.2,16.6,45.3,10.6,1
+BRC0012A,"Arroz, creme, cozido, s/ tempero, Brasil","Cereais e derivados",96,2.01,21.6,0.14,0.28,0.13
+BRC0013A,"Arroz, farelo, cru, Brasil","Cereais e derivados",323,14.2,11.2,19.3,24.3,5.06
+BRC0014A,"Arroz, farinha, crua, Brasil (média  de diferentes marcas)","Cereais e derivados",360,6.24,81.8,0.76,0.78,9.07
+BRC0015A,"Arroz,  farinha, Brasil","Cereais e derivados",356,6.9,79.7,1.1,0,0.98
+BRC0016A,"Arroz, integral, cozido, s/ óleo, s/ sal, Brasil","Cereais e derivados",107,2.44,21.4,0.87,2.13,1.13
+BRC0017A,"Arroz, integral, cru, Brasil (média diferentes cultivares)","Cereais e derivados",346,7.57,72.2,2.2,3.9,0.88
+BRC0018A,"Arroz polido, cozido, s/ óleo, s/ sal, Brasil (média diferentes cultivares)","Cereais e derivados",130,2.38,28.8,0.41,1.2,1.58
+BRC0001A,"Arroz, polido, cru, Brasil (média de diferentes cultivares)","Cereais e derivados",345,7.04,77.4,0.5,1.68,1.12
+BRC0019A,"Aveia,  farelo, cozida, s/ tempero, Brasil","Cereais e derivados",93,4.18,12,2.31,4.11,1.45
+BRC0020A,"Aveia, farinha, cozida, s/ tempero, Brasil","Cereais e derivados",48,1.93,7.6,0.84,1.35,0.61
+BRC0022A,"Aveia, farinha, crua, Brasil","Cereais e derivados",370,14.9,56.7,7,10.3,4.59
+BRC0023A,"Aveia, fibras, Brasil","Cereais e derivados",377,19.3,41.4,11.4,16,3.87
+BRC0024A,"Aveia, flocos, finos, Brasil","Cereais e derivados",378,15.6,55,8.6,9.5,4.59
+BRC0025A,"Aveia, flocos, finos, instantânea, Brasil","Cereais e derivados",382,15.7,54.4,9.2,9.38,4.59
+BRC0026A,"Aveia, flocos, finos, Brasil","Cereais e derivados",387,15.3,56.9,8.4,11.3,4.81
+BRC0027A,"Biscoito, doce, simples (média de diferentes tipos), Brasil","Cereais e derivados",435,8.39,73.5,11.3,2.74,352
+BRC0028A,"Biscoito, doce, Maria, Brasil","Cereais e derivados",433,9.3,73.4,10.8,2.8,356
+BRC0029A,"Biscoito, doce, amanteigado (média de diversos sabores e marcas), Brasil","Cereais e derivados",465,8.78,69.3,16.7,1.31,358
+BRC0030A,"Biscoito, doce, amanteigado, banana c/ canela, Brasil","Cereais e derivados",468,7.87,71.6,16.8,0,358
+BRC0031A,"Biscoito, doce, amanteigado, chocolate, Brasil","Cereais e derivados",476,8.45,70.9,17.6,0,361
+BRC0032A,"Biscoito, doce, amanteigado, recheio sabor chocolate, Brasil","Cereais e derivados",461,9.9,67.6,16,3.7,362
+BRC0033A,"Biscoito, doce, amanteigado, coco, Brasil","Cereais e derivados",458,8.26,69.8,16.1,0.8,355
+BRC0034A,"Biscoito, doce, amanteigado, recheio sabor coco, Brasil","Cereais e derivados",459,10,67.5,16,2.5,357
+BRC0036A,"Biscoito, doce, amanteigado, leite, Brasil","Cereais e derivados",472,8.67,67.6,18.5,0.42,355
+BRC0037A,"Biscoito, doce, amanteigado, leite, Brasil","Cereais e derivados",462,9.5,66.8,17,2.3,356
+BRC0038A,"Biscoito, doce, amanteigado, manteiga, Brasil","Cereais e derivados",471,7.16,73.3,16.7,0,360
+BRC0039A,"Biscoito, doce, amanteigado, Brasil","Cereais e derivados",460,9.2,68.8,16,2.1,357
+BRC0040A,"Biscoito, doce, c/ cereais e/ou mel, Brasil","Cereais e derivados",452,7.85,71.9,14.1,3.25,467
+BRC0041A,"Biscoito, doce, banana/aveia/mel, Brasil","Cereais e derivados",453,7.6,73.6,13.8,2.3,467
+BRC0042A,"Biscoito, doce, chocolate, c/ 5 cereais, Brasil","Cereais e derivados",450,8.1,70.1,14.4,4.2,467
+BRC0043A,"Biscoito, doce, recheado, sabores diversos (média de diferentes sabores), Brasil","Cereais e derivados",482,5.95,68.9,19.9,2.04,234
+BRC0044A,"Biscoito, doce, recheado, recheio sabor brigadeiro, Brasil","Cereais e derivados",488,6.82,69.9,20,0.5,240
+BRC0045A,"Biscoito, doce, recheado, chocolate, recheio sabor chocolate, Brasil","Cereais e derivados",489,5.4,66.1,21.8,3.49,239
+BRC0046A,"Biscoito, doce, recheado, recheio sabor chocolate, Brasil","Cereais e derivados",478,6.8,69,18.9,2.5,240
+BRC0047A,"Biscoito, doce, recheado, recheio sabor morango, Brasil","Cereais e derivados",484,4.6,70.7,20,1.49,231
+BRC0048A,"Biscoito, doce, recheado, recheio sabor morango, Brasil","Cereais e derivados",479,5.9,69.8,19.2,1.8,231
+BRC0049A,"Biscoito, doce, wafer (média de diferentes sabores), Brasil","Cereais e derivados",517,5.42,65.7,25.7,0.9,128
+BRC0050A,"Biscoito, doce, wafer, chocolate, recheio sabor chocolate e avelã, Brasil","Cereais e derivados",509,5.77,68,23.7,0,137
+BRC0051A,"Biscoito, doce, wafer, recheio sabor chocolate, Brasil","Cereais e derivados",523,5.43,66.1,26.4,0,137
+BRC0052A,"Biscoito, doce, wafer, recheio sabor chocolate, Brasil","Cereais e derivados",504,6.9,63.6,24.2,2.3,135
+BRC0053A,"Biscoito, doce, wafer, recheio sabor morango, Brasil","Cereais e derivados",529,5.1,63.4,28,1.4,119
+BRC0054A,"Biscoito, doce, wafer, recheio sabor nozes, Brasil","Cereais e derivados",525,4.63,67.2,26.5,0,137
+BRC0055A,"Biscoito, salgado (média diferentes marcas e tipos), Brasil","Cereais e derivados",438,10.9,66.5,13.7,3.18,854
+BRC0056A,"Biscoito, salgado, água, Brasil","Cereais e derivados",445,10.8,65.9,14.4,4.1,862
+BRC0057A,"Biscoito, salgado, água e sal, Brasil","Cereais e derivados",425,11.9,68,10.9,3.6,868
+BRC0058A,"Biscoito, salgado, água e sal, Brasil","Cereais e derivados",442,11.4,64.5,14.7,2.9,858
+BRC0059A,"Biscoito, salgado, cream cracker, integral, Brasil","Cereais e derivados",440,11.4,63.8,14.4,4.8,866
+BRC0060A,"Biscoito, salgado, cream cracker, Brasil","Cereais e derivados",435,11.6,67.8,12.4,3.1,871
+BRC0061A,"Biscoito, salgado, cream cracker, Brasil","Cereais e derivados",443,11.7,65.3,14.5,2.4,861
+BRC0063A,"Bolo, mistura p/, preparado, Brasil (média de diferentes sabores)","Cereais e derivados",338,6.1,49.3,12.9,0.43,179
+BRC0064A,"Bolo, baunilha, mistura p/, preparado, Brasil","Cereais e derivados",329,6.7,48.9,11.9,0,185
+BRC0065A,"Bolo, chocolate, mistura p/, preparado, Brasil","Cereais e derivados",326,6.2,47.9,12.2,0,238
+BRC0066A,"Bolo, coco, mistura p/, preparado, Brasil","Cereais e derivados",371,7.5,54.3,13.8,0,207
+BRC0067A,"Bolo, laranja, mistura p/, preparado, Brasil","Cereais e derivados",325,6.8,48.1,11.8,0,183
+BRC0068A,"Bolo, mármore, mistura p/, preparado, Brasil","Cereais e derivados",323,6.6,48.2,11.5,0,237
+BRC0069A,"Bolo, industrializado (média de diferentes sabores), Brasil","Cereais e derivados",419,6.49,54.3,19.5,0.08,331
+BRC0070A,"Bolo, baunilha, recheio sabor morango, Brasil","Cereais e derivados",407,5.97,54.9,18.2,0,326
+BRC0071A,"Bolo, c/ gotas de chocolate, Brasil","Cereais e derivados",413,6.76,53,19.3,0,325
+BRC0072A,"Bolo, cenoura, recheio sabor chocolate, Brasil","Cereais e derivados",454,6.3,51.4,24.8,0,340
+BRC0073A,"Bolo, chocolate, recheio sabor chocolate, Brasil","Cereais e derivados",435,6.37,53.2,21.9,0,336
+BRC0074A,"Bolo, chocolate, recheio sabor chocolate, Brasil","Cereais e derivados",418,6.62,55.8,18.8,0,336
+BRC0075A,"Bolo, páscoa, c/ gotas de chocolate, Brasil","Cereais e derivados",387,6.9,57.7,14.2,0.5,326
+BRC0077A,"Bolo, mandioca (aipim, macaxeira), mistura p/,  preparado, Brasil","Cereais e derivados",322,4.42,47.2,12.7,0.69,111
+BRC0078A,"Bolo, chocolate, mistura p/,  preparado, Brasil","Cereais e derivados",407,6.22,53.3,18.5,1.43,283
+BRC0079A,"Bolo, coco, mistura p/, preparado, Brasil","Cereais e derivados",331,5.67,51.2,11.3,1.06,190
+BRC0080A,"Bolo, milho, mistura p/, preparado, Brasil","Cereais e derivados",309,4.8,44.4,12.4,0.71,133
+BRC0081A,"Centeio, farinha, integral, crua, Brasil","Cereais e derivados",328,12.5,57.8,1.75,15.5,41.4
+BRC0082A,"Cereais, barra (média de diferentes sabores), Brasil","Cereais e derivados",395,6.25,70.9,8.53,5.25,498
+BRC0083A,"Cereais, barra, banana, Brasil","Cereais e derivados",361,6.42,73.8,3.14,6,490
+BRC0084A,"Cereais, barra, castanha/uva passa/mel, Brasil","Cereais e derivados",385,6.78,73,6.37,4.6,498
+BRC0085A,"Cereais, barra, coco c/ chocolate, Brasil","Cereais e derivados",404,6.63,67.9,10.4,6.4,500
+BRC0086A,"Cereais, barra, frutas e castanha do Brasil, Brasil","Cereais e derivados",431,5.16,68.7,14.2,4,504
+BRC0087A,"Cereais, farinha, p/ crianças (média de diferentes sabores), Brasil","Cereais e derivados",378,8.39,79.5,2.32,3.01,459
+BRC0088A,"Cereais, farinha, láctea, Brasil","Cereais e derivados",400,12.2,73.2,6.06,2.47,123
+BRC0089A,"Cereais, farinha, maçã/banana/mamão, vitamina, Brasil","Cereais e derivados",385,5.97,87.7,0.7,2.4,1185
+BRC0090A,"Cereais, farinha, milho, Brasil","Cereais e derivados",376,5.92,86.2,0.9,0,398
+BRC0091A,"Cereais, farinha, Brasil","Cereais e derivados",364,12.9,70.3,2.08,6.25,258
+BRC0092A,"Cereais, farinha, morango/pera/banana, vitamina, Brasil","Cereais e derivados",389,5.19,90.9,0.6,0,1189
+BRC0093A,"Cereais, mistura p/ mingau (média de diferentes sabores), Brasil","Cereais e derivados",370,5.18,82.9,1.31,3.2,542
+BRC0094A,"Cereais, milho, infantil, mistura p/ mingau, Brasil","Cereais e derivados",378,6.43,84.1,1.09,3.21,399
+BRC0095A,"Cereais, c/ vitamina, trigo, cevada e aveia, mistura p/ mingau, Brasil","Cereais e derivados",371,8.9,76.6,2.12,4.98,1163
+BRC0098A,"Cereal matinal (média de diferentes marcas), Brasil","Cereais e derivados",373,5.6,84.8,0.86,2.25,529
+BRC0099A,"Cereal matinal, Brasil","Cereais e derivados",375,3.7,88.2,0.6,1,403
+BRC0100A,"Cereal matinal, milho, Brasil","Cereais e derivados",364,7.16,79.7,0.96,4.12,654
+BRC0101A,"Cereal matinal, milho, c/ açúcar, Brasil (média diferente marcas)","Cereais e derivados",375,5.38,85.5,0.85,1.98,405
+BRC0102A,"Cereal matinal, milho, corn flakes, Brasil","Cereais e derivados",363,7.8,79.9,0.56,3.57,399
+BRC0103A,"Cereal matinal, milho, c/ açúcar, Brasil","Cereais e derivados",378,4.2,89,0.38,0.93,408
+BRC0104A,"Cereal matinal, milho, corn flakes, Brasil","Cereais e derivados",375,6.1,85.1,1,1,408
+BRC0105A,"Cereal matinal, milho/trigo/aveia, Brasil","Cereais e derivados",389,6.28,84.7,2.33,2.15,410
+BRC0106A,"Cevada, nua (média diferentes cultivares), Brasil","Cereais e derivados",335,13.8,57.2,2.41,15.1,3.52
+BRC0107A,"Farinha de rosca, artesanal, Brasil","Cereais e derivados",363,12.1,72.4,1.73,4.81,340
+BRC0108A,"Farinha de rosca, Brasil","Cereais e derivados",374,12.9,73.8,2,4.8,349
+BRC0109A,"Lasanha, massa fresca, c/ ovos, industrializada, cozida, s/ óleo, s/ sal, Brasil","Cereais e derivados",160,5.81,30.9,1.16,1.64,206
+BRC0110A,"Lasanha, massa fresca, c/ ovos, industrializada, crua, Brasil","Cereais e derivados",217,7.01,43.5,1.34,1.61,666
+BRC0111A,"Lasanha, pronta, industrializada (média diferentes sabores), Brasil","Cereais e derivados",132,5.77,12.2,6.39,1.5,351
+BRC0112A,"Lasanha, bolonhesa, congelada, Brasil","Cereais e derivados",138,5.8,12.3,7,1.5,361
+BRC0113A,"Lasanha, quatro queijos, congelada, Brasil","Cereais e derivados",130,4.53,11.8,6.94,1.5,336
+BRC0114A,"Lasanha, verde, bolonhesa, congelada, Brasil","Cereais e derivados",130,6.94,11.4,6.07,1.5,345
+BRC0115A,"Lasanha, mini, bolonhesa, congelada, Brasil","Cereais e derivados",128,5.8,9.91,7,1.5,361
+BRC0116A,"Macarrão, farinha de trigo refinada, seco, cozido, drenado, s/ óleo, s/ sal, Brasil (média de diferentes amostras)","Cereais e derivados",101,3.73,19.9,0.48,1.11,0.67
+BRC0117A,"Macarrão, c/ farinha de trigo refinada, seco, cru (média de diferentes marcas), Brasil","Cereais e derivados",359,10.2,74.7,1.64,2.61,11
+BRC0118A,"Macarrão, c/ farinha de trigo refinada, s/ ovos, seco, cru, Brasil","Cereais e derivados",357,10,75,1.3,2.93,7.17
+BRC0119A,"Macarrão, trigo, c/ ovos, seco, cru, Brasil","Cereais e derivados",360,10.3,74.3,1.97,2.3,14.7
+BRC0120A,"Macarrão, farinha de trigo refinada, instantâneo, cru, c/ tempero em pó, Brasil","Cereais e derivados",428,8.79,56.8,17.2,5.61,1515
+BRC0121A,"Massa, fresca, crua, industrializada (média de diferentes recheios), Brasil","Cereais e derivados",277,10.7,48.1,3.93,3.25,1083
+BRC0122A,"Massa, fresca, capeletti, carne, crua, industrializado, Brasil","Cereais e derivados",271,10.4,52.3,1.62,3,1103
+BRC0123A,"Massa, fresca, ravioli, queijo, crua, industrializado, Brasil","Cereais e derivados",282,11,43.8,6.24,3.5,1064
+BRC0124A,"Milho, amido, cru (maisena), Brasil","Cereais e derivados",348,0.64,85.5,0.3,0.74,8.04
+BRC0125A,"Farinha de milho, fubá, cru, Brasil (média de diferentes marcas)","Cereais e derivados",356,7.06,75.3,2.03,4.38,0
+BRC0126A,"Canjica, milho, branca, crua, Brasil","Cereais e derivados",343,6.99,75.3,0.69,3.95,0.8
+BRC0127A,"Milho, minimilho, cozido, Brasil","Cereais e derivados",10,1.41,0.56,0.21,0.25,0.35
+BRC0128A,"Milho, farinha, crua (média de diferentes marcas/granulação), Brasil","Cereais e derivados",353,6.85,75.8,1.7,3.98,115
+BRC0129A,"Milho, pipoca, s/ sal, preparado com óleo, Brasil","Cereais e derivados",435,9.93,56,15.9,14.3,4.32
+BRC0005A,"Milho, pipoca, grão, cru (média diferentes amostras), Brasil","Cereais e derivados",354,10,65.2,3.48,11.2,4.06
+BRC0133A,"Milho, pipoca, p/ micro-ondas, bacon, cru, Brasil","Cereais e derivados",417,7.7,43.9,20.1,15.1,610
+BRC0134A,"Milho, pipoca, p/ micro-ondas, manteiga, cru, Brasil","Cereais e derivados",416,7.5,49.4,18.8,9.7,608
+BRC0135A,"Milho, pipoca, p/ micro-ondas, natural, cru, Brasil","Cereais e derivados",424,7.8,46.5,20.6,11,608
+BRC0136A,"Milho, pipoca, p/ micro-ondas, queijo, cru, Brasil","Cereais e derivados",408,8.4,48.1,17.4,13,611
+BRC0007A,"Milho, verde, grão, enlatado, drenado, Brasil (média de diferentes marcas)","Cereais e derivados",103,2.74,16.8,1.83,4.29,260
+BRC0138A,"Milho, verde, grão, cozido no vapor, Brasil","Cereais e derivados",96,3.4,14.3,2,4.1,270
+BRC0006A,"Milho, verde, grão, cru (média de diferentes amostras), Brasil","Cereais e derivados",138,6.59,24.6,0.61,3.92,1.12
+BRC0140A,"Milho, curau, cozido","Cereais e derivados",79,2.36,13.5,1.64,0.46,20.5
+BRC0142A,"Pamonha, milho verde, pré-cozido","Cereais e derivados",171,2.55,28.3,4.85,2.37,131
+BRC0143A,"Milho, polenta/fubá, cozido, c/ sal","Cereais e derivados",103,2.25,21.5,0.56,1.74,429
+BRC0145A,"Pão, c/ farinha de trigo refinada, glúten, forma, Brasil","Cereais e derivados",243,12,41.6,2.73,2.48,399
+BRC0146A,"Pão, milho, forma","Cereais e derivados",278,8.3,52.1,3.11,4.3,506
+BRC0147A,"Pão, de leite, c/ farinha de trigo refinada, industrializado (média de diferentes marcas), Brasil","Cereais e derivados",283,8.15,50.9,4.63,2.97,199
+BRC0148A,"Pão, bisnaguinha, c/ farinha de trigo refinada, Brasil","Cereais e derivados",315,7.31,56.3,6.03,3.2,218
+BRC0149A,"Pão, trigo, integral","Cereais e derivados",231,10.7,40.4,1.79,5.58,469
+BRC0150A,"Pão, c/ farinha de trigo refinada, fonte de fibra, forma (média de vários tipos), Brasil","Cereais e derivados",255,10.8,44.9,2.52,4.86,555
+BRC0151A,"Pão, c/ farinha de trigo refinada, c/ aveia e soja, forma, Brasil","Cereais e derivados",257,10.3,47.7,2.25,2.75,491
+BRC0086N,"Pão, c/ farinha de trigo refinada, c/ fibras, forma, Brasil","Alimentos para fins especiais",231,12.1,41.9,0.64,4.53,476
+BRC0153A,"Pão, integral, c/ fibras, forma, Brasil","Cereais e derivados",268,11.3,46.2,3.31,4.32,522
+BRC0154A,"Pão, integral, c/ farinha de trigo refinada, c/ fibras, forma, Brasil","Cereais e derivados",260,9.95,47.6,2.5,3.92,513
+BRC0155A,"Pão, integral, c/ farinha de trigo refinada, forma (média de diferentes marcas), Brasil","Cereais e derivados",248,10.5,43.3,2.55,5.29,495
+BRC0157A,"Pão, trigo/centeio, preto, forma, Brasil","Cereais e derivados",249,10,43.7,2.7,5.38,496
+BRC0003A,"Pão, forma, c/ farinha de trigo refinada, tradicional, Brasil (média de diferentes marcas)","Cereais e derivados",256,10.1,47,2.49,2.63,496
+BRC0004A,"Pão, c/ farinha de trigo refinada, de padaria, hamburguer/hot dog/leite, Brasil (média de diferentes tipos)","Cereais e derivados",291,9.39,53.4,3.87,2.84,413
+BRC0158A,"Pão, c/ farinha de trigo refinada, p/ hambúrguer, Brasil","Cereais e derivados",282,9.67,50.1,4.14,3.14,400
+BRC0159A,"Pão, c/ farinha de trigo refinada, p/ hot dog, Brasil","Cereais e derivados",292,10.1,51,4.63,2.95,410
+BRC0002A,"Pão francês (cacetinho, de sal, média), de padaria, c/ farinha de trigo refinada, Brasil  (médias de diferentes amostras)","Cereais e derivados",299,9.83,59,2.12,2.61,681
+BRC0160A,"Pão, c/ farinha de trigo refinada, sovado, Brasil","Cereais e derivados",300,8.4,59,2.84,2.43,430
+BRC0161A,"Pastel, massa fresca, cru, caseiro (média de diferentes recheios)","Cereais e derivados",300,9.2,47.3,8,1.2,1212
+BRC0162A,"Pastel, massa fresca, cru, caseiro","Cereais e derivados",303,6.9,56,5.48,1.41,1344
+BRC0163A,"Pastel, massa fresca, c/ recheio de carne, cru, caseiro","Cereais e derivados",288,10.7,41,8.79,1.04,1309
+BRC0164A,"Pastel, massa fresca, c/ recheio de queijo, cru, caseiro","Cereais e derivados",307,9.85,44.8,9.64,1.11,984
+BRC0168A,"Pastel, massa fresca, frita, caseiro","Cereais e derivados",586,6.02,48,40.9,1.31,1174
+BRC0169A,"Torrada, tradicional, c/ farinha de trigo refinada, industrializada, Brasil (media diferentes amostras)","Cereais e derivados",137,11.9,71.8,6.55,1.14,853
+BRC0170A,"Torrada, integral, c/ farinha de trigo refinada, Brasil","Cereais e derivados",397,13,70.3,7,0.7,721
+BRC0171A,"Torrada, levemente doce, Brasil","Cereais e derivados",404,12,70.9,8,0.45,848
+BRC0172A,"Torrada, levemente salgada","Cereais e derivados",418,11.9,74.9,7.88,0,887
+BRC0173A,"Torrada, pão francês, artesanal, Brasil","Cereais e derivados",363,10.5,71.2,3.3,3.4,829
+BRC0137A,"Trigo, farelo, cru, Brasil","Cereais e derivados",276,17.5,17.8,4.74,46.4,2.04
+BRC0139A,"Trigo, farinha refinada, fortificada com ácido fólico e ferro, crua, Brasil (média de diferentes amostras)","Cereais e derivados",352,10.7,72.9,1.36,2.58,0.75
+BRC0132A,"Trigo, farinha integral, crua , Brasil (média de diferentes amostras)","Cereais e derivados",312,11.6,57.3,1.31,12.8,2.9
+BRC0187A,"Arroz carreteiro, c/ arroz polido e charque (carne seca, jaba), s/ sal, Brasil","Cereais e derivados",151,10.8,10.1,7.12,1.5,1621
+BRC0188A,"Baião de dois, arroz e feijão fradinho (de corda), c/ sal","Cereais e derivados",125,5.17,19.1,2.3,3.98,93.3
+BRC0189A,"Bolinho de arroz, frito, s/ sal","Cereais e derivados",339,8.66,44.9,13.5,1.73,58.9
+BRC0191A,"Cuscuz paulista, s/ sal","Cereais e derivados",137,2.56,20.1,4.65,2.43,235
+BRC0192A,"Macarrão, c/ molho bolonhesa, s/ sal","Cereais e derivados",116,4.93,21.7,0.89,0.78,8.94
+BRC0203A,"Vatapá, s/ sal","Cereais e derivados",268,6,8.05,23.2,1.7,879
+BRC0204A,"Yakisoba, s/ sal","Cereais e derivados",124,7.52,17.2,2.61,1.06,793
+BRC0205A,"Torta, salgada, mistura p/, preparada (conforme a embalagem), Brasil","Cereais e derivados",401,9,50.4,18.2,,656
+BRC0206A,"Milho, pipoca, p/ micro-ondas,  crua (média de diferentes sabores), Brasil","Cereais e derivados",411,13.3,49.7,16.2,7.09,610
+BRC0210A,"Arroz, integral, cozido, c/ óleo, cebola e alho, s/ sal","Cereais e derivados",116,2.46,21,2.03,2.14,0.55
+BRC0211A,"Arroz, integral, cozido, c/ óleo, cebola e alho, c/ sal, Brasil","Cereais e derivados",115,2.46,20.9,2.03,2.14,188
+BRC0208A,"Arroz, polido, cozido, c/ óleo de soja, cebola e alho, s/ sal, Brasil","Cereais e derivados",138,2.41,28,1.6,1.28,1.6
+BRC0209A,"Arroz polido, cozido, c/ óleo de soja, cebola e alho, c/ sal, Brasil","Cereais e derivados",137,2.4,27.9,1.52,1.27,129
+BRC0021A,"Aveia, crua, Brasil (média de diferentes tipos)","Cereais e derivados",381,15.4,55.6,8.7,9.74,4.63
+BRC0200A,"Biscoito, doce, maisena (amido de milho), Brasil","Cereais e derivados",436,8.07,73.1,12,2.1,352
+BRC0201A,"Biscoito, salgado, cream cracker, Brasil","Cereais e derivados",439,11.1,66.4,13.8,2.67,862
+BRC0197A,"Bolo, farinha de trigo refinada, sem recheio, artesanal, Brasil","Cereais e derivados",440,7.31,55.3,20.8,0.83,213
+BRC0185A,"Canjica, milho, branca, cozida, drenada, s/ açúcar, Brasil","Cereais e derivados",110,2.26,24.3,0.22,1.27,0.21
+BRC0184A,"Canjica, milho, branca, cozida, c/ leite integral e açúcar","Cereais e derivados",112,2.36,22.4,1.24,1.22,27.6
+BRC0194A,"Macarrão, farinha de trigo refinado , c/ ovos, cozido, drenado, s/ óleo, s/ sal, Brasil","Cereais e derivados",166,4.73,34.1,0.9,1.06,3.37
+BRC0214A,"Macarrão, trigo, c/ ovos, c/ alho e óleo, c/ sal","Cereais e derivados",179,3.64,24.9,7.05,0.95,190
+BRC0219A,"Macarrão, trigo, c/ ovos, c/ molho branco (leite, manteiga e farinha de trigo), s/ sal","Cereais e derivados",139,3.98,24,2.89,0.7,21.9
+BRC0220A,"Macarrão, trigo, c/ ovos, c/ molho branco (leite, manteiga e farinha de trigo), c/ sal","Cereais e derivados",138,3.97,23.9,2.88,0.69,209
+BRC0221A,"Salada, macarrão, trigo, c/ ovos, c/ vinagrete (tomate, cebola, salsa, vinagre e azeite de oliva), s/ sal","Cereais e derivados",118,2.79,19.7,3.02,0.86,2.79
+BRC0222A,"Salada, macarrão, trigo, c/ ovos, c/ vinagrete (tomate, cebola, salsa, vinagre e azeite de oliva), c/ sal","Cereais e derivados",117,2.78,19.6,3.01,0.86,190
+BRC0215A,"Macarrão, trigo, c/ ovos, c/ manteiga, s/ sal","Cereais e derivados",158,3.45,24.7,4.96,0.76,2.64
+BRC0216A,"Macarrão, trigo, c/ ovos, c/ manteiga, c/ sal","Cereais e derivados",158,3.44,24.6,4.93,0.76,190
+BRC0195A,"Macarrão, trigo, s/ ovos, cozido, drenado, s/ sal, Brasil","Cereais e derivados",125,3.5,26.3,0.46,1.02,1.26
+BRC0180A,"Milho, verde, grão, assado, s/ sal, Brasil","Cereais e derivados",165,7.91,29.6,0.73,4.7,1.34
+BRC0181A,"Milho, verde, grão, assado, c/ sal, Brasil","Cereais e derivados",165,7.87,29.4,0.73,4.68,189
+BRC0178A,"Milho, verde, grão, assado, c/ manteiga, s/ sal","Cereais e derivados",196,7.53,28.1,5,4.47,1.46
+BRC0179A,"Milho, verde, grão, assado, c/ manteiga, c/ sal","Cereais e derivados",195,7.5,27.9,4.97,4.45,189
+BRC0176A,"Milho, verde, grão, cozido, drenado, s/ sal, Brasil","Cereais e derivados",129,6.16,23,0.57,3.66,0.78
+BRC0177A,"Milho, verde, grão, cozido, drenado, c/ sal, Brasil","Cereais e derivados",128,6.13,22.9,0.57,3.65,188
+BRC0174A,"Milho, verde, grão, cozido, drenado, c/ manteiga, s/ sal","Cereais e derivados",161,5.87,21.9,4.84,3.48,0.94
+BRC0175A,"Milho, verde, grão, cozido, drenado, c/ manteiga, c/ sal","Cereais e derivados",160,5.85,21.8,4.82,3.46,188
+BRC0182A,"Milho, verde, grão, refogado (c/ óleo, cebola e alho), s/ sal","Cereais e derivados",186,8.39,31.4,1.97,5.03,1.49
+BRC0183A,"Milho, verde, grão, refogado (c/ óleo, cebola e alho), c/ sal","Cereais e derivados",186,8.35,31.3,1.96,5.01,189
+BRC0196A,"Pão, batata, c/ farinha de trigo refinada, artesanal,  Brasil","Cereais e derivados",296,9.33,50.9,5.77,1.96,278
+BRC0193A,"Pão, trigo, doce, c/ creme de confeiteiro","Cereais e derivados",262,8.1,47,4.24,2.16,323
+BRC0198A,"Rosquinha, doce, frita, c/ açúcar e canela","Cereais e derivados",351,6.54,64.5,7.19,1.21,110
+BRC0202A,"Sonho, frito, c/ recheio de creme de confeiteiro, polvilhado c/ açúcar e canela","Cereais e derivados",343,6.42,60.8,8.03,1.27,294
+BRC0054N,"Milho, pipoca, p/ micro-ondas, light, cru, Brasil","Alimentos para fins especiais",355,8.7,51.3,9.3,16,487
+BRC0055N,"Milho, pipoca, micro-ondas, light, preparado, Brasil","Alimentos para fins especiais",398,9.74,57.5,10.4,17.9,546
+BRC0199A,"Pizza, massa, assada, artesanal, Brasil","Cereais e derivados",326,9.49,60.4,4.73,2.01,223
+BRC0226A,"Bolo, fubá, caseiro","Cereais e derivados",366,6.58,49.6,15.4,1.15,59.6
+BRC0227A,"Bolo, coco, sem recheio, artesanal, Brasil","Cereais e derivados",380,5.66,43.9,19.9,1.16,153
+BRC0395A,"Lasanha, bolonhesa, artesanal, assada, Brasil","Cereais e derivados",178,11.3,14,8.23,1.16,271
+BRC0238A,"Macarrão, c/ molho bolonhesa, c/ sal","Cereais e derivados",123,4.42,21.6,1.94,1.03,8.77
+BRC0239A,"Macarrão, trigo, integral, à bolonhesa, c/ sal","Cereais e derivados",121,5.46,19.1,1.84,3.2,269
+BRC0228A,"Macarrão, trigo, integral, cru, Brasil","Cereais e derivados",352,14,65.4,1.61,10,10.6
+BRC0229A,"Macarrão, trigo, integral, cozido, drenado, s/ sal, Brasil","Cereais e derivados",123,4.9,22.9,0.56,3.51,1.85
+BRC0230A,"Macarrão, trigo, integral, c/ alho e óleo, s/ sal","Cereais e derivados",177,4.82,22.2,6.97,3.39,2.05
+BRC0231A,"Macarrão, trigo, integral, ao alho e óleo, c/ sal","Cereais e derivados",176,4.79,22.1,6.94,3.37,189
+BRC0232A,"Macarrão, trigo, integral, c/ manteiga, s/ sal","Cereais e derivados",155,4.68,21.7,4.84,3.34,1.95
+BRC0233A,"Macarrão, trigo, integral, c/ manteiga, c/ sal","Cereais e derivados",155,4.65,21.6,4.81,3.32,189
+BRC0234A,"Macarrão, trigo, integral, c/ molho de tomate (tomate, c/ óleo, cebola e alho), s/ sal","Cereais e derivados",114,4.27,19.1,1.5,3.32,82.3
+BRC0235A,"Macarrão, trigo, integral, c/ molho de tomate (tomate, c/ óleo, cebola e alho), c/ sal","Cereais e derivados",113,4.27,19.1,1.5,3.31,269
+BRC0236A,"Macarrão, trigo, integral, c/ molho branco (leite, manteiga e farinha de trigo), s/ sal","Cereais e derivados",137,5.02,21.5,2.79,2.86,21.3
+BRC0237A,"Macarrão, trigo, integral, c/ molho branco (leite, manteiga e farinha de trigo), c/ sal","Cereais e derivados",136,4.99,21.4,2.78,2.85,208
+BRC0815A,"Massa, panqueca, preparada, s/ recheio, c/ sal, Brasil","Cereais e derivados",263,9.01,29,12.2,0.89,276
+BRC0814A,"Panqueca, c/ recheio de carne moída, s/ molho,  c/ sal","Cereais e derivados",243,17.1,16.1,12.1,0.51,373
+BRC0397A,"Croissant, simples, Brasil","Cereais e derivados",399,8.2,43.2,21,2.6,467
+BRC0398A,"Quinoa, grão, crua (dado importado)","Cereais e derivados",353,14.1,57.2,6.07,7,5
+BRC0399A,"Quinoa, grão, cozida, s/ óleo, s/ sal (dado importado)","Cereais e derivados",114,4.4,18.5,1.92,2.8,7
+BRC0400A,"Amaranto, grão, cru (dado importado)","Cereais e derivados",365,13.6,58.6,7.02,6.7,4
+BRC0401A,"Amaranto, grão, cozido, s/ óleo, s/ sal (dado importado)","Cereais e derivados",100,3.8,16.6,1.59,2.1,6
+BRC0402A,"Chia, semente, seca (dado importado)","Cereais e derivados",442,16.5,7.72,30.7,34.4,16
+BRC0403A,"Trigo, grão, cru (dado importado)","Cereais e derivados",336,10.7,62.7,1.99,12.7,2
+BRC0404A,"Trigo para quibe (kibe), cru (dado importado)","Cereais e derivados",335,12.3,62.4,1.33,12.5,17
+BRC0405A,"Trigo para quibe (kibe), cozido, s/ óleo, s/ sal (dado importado)","Cereais e derivados",79,3.08,14.1,0.24,4.5,5
+BRC0240A,"Sanduíche, cachorro quente (c/ pão de leite* e salsicha tradicional*), c/ catchup*, molho de mostarda* e maionese, Brasil","Cereais e derivados",280,8.05,24.4,16.3,1.51,663
+BRC0241A,"Sanduíche, cachorro quente (c/ pão hot dog* e salsicha tradicional*), c/ purê de batata, milho* e ervilha* em conserva, batata palha*, catchup*, molho de mostarda*, maionese e molho vinagrete, Brasil","Cereais e derivados",233,5.91,21.7,13.3,2.14,500
+BRC0242A,"Sanduíche, cachorro quente (c/ pão hot dog* e salsicha tradicional*), c/ molho de tomate, milho* e ervilha* em conserva e batata palha*, Brasil","Cereais e derivados",204,7.46,23.6,8.33,2.64,462
+BRC0243A,"Sanduíche, cachorro quente (c/ pão hot dog* e salsicha tradicional*), c/ molho de tomate, Brasil","Cereais e derivados",218,8.68,24.7,8.9,1.92,484
+BRC0244A,"Sanduíche, hambúrguer bovino* grelhado (c/ pão hambúrguer*), c/ catchup*, molho de mostarda* e maionese, Brasil","Cereais e derivados",264,8.44,27.9,12.8,1.57,724
+BRC0245A,"Sanduíche, hambúrguer bovino* grelhado (c/ pão hambúrguer*), Brasil","Cereais e derivados",257,11,35.4,7.53,1.62,703
+BRC0246A,"Sanduíche, hambúrguer bovino* grelhado (c/ pão hambúrguer*), c/ maionese, Brasil","Cereais e derivados",307,9.95,31,15.5,1.42,644
+BRC0247A,"Sanduíche, hambúrguer bovino* grelhado (c/ pão hambúrguer*), c/ queijo prato*, catchup*, cebola e picles de pepino*, Brasil","Cereais e derivados",225,10.6,25.8,8.59,1.28,694
+BRC0248A,"Sanduíche, cheeseburguer, hambúrguer bovino* grelhado (c/ pão hambúrguer*), c/ queijo prato*, Brasil","Cereais e derivados",272,13.3,29.2,11.1,1.34,676
+BRC0249A,"Sanduíche, hambúrguer bovino* grelhado (c/ pão hambúrguer*), c/ queijo prato* e maionese, Brasil","Cereais e derivados",313,12.2,26.2,17.4,1.2,629
+BRC0250A,"Sanduíche, hambúrguer bovino* grelhado (c/ pão hambúrguer*), c/ tomate e alface, Brasil","Cereais e derivados",198,8.62,27.1,5.74,1.64,533
+BRC0251A,"Sanduíche, hambúrguer bovino* grelhado (c/ pão hambúrguer*), c/ tomate, maionese e alface, Brasil","Cereais e derivados",243,8.01,24.5,12.1,1.48,503
+BRC0252A,"Sanduíche, cheese salad, hambúrguer bovino* grelhado (c/ pão hambúrguer;*), c/ queijo prato*, maionese, tomate e alface, Brasil","Cereais e derivados",256,10.1,21.4,14.1,1.29,509
+BRC0253A,"Sanduíche, cheese salad, hambúrguer bovino* grelhado (c/ pão hambúrguer*), c/ queijo prato*, tomate e alface, Brasil","Cereais e derivados",218,10.8,23.4,8.79,1.41,535
+BRC0254A,"Sanduíche, pão francês* (cacetinho, de sal, média), c/ presunto cozido* , queijo muçarela*, tomate, maionese e alface, Brasil","Cereais e derivados",241,10,18.1,13.9,1.18,514
+BRC0255A,"Sanduíche, pão francês, c/ presunto, queijo muçarela, alface e tomate","Cereais e derivados",205,12.1,22.3,7.24,1.29,610
+BRC0256A,"Sanduíche, americano (pão forma tradicional), c/ presunto, queijo muçarela, alface, tomate, ovo frito, c/ maionese","Cereais e derivados",212,11.8,13.4,12.2,0.88,563
+BRC0259A,"Sanduíche, americano (pão forma integral), c/ presunto, queijo muçarela, alface, tomate, ovo frito , c/ maionese","Cereais e derivados",199,13.2,12.6,10.3,1.66,444
+BRC0260A,"Sanduíche, misto quente, pão forma tradicional, c/ presunto, queijo muçarela, c/ maionese","Cereais e derivados",249,12.7,20.9,12.6,1.03,846
+BRC0261A,"Sanduíche, misto quente, pão forma integral, c/ presunto, queijo muçarela, c/ maionese","Cereais e derivados",230,14.9,23.2,8.46,1.22,816
+BRC0262A,"Sanduíche, misto quente, pão forma tradicional, c/ presunto, queijo muçarela, c/ manteiga","Cereais e derivados",281,13.7,21.4,15.4,1.12,833
+BRC0263A,"Sanduíche, misto quente, pão forma integral, c/ presunto, queijo muçarela, c/ maionese","Cereais e derivados",245,13.1,18.8,12.6,2.03,705
+BRC0264A,"Sanduíche, misto quente, pão forma integral, c/ presunto e queijo muçarela","Cereais e derivados",233,15.4,20.8,9.36,2.4,691
+BRC0265A,"Sanduíche, misto quente, pão francês, c/ presunto, queijo muçarela, c/ manteiga","Cereais e derivados",276,14.2,19.1,15.4,2.2,681
+BRC0266A,"Sanduíche, misto quente, pão francês, c/ presunto, queijo muçarela, c/ maionese","Cereais e derivados",264,12.9,24.8,12.5,1,777
+BRC0267A,"Sanduíche, misto quente, pão francês (cacetinho, de sal, média)*, c/ presunto cozido* e queijo muçarela*, Brasil","Cereais e derivados",256,15.1,28,9.09,1.19,775
+BRC0268A,"Sanduíche, misto quente, pão francês, c/ presunto, queijo muçarela, c/ manteiga","Cereais e derivados",297,13.9,25.6,15.3,1.09,759
+BRC0269A,"Sanduíche, misto quente, pão forma tradicional, c/ presunto, queijo muçarela, c/ margarina","Cereais e derivados",269,13.7,21.2,14.1,1.12,860
+BRC0270A,"Sanduíche, misto quente, pão francês, c/ presunto, queijo muçarela, c/ margarina","Cereais e derivados",286,13.8,25.6,14,1.09,785
+BRC0271A,"Sanduíche, misto quente, pão forma integral, c/ presunto, queijo muçarela, c/ margarina","Cereais e derivados",264,14.1,18.9,14.2,2.2,708
+BRC0272A,"Sanduíche, queijo quente, pão branco tradicional, c/ queijo muçarela, c/ margarina","Cereais e derivados",319,14.3,24.9,17.7,1.34,722
+BRC0273A,"Sanduíche, queijo quente, pão francês, c/ queijo muçarela e margarina","Cereais e derivados",339,14.5,30,17.6,1.3,633
+BRC0274A,"Sanduíche, queijo quente, pão forma integral, c/ queijo muçarela e margarina","Cereais e derivados",313,14.8,22.2,17.8,2.64,539
+BRC0275A,"Sanduíche, queijo quente, pão branco tradicional, c/ queijo muçarela e manteiga","Cereais e derivados",333,14.3,25.1,19.2,1.34,690
+BRC0276A,"Sanduíche, queijo quente, pão forma integral, c/ queijo muçarela e maionese","Cereais e derivados",285,13.6,21.7,15.6,2.4,552
+BRC0277A,"Sanduíche, queijo quente, pão forma integral, c/ queijo muçarela","Cereais e derivados",281,16.5,24.8,12.3,2.94,500
+BRC0278A,"Sanduíche, queijo quente, pão forma integral, c/ queijo muçarela, c/ manteiga","Cereais e derivados",327,14.9,22.4,19.3,2.64,508
+BRC0279A,"Sanduíche, queijo quente, pão francês, c/ queijo muçarela, c/ maionese","Cereais e derivados",308,13.2,28.9,15.4,1.19,637
+BRC0280A,"Sanduíche, queijo quente, pão francês, c/ queijo muçarela, c/ manteiga","Cereais e derivados",352,14.5,30.2,19.1,1.3,601
+BRC0281A,"Sanduíche, queijo quente, pão branco tradicional, c/ queijo prato, c/ margarina","Cereais e derivados",329,14.4,24.3,19,1.34,739
+BRC0282A,"Sanduíche, queijo quente, pão francês, c/ queijo prato, c/ margarina","Cereais e derivados",349,14.6,29.4,20.3,1.3,568
+BRC0283A,"Sanduíche,  queijo quente, pão forma integral, c/ queijo prato e margarina","Cereais e derivados",323,14.9,21.6,19.1,2.64,557
+BRC0284A,"Sanduíche, queijo quente, pão branco tradicional, c/ queijo prato e manteiga","Cereais e derivados",342,14.5,24.5,20.5,1.34,707
+BRC0285A,"Sanduíche,  queijo quente, pão forma integral, c/ queijo prato e maionese","Cereais e derivados",294,13.7,21.2,16.7,2.4,568
+BRC0286A,"Sanduíche,  queijo quente, pão forma integral, c/ queijo prato","Cereais e derivados",291,16.6,24.1,13.7,2.94,519
+BRC0287A,"Sanduíche, queijo quente, pão forma integral, c/ queijo prato, c/ manteiga","Cereais e derivados",337,15,21.8,20.6,2.64,525
+BRC0288A,"Sanduíche,  queijo quente, pão francês, c/ queijo prato, c/ maionese","Cereais e derivados",317,13.4,28.3,16.5,1.19,653
+BRC0289A,"Sanduíche,  queijo quente, pão francês, c/ queijo prato","Cereais e derivados",320,16.2,32.9,13.4,1.45,623
+BRC0290A,"Sanduíche, queijo quente, pão francês, c/ queijo prato, c/ manteiga","Cereais e derivados",362,14.6,29.6,20.3,1.3,618
+BRC0291A,"Sanduíche, hambúrguer bovino grelhado (c/ pão hambúrguer),  c/ ovo frito","Cereais e derivados",248,12.4,24.9,10.8,1.11,570
+BRC0292A,"Sanduíche, hambúrguer bovino grelhado (c/ pão hambúrguer), c/ ovo frito, c/ maionese","Cereais e derivados",253,11.2,22.8,12.8,1.33,592
+BRC0293A,"Sanduíche, hambúrguer bovino grelhado (c/ pão hambúrguer), c/ alface, tomate e ovo frito","Cereais e derivados",215,10.8,21.5,9.29,1.19,489
+BRC0294A,"Sanduíche, hambúrguer bovino grelhado (c/ pão hambúrguer), c/ alface, tomate, ovo frito, c/ maionese","Cereais e derivados",215,10.8,21.5,9.29,1.19,489
+BRC0295A,"Sanduíche, pão francês, c/ salame, c/ manteiga","Cereais e derivados",382,14.2,33.6,21,1.45,1082
+BRC0296A,"Sanduíche, pão francês, c/ salame, c/ margarina","Cereais e derivados",363,14.5,33.5,18.7,1.81,1017
+BRC0297A,"Sanduíche, pão francês, c/ salame","Cereais e derivados",337,15.9,37.8,13.3,1.63,1145
+BRC0298A,"Sanduíche, pão francês c/ presunto, c/ manteiga","Cereais e derivados",289,10.5,33.6,12.2,1.45,843
+BRC0299A,"Sanduíche, pão francês, c/ presunto, c/ margarina","Cereais e derivados",274,10.5,33.4,10.6,1.45,878
+BRC0300A,"Sanduíche, pão francês, c/ presunto","Cereais e derivados",232,11.8,37.8,3.46,1.63,876
+BRC0301A,"Sanduíche, pão forma tradicional, c/ presunto, c/ maionese","Cereais e derivados",227,9.41,26.7,9.01,1.34,947
+BRC0302A,"Sanduíche, pão forma integral, c/ presunto","Cereais e derivados",208,11.6,31.4,3.64,1.67,988
+BRC0303A,"Sanduíche, pão forma tradicional, c/ presunto, c/ manteiga","Cereais e derivados",267,10.4,27.9,12.4,1.49,942
+BRC0304A,"Sanduíche, pão forma integral, c/ presunto, c/ maionese","Cereais e derivados",221,9.92,23.9,9.08,2.64,765
+BRC0306A,"Sanduíche, pão forma integral, c/ presunto, c/ manteiga","Cereais e derivados",261,10.9,24.9,12.5,2.94,740
+BRC0307A,"Sanduíche, pão forma tradicional, c/ presunto, c/ margarina","Cereais e derivados",252,10.3,27.7,10.7,1.49,977
+BRC0308A,"Sanduíche, pão francês, c/ presunto, c/ margarina","Cereais e derivados",274,10.5,33.4,10.6,1.45,878
+BRC0309A,"Sanduíche, pão forma integral, c/ presunto, c/ margarina","Cereais e derivados",245,10.9,24.7,10.8,2.94,775
+BRC0310A,"Sanduíche, pão francês, c/ mortadela, c/ manteiga","Cereais e derivados",338,10.1,38.2,15.9,1.45,894
+BRC0311A,"Sanduíche, pão francês, c/ mortadela, c/ margarina","Cereais e derivados",324,9.96,38,15.6,1.75,872
+BRC0312A,"Sanduíche, pão francês, c/ mortadela","Cereais e derivados",288,11.3,42.9,7.56,1.63,933
+BRC0313A,"Sanduíche, pão francês, c/ mortadela, queijo prato, rúcula e tomate","Cereais e derivados",234,11.7,22.1,10.8,1.17,733
+BRC0315A,"Sanduíche, pão francês, c/ queijo minas, c/ manteiga","Cereais e derivados",308,12.1,26.1,17,1.09,347
+BRC0316A,"Sanduíche, pão francês, c/ queijo minas, c/ margarina","Cereais e derivados",296,12,26.1,15.8,1.09,374
+BRC0317A,"Sanduíche, pão francês, c/ queijo minas","Cereais e derivados",268,13.1,28.5,11.1,1.19,326
+BRC0451A,"Sanduíche, pão forma tradicional, c/ peito de frango grelhado, alface americana, cenoura crua, tomate, c/ maionese","Cereais e derivados",160,11.7,15.4,5.28,2.3,267
+BRC0452A,"Sanduíche, pão forma integral, c/ peito de frango grelhado, alface americana, cenoura crua e tomate","Cereais e derivados",163,11.4,17.2,5.24,1.49,381
+BRC0323A,"Sanduíche, pão forma tradicional, c/ peito de frango grelhado, alface americana, cenoura crua e tomate","Cereais e derivados",139,13.3,16.5,1.68,2.63,193
+BRC0813A,"Sanduíche, pão forma integral, c/ queijo minas, c/ alface americana, cenoura crua, tomate, c/ molho de iogurte","Cereais e derivados",143,12.9,18.5,1.63,1.7,323
+BRC0325A,"Sanduíche, pão forma integral, c/ peito de frango grelhado, alface americana, cenoura crua, tomate, c/ molho de iogurte","Cereais e derivados",135,12,15.2,2.47,2.39,191
+BRC0326A,"Sanduíche, pão forma tradicional, c/ peito de frango grelhado, alface americana, cenoura crua, tomate, c/ molho de iogurte","Cereais e derivados",139,11.6,17,2.42,1.57,305
+BRC0327A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo minas, c/ maionese","Cereais e derivados",231,11.9,21.4,10.8,1.03,680
+BRC0328A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado e queijo minas","Cereais e derivados",218,14,23.8,7.2,1.22,660
+BRC0329A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo minas, c/ manteiga","Cereais e derivados",262,12.9,21.8,13.5,1.12,654
+BRC0330A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo minas, c/ maionese","Cereais e derivados",227,12.3,19.2,10.8,2.03,540
+BRC0331A,"Sanduíche, pão forma integral, c/ peito de peru defumado e queijo minas","Cereais e derivados",213,14.5,21.3,7.26,2.4,495
+BRC0332A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo minas, c/ manteiga","Cereais e derivados",257,13.3,19.6,13.5,2.2,502
+BRC0333A,"Sanduíche, pão francês, c/ peito de peru defumado, queijo minas frescal, c/ maionese","Cereais e derivados",247,12.1,25.3,10.7,1,611
+BRC0334A,"Sanduíche, pão francês, c/ peito de peru defumado e queijo minas","Cereais e derivados",236,14.1,28.5,7.07,1.19,580
+BRC0335A,"Sanduíche, pão francês, c/ peito de peru defumado, queijo minas, c/ manteiga","Cereais e derivados",278,13,26.1,13.3,1.09,579
+BRC0336A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo minas, c/ margarina","Cereais e derivados",250,12.8,21.7,12.2,1.12,680
+BRC0337A,"Sanduíche, pão francês, c/ peito de peru defumado, queijo minas, c/ margarina","Cereais e derivados",267,13,26,12.1,1.09,606
+BRC0338A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo minas, c/ margarina","Cereais e derivados",246,13.3,19.4,12.3,2.2,528
+BRC0339A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo muçarela, c/ maionese","Cereais e derivados",250,13.8,21.1,12.1,1.03,790
+BRC0340A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado e queijo muçarela","Cereais e derivados",239,16.2,23.5,8.78,1.22,790
+BRC0341A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo muçarela, c/ manteiga","Cereais e derivados",281,14.9,21.5,14.9,1.12,773
+BRC0342A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo muçarela, c/ maionese","Cereais e derivados",245,14.2,18.9,12.2,2.03,649
+BRC0343A,"Sanduíche, pão forma integral, c/ peito de peru defumado e queijo muçarela","Cereais e derivados",234,16.6,20.9,8.84,2.4,624
+BRC0344A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo muçarela, c/ manteiga","Cereais e derivados",277,15.3,19.2,15,2.2,621
+BRC0345A,"Sanduíche, pão francês, c/ peito de peru defumado, queijo muçarela, c/ maionese","Cereais e derivados",265,13.9,25,12,1,721
+BRC0348A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo muçarela, c/ margarina","Cereais e derivados",270,14.8,21.4,13.7,1.12,799
+BRC0349A,"Sanduíche, pão francês, c/ peito de peru defumado, queijo muçarela, c/ margarina","Cereais e derivados",286,15,25.6,13.6,1.09,725
+BRC0350A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo muçarela, c/ margarina","Cereais e derivados",265,15.3,19.1,13.7,2.2,647
+BRC0351A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo prato, c/ maionese","Cereais e derivados",255,13.9,20.7,12.9,1.03,800
+BRC0352A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado e queijo prato","Cereais e derivados",246,16.3,23,9.66,1.22,802
+BRC0353A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo prato, c/ manteiga","Cereais e derivados",288,14.9,21.1,15.7,1.12,783
+BRC0354A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo prato, c/ maionese","Cereais e derivados",251,14.2,18.6,12.9,2.03,659
+BRC0355A,"Sanduíche, pão forma integral, c/ peito de peru defumado e queijo prato","Cereais e derivados",241,16.7,20.5,9.72,2.4,636
+BRC0356A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo prato, c/ manteiga","Cereais e derivados",283,15.4,18.8,15.8,2.2,631
+BRC0357A,"Sanduíche, pão francês, c/ peito de peru defumado, queijo prato, c/ maionese","Cereais e derivados",270,14,24.6,12.8,1,731
+BRC0358A,"Sanduíche, pão francês, c/ peito de peru defumado e queijo prato","Cereais e derivados",264,16.4,27.7,9.53,1.19,721
+BRC0359A,"Sanduíche, pão francês, c/ peito de peru defumado, queijo prato, c/ manteiga","Cereais e derivados",304,15.1,25.4,15.6,1.09,709
+BRC0360A,"Sanduíche, pão forma tradicional, c/ peito de peru defumado, queijo prato, c/ margarina","Cereais e derivados",276,14.9,21,14.5,1.12,810
+BRC0361A,"Sanduíche, pão francês, c/ peito de peru defumado, queijo prato, c/ margarina","Cereais e derivados",292,15,25.2,14.4,1.09,735
+BRC0362A,"Sanduíche, pão forma integral, c/ peito de peru defumado, queijo prato, c/ margarina","Cereais e derivados",271,15.3,18.7,14.5,2.2,658
+BRC0363A,"Sanduíche, cachorro quente, (c/ pão para hot dog e salsicha de frango), c/ catchup, mostarda, c/ maionese","Cereais e derivados",198,7.28,22.3,8.66,1.77,803
+BRC0364A,"Sanduíche, cachorro quente, (c/ pão para hot dog e salsicha de frango), c/ catchup, mostarda, maionese, milho, ervilha, purê de batata, molho vinagrete e batata palha","Cereais e derivados",173,5.48,19.5,7.73,2.21,590
+BRC0365A,"Sanduíche, cachorro quente, (c/ pão para hot dog e salsicha de frango), c/ milho, ervilha, batata palha, c/ molho de tomate (tomate, c/ óleo, cebola e alho, c/ sal)","Cereais e derivados",183,7.51,22.7,6.2,3.42,539
+BRC0366A,"Sanduíche, cachorro quente, (c/ pão para hot dog e salsicha de frango),  c/ molho de tomate (tomate, c/ óleo, cebola e alho, c/ sal)","Cereais e derivados",187,8.73,23.3,5.88,2.94,599
+BRC0367A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer) , c/ catchup, mostarda, c/ maionese","Cereais e derivados",207,14,23.9,6,1.5,484
+BRC0369A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer), c/ maionese","Cereais e derivados",237,17.3,26.1,6.87,1.33,213
+BRC0370A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer) , c/ queijo prato, cebola e pepino","Cereais e derivados",228,18.7,21.1,7.35,1.55,392
+BRC0371A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer) , c/ queijo prato","Cereais e derivados",249,20.7,23.5,7.8,1.24,303
+BRC0372A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer) , c/ queijo prato, c/ maionese","Cereais e derivados",255,18.4,21.7,10.3,1.11,356
+BRC0373A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer), c/ alface e tomate","Cereais e derivados",209,9.26,27.9,6.39,1.56,590
+BRC0374A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer), c/ alface, tomate, c/ maionese","Cereais e derivados",200,14.6,22,5.75,1.38,265
+BRC0375A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer), c/ queijo prato, alface e tomate","Cereais e derivados",212,17.6,20,6.6,1.31,255
+BRC0376A,"Sanduíche, peito de frango grelhado (c/ pão de hambúrguer),  c/ queijo prato, alface, tomate, c/ maionese","Cereais e derivados",221,16,18.9,8.87,1.19,306
+BRC0377A,"Sanduíche, pão forma tradicional, c/ presunto, queijo muçarela, c/ requeijão","Cereais e derivados",245,14.2,20.2,11.8,1.03,810
+BRC0378A,"Sanduíche, pão forma integral, c/ presunto, queijo muçarela, c/ requeijão","Cereais e derivados",241,14.6,18.1,11.8,2.03,670
+BRC0379A,"Sanduíche, pão francês, c/ presunto, queijo muçarela, c/ requeijão","Cereais e derivados",260,14.3,24.1,11.7,1,742
+BRC0380A,"Sanduíche, pão forma tradicional, c/ presunto, queijo muçarela, c/ cream cheese","Cereais e derivados",236,13.7,20.1,11,1.03,775
+BRC0381A,"Sanduíche, pão forma integral, c/ presunto, queijo muçarela, c/ cream cheese","Cereais e derivados",231,14.1,18,11,2.03,634
+BRC0382A,"Sanduíche, pão francês, c/ presunto, queijo muçarela e cream cheese","Cereais e derivados",251,13.8,24.1,10.9,1,706
+BRC0383A,"Sanduíche, baguete, c/ queijo muçarela, alface, tomate e mortadela","Cereais e derivados",223,10.6,25.2,8.63,1.3,671
+BRC0384A,"Sanduíche, baguete, c/ queijo muçarela, alface, tomate, peito de frango grelhado, c/ maionese","Cereais e derivados",207,11.8,22.5,7.54,1.37,398
+BRC0385A,"Sanduíche, baguete, c/ queijo muçarela, alface, tomate e presunto","Cereais e derivados",182,11,21.4,5.64,1.3,630
+BRC0386A,"Sanduíche, baguete, c/ queijo muçarela, alface, tomate, atum em conserva, c/ maionese","Cereais e derivados",202,11,22.7,7.28,1.37,443
+BRC0387A,"Sanduíche, baguete, c/ queijo muçarela, alface, tomate e salame","Cereais e derivados",236,12.1,24.4,9.78,1.51,653
+BRC0388A,"Sanduíche, pão forma integral, c/ queijo minas, alface americana, cenoura crua, tomate, c/ maionese","Cereais e derivados",144,7.43,13.5,6.3,2.16,155
+BRC0389A,"Sanduíche, pão forma integral, c/ queijo minas, c/ alface americana, atum em conserva, tomate, c/ maionese","Cereais e derivados",155,11.6,13.3,5.86,1.88,202
+BRC0390A,"Sanduíche, pão forma integral, c/ queijo minas, alface americana, tomate, peito de peru defumado, pepino, c/ maionese","Cereais e derivados",157,8.81,11.9,7.96,1.63,315
+BRC0391A,"Sanduíche, pão forma integral, c/ queijo minas, rúcula, c/ maionese de frango com maçã","Cereais e derivados",205,13.4,14.6,9.98,1.85,249
+BRC0392A,"Sanduíche, pão forma integral, c/ queijo minas, alface americana, atum em conserva, tomate, c/ molho de iogurte","Cereais e derivados",155,11.6,13.3,5.86,1.88,202
+BRC0393A,"Sanduíche, pão forma integral, c/ queijo minas, alface americana, tomate, peito de peru defumado, pepino, c/ molho de iogurte","Cereais e derivados",140,9.02,11.8,5.96,1.7,261
+BRC0394A,"Sanduíche, pão forma integral, c/ queijo minas, rúcula, c/ molho de iogurte com frango e maçã","Cereais e derivados",182,13.7,14.4,7.4,1.93,180
+BRC0321A,"Sanduíche, pão forma integral, c/ queijo prato, c/ maionese","Cereais e derivados",309,16.1,33.6,12,1.45,604
+BRC0469A,"Pão francês, c/ requeijão","Cereais e derivados",295,9.85,46.1,7.52,2.01,653
+BRC0470A,"Pão francês, c/ cream cheese","Cereais e derivados",281,9.14,46,6.29,2.01,599
+BRC0471A,"Sanduíche, pão francês, c/ peito de peru defumado","Cereais e derivados",233,13.5,38,2.75,1.63,785
+BRC0472A,"Sanduíche, pão branco tradicional, c/ requeijão","Cereais e derivados",265,9.62,38.2,7.74,2.06,790
+BRC0473A,"Sanduíche, pão branco tradicional, c/ cream cheese","Cereais e derivados",251,8.91,38.2,6.51,2.06,736
+BRC0474A,"Sanduíche, pão branco tradicional, c/ peito de peru defumado","Cereais e derivados",209,13.3,31.6,2.93,1.67,897
+BRC0475A,"Sanduíche, pão forma integral, c/ requeijão","Cereais e derivados",256,10.4,34,7.84,4.07,509
+BRC0476A,"Sanduíche, pão forma integral, c/ cream cheese","Cereais e derivados",242,9.69,34,6.61,4.07,456
+BRC0477A,"Sanduíche, pão forma integral, c/ peito de peru defumado","Cereais e derivados",202,13.9,28.2,3.02,3.31,669
+BRC0478A,"Torrada, trigo, tradicional, c/ margarina","Cereais e derivados",447,8.61,53.8,21.7,0.96,26.3
+BRC0479A,"Torrada, trigo, integral, c/ margarina","Cereais e derivados",448,9.75,52.2,22.1,0.53,764
+BRC0480A,"Torrada, trigo, tradicional, c/ requeijão","Cereais e derivados",357,11,49.2,12.8,0.85,793
+BRC0481A,"Torrada, trigo, integral, c/ requeijão","Cereais e derivados",358,12,47.9,13.2,0.47,666
+BRC0482A,"Torrada, trigo, tradicional, c/ manteiga","Cereais e derivados",511,7.79,48.3,31.7,0.85,800
+BRC0483A,"Torrada, trigo, integral, c/ manteiga","Cereais e derivados",513,8.81,47,32.1,0.47,673
+BRC0484A,"Torrada, trigo, tradicional, c/ cream cheese","Cereais e derivados",336,9.93,49.1,11,0.85,716
+BRC0485A,"Torrada, trigo, integral, c/ geleia","Cereais e derivados",353,8.78,68.2,4.77,1.31,490
+BRC0486A,"Torrada, trigo, tradicional, c/ geleia","Cereais e derivados",351,7.77,69.5,4.36,1.7,617
+BRC0487A,"Torrada, trigo, integral, c/ cream cheese","Cereais e derivados",338,10.9,47.8,11.4,0.47,589
+BRC0489A,"Torrada, trigo, tradicional, c/ ricota e temperos","Cereais e derivados",397,13,70.3,7,0.7,721
+BRC0594A,"Torrada, trigo, integral, c/ ricota e temperos","Cereais e derivados",216,10.3,21.7,9.62,1.19,543
+BRC0841A,"Sanduíche, hambúrguer bovino grelhado (c/ pão hambúrguer), c/ queijo cheddar, alface e tomate","Cereais e derivados",216,10.3,21.7,9.62,1.19,543
+BRC0842A,"Sanduíche, pão sírio, c/ peito de frango grelhado (c/ óleo de soja), alface americana, cenoura crua, tomate, c/ molho de iogurte, c/ sal","Cereais e derivados",169,11,19.9,4.78,1.42,304
+BRC0843A,"Sanduíche, pão sírio, c/ peito de frango grelhado, alface americana, cenoura crua, tomate e molho de iogurte, s/ óleo, s/ sal","Cereais e derivados",148,11.4,20.5,2,1.47,208
+BRC0844A,"Sanduíche, pão sírio, c/ filé mignon grelhado, rúcula, pimentão vermelho, c/ molho de iogurte, c/ óleo, c/ sal","Cereais e derivados",204,13.9,20.7,7.12,1.23,326
+BRC0845A,"Sanduíche, pão sírio, c/ filé mignon grelhado, rúcula, pimentão vermelho e molho de iogurte s/ óleo, s/ sal","Cereais e derivados",183,14.3,21.4,4.23,1.27,225
+BRC0411A,"Sanduíche, americano (pão francês, c/ presunto, queijo muçarela, alface, tomate e ovo frito)","Cereais e derivados",208,13,16.6,9.74,0.95,469
+BRC0414A,"Sanduíche, pão francês, c/ queijo minas, c/ margarina","Cereais e derivados",307,12,26,17,1.09,305
+BRC0713A,"Sanduíche, pão forma tradicional, c/ peito de frango grelhado, alface americana, cenoura crua e tomate, s/ óleo, s/ sal","Cereais e derivados",143,12.9,18.4,1.63,1.74,414
+BRC0754A,"Sanduíche, pão francês, c/ queijo minas, alface e tomate","Cereais e derivados",214,9.15,30.7,5.75,1.72,349
+BRC0755A,"Sanduíche, pão forma integral, c/ queijo minas, alface e tomate","Cereais e derivados",189,9.51,22.9,5.96,3.06,256
+BRC0756A,"Sanduíche, pão forma tradicional, c/ queijo minas, alface e tomate","Cereais e derivados",194,9,25.6,5.89,1.75,438
+BRC0757A,"Sanduíche, pão sírio, c/ queijo minas, alface e tomate","Cereais e derivados",197,8.79,27.9,5.29,1.51,276
+BRC0758A,"Sanduíche, pão francês, c/ ricota e temperos, alface e tomate","Cereais e derivados",188,8.34,30.9,3.13,1.72,412
+BRC0759A,"Sanduíche, pão forma integral, c/ ricota e temperos, alface e tomate","Cereais e derivados",163,8.7,23,3.34,3.06,319
+BRC0760A,"Sanduíche, pão forma tradicional, c/ ricota e temperos, alface e tomate","Cereais e derivados",168,8.19,25.8,3.27,1.75,501
+BRC0761A,"Sanduíche, pão sírio, c/ ricota e temperos, alface e tomate","Cereais e derivados",171,7.98,28.1,2.67,1.51,339
+BRC0762A,"Sanduíche, pão francês, c/ alface, tomate, cenoura, c/ molho de iogurte","Cereais e derivados",174,5.75,31.5,2.32,2.19,349
+BRC0763A,"Sanduíche, pão forma integral, c/ alface, tomate, cenoura, c/ molho de iogurte","Cereais e derivados",148,6.11,23.6,2.53,3.53,256
+BRC0764A,"Sanduíche, pão forma tradicional, c/ alface, tomate, cenoura, c/ molho de iogurte","Cereais e derivados",154,5.6,26.4,2.47,2.22,438
+BRC0765A,"Sanduíche, pão sírio, c/ alface, tomate, cenoura, c/ molho de iogurte","Cereais e derivados",157,5.38,28.7,1.86,1.98,276
+BRC0766A,"Sanduíche, pão francês, c/ alface, tomate, cenoura e pepino","Cereais e derivados",159,5.51,30.5,1.15,2.36,343
+BRC0767A,"Sanduíche, pão forma integral, c/ alface, tomate, cenoura e pepino","Cereais e derivados",133,5.87,22.7,1.36,3.7,250
+BRC0768A,"Sanduíche, pão forma tradicional, c/ alface, tomate, cenoura e pepino","Cereais e derivados",139,5.36,25.4,1.29,2.39,432
+BRC0769A,"Sanduíche, pão sírio, c/ alface, tomate, cenoura e pepino","Cereais e derivados",142,5.14,27.8,0.69,2.15,270
+BRC0852A,"Sanduíche, pão forma integral, c/ queijo minas, alface americana, cenoura crua, tomate, c/ maionese","Cereais e derivados",164,7.19,13.6,8.61,2.09,217
+BRC0001C,"Abacate, polpa, in natura, Brasil","Frutas e derivados",75,1.15,1.81,6.21,4.03,0
+BRC0054C,"Abacaxi, polpa, congelada, Brasil","Frutas e derivados",33,0.47,7.47,0.11,0.33,1.24
+BRC0002C,"Abacaxi, polpa, in natura, Brasil","Frutas e derivados",49,0.68,10.5,0.33,1.12,2.84
+BRC0003C,"Açaí, polpa (média de amostras), Brasil","Frutas e derivados",67,0.9,1.77,5.01,5.89,1.69
+BRC0004C,"Acerola, madura, polpa, Brasil","Frutas e derivados",30,0.71,5.13,0.38,1.75,0.67
+BRC0005C,"Ameixa, c/ casca, in natura, Brasil","Frutas e derivados",53,0.77,11.4,0,2.43,0
+BRC0006C,"Banana, in natura (média diferentes variedades), Brasil","Frutas e derivados",109,1.27,24.5,0.19,2.24,0
+BRC0007C,"Banana, var. Nanica (caturra ou dágua), in natura, Brasil","Frutas e derivados",91,1.32,20.1,0.21,1.7,0
+BRC0008C,"Banana, da terra, in natura, Brasil","Frutas e derivados",139,1.44,32.1,0.24,1.53,0
+BRC0009C,"Banana, maçã, in natura, Brasil","Frutas e derivados",108,1.49,23.9,0.27,2.38,0
+BRC0010C,"Banana, ouro, in natura, Brasil","Frutas e derivados",116,1.35,26.3,0.11,2.46,0
+BRC0011C,"Banana, prata, in natura, Brasil","Frutas e derivados",106,1.11,24,0.28,1.95,0
+BRC0049C,"Caju, polpa, in natura, Brasil (média de várias amostras)","Frutas e derivados",43,0.77,7.8,0.49,2.34,2.92
+BRC0050C,"Caju, suco, concentrado, envasado, Brasil","Frutas e derivados",45,0.4,10.1,0.2,0.63,38.4
+BRC0051C,"Caju, polpa, congelada, Brasil","Frutas e derivados",39,0.48,8.54,0.15,0.82,4.16
+BRC0012C,"Caqui,  c/ casca, in natura, Brasil","Frutas e derivados",67,0.48,13.7,0.2,4.56,2.09
+BRC0055C,"Carambola, c/ casca, in natura, Brasil","Frutas e derivados",46,0.87,9.45,0.18,2.03,4.1
+BRC0013C,"Coco, maduro, polpa, in natura, Brasil","Frutas e derivados",423,3.69,5.02,42,5.38,15.3
+BRC0057C,"Figo, enlatado, em calda, Brasil","Frutas e derivados",201,0.56,48.4,0.15,1.98,6.87
+BRC0056C,"Figo, in natura, Brasil","Frutas e derivados",42,0.97,8.45,0.16,1.79,0
+BRC0058C,"Fruta pão, in natura, Brasil","Frutas e derivados",63,1.08,11.6,0.19,5.55,0.8
+BRC0014C,"Goiaba, inteira, in natura, Brasil (média diferentes amostras)","Frutas e derivados",50,0.86,7.65,0.53,5.78,0
+BRC0015C,"Goiaba, branca, inteira, c/ casca, in natura, Brasil","Frutas e derivados",45,0.79,6.36,0.51,5.98,0
+BRC0016C,"Goiaba, vermelha, inteira, c/ casca,  in natura, Brasil (média diferentes amostras)","Frutas e derivados",50,0.92,7.69,0.54,5.59,0
+BRC0059C,"Jaca, in natura, Brasil","Frutas e derivados",93,1.4,20.1,0.27,2.39,1.8
+BRC0060C,"Jamelão, in natura, Brasil","Frutas e derivados",42,0.55,8.85,0.11,1.78,1.37
+BRC0061C,"Kiwi (quiuí), in natura, Brasil","Frutas e derivados",58,1.25,9.78,1,2.92,0
+BRC0017C,"Laranja, in natura, Brasil (média diferentes variedades)","Frutas e derivados",45,0.9,8.81,0.24,2.02,0.53
+BRC0018C,"Laranja, Baía, in natura, Brasil","Frutas e derivados",47,0.91,9.62,0.28,1.46,0
+BRC0040C,"Suco, laranja, Baía, s/ açúcar","Frutas e derivados",37,0.65,8.74,0,0,0
+BRC0019C,"Laranja, Lima, in natura, Brasil","Frutas e derivados",43,0.95,8.37,0.25,1.98,1.02
+BRC0041C,"Suco, laranja, Lima, s/ açúcar","Frutas e derivados",39,0.72,8.74,0.12,0.42,0
+BRC0020C,"Laranja, Pera, in natura, Brasil","Frutas e derivados",37,0.87,7.27,0.21,1.36,0
+BRC0042C,"Suco natural, laranja var. Pera, s/ açúcar (sem diluição em água), Brasil","Frutas e derivados",36,0.98,7.13,0.09,0.95,3.12
+BRC0021C,"Laranja, Seleta, in natura, Brasil","Frutas e derivados",51,0.83,9.92,0.36,2.87,0.99
+BRC0038C,"Suco, laranja, s/ açúcar (média diferentes variedades)","Frutas e derivados",37,0.69,8.3,0.11,0.17,0
+BRC0043C,"Suco, laranja, Valência, s/ açúcar","Frutas e derivados",36,0.48,8.13,0.12,0.42,0
+BRC0062C,"Limão, cravo, in natura, suco, sem diluição, Brasil","Frutas e derivados",22,0.33,5.25,0,0,0
+BRC0039C,"Suco, limão, galego, suco puro, s/ açúcar","Frutas e derivados",32,0.57,7.32,0.07,0,0
+BRC0022C,"Suco, limão, var. Tahiti, s/ açúcar (s/ diluição em água), Brasil","Frutas e derivados",46,0.94,9.9,0.14,1.18,1.25
+BRC0063C,"Maçã, Argentina, c/ casca, in natura, Brasil","Frutas e derivados",65,0.23,14.6,0.25,2.03,1.32
+BRC0064C,"Maçã, Fuji, c/ casca, in natura, Brasil","Frutas e derivados",59,0.29,13.8,0,1.35,0
+BRC0023C,"Maçã, c/ casca, in natura, Brasil (média diferentes variedades)","Frutas e derivados",64,0.29,13.6,0.49,2.07,0.66
+BRC0045C,"Mamão, Formosa, polpa, in natura, Brasil","Frutas e derivados",46,0.82,9.74,0.12,1.81,3.26
+BRC0044C,"Mamão, Papaia, polpa, in natura, Brasil","Frutas e derivados",42,0.5,9.19,0.2,1.03,1.61
+BRC0024C,"Mamão, polpa, in natura, Brasil (média diferentes variedades)","Frutas e derivados",43,0.57,8.89,0.25,1.83,2.44
+BRC0046C,"Manga, Haden, polpa, in natura, Brasil","Frutas e derivados",67,0.41,15.1,0.26,1.58,0.55
+BRC0047C,"Manga, Palmer, polpa, in natura, Brasil","Frutas e derivados",77,0.41,17.7,0.17,1.63,1.86
+BRC0048C,"Manga, Tommy Atkins, polpa, in natura, Brasil","Frutas e derivados",52,0.86,10.7,0.22,2.07,0
+BRC0025C,"Manga, polpa, in natura, Brasil (média diferentes variedades)","Frutas e derivados",64,0.53,13.8,0.32,2.14,0.92
+BRC0026C,"Maracujá, amarelo, polpa, in natura, Brasil","Frutas e derivados",73,1.99,11.1,2.1,1.14,1.58
+BRC0027C,"Melancia, polpa, in natura, Brasil","Frutas e derivados",29,0.7,6.4,0.06,0.13,0
+BRC0028C,"Melão, polpa, in natura, Brasil","Frutas e derivados",24,0.61,4.5,0.15,1.22,8.96
+BRC0065C,"Mexerica, ´Murcote´, in natura, Brasil","Frutas e derivados",58,0.88,11.8,0.13,3.07,1.17
+BRC0066C,"Mexerica, ´Rio´, in natura, Brasil","Frutas e derivados",35,0.65,6.61,0.13,2.73,1.82
+BRC0029C,"Morango, in natura, Brasil (média diferentes amostras)","Frutas e derivados",29,0.82,4.87,0.4,1.67,11
+BRC0067C,"Nêspera,  s/ casca, in natura, Brasil","Frutas e derivados",41,0.31,8.57,0,2.96,0
+BRC0030C,"Pera, c/ casca, in natura, Brasil (média diferentes variedades)","Frutas e derivados",53,0.4,11,0.23,3,0.49
+BRC0052C,"Pera, ´Park´,  c/ casca, in natura, Brasil","Frutas e derivados",61,0.24,13.1,0.23,2.98,0.98
+BRC0053C,"Pera, ´Williams´, c/ casca, in natura, Brasil","Frutas e derivados",53,0.57,11,0.11,3.01,0
+BRC0031C,"Pêssego, in natura, Brasil","Frutas e derivados",41,0.88,8.19,0.18,1.89,0
+BRC0068C,"Pitanga, in natura, Brasil (média diferentes amostras)","Frutas e derivados",36,0.85,6.58,0.2,2.67,1.43
+BRC0032C,"Tangerina, Ponkã, in natura, Brasil","Frutas e derivados",40,0.85,8.6,0.07,0.94,0
+BRC0033C,"Uva, in natura, Brasil","Frutas e derivados",56,0.55,12.8,0.2,0.93,3.96
+BRC0034C,"Uva, var. Itália, in natura, Brasil","Frutas e derivados",56,0.77,12.6,0.19,0.92,0
+BRC0035C,"Uva, Rubi, in natura, Brasil","Frutas e derivados",50,0.54,11.2,0.17,0.89,7.51
+BRC0069C,"Abiu, in natura, Brasil","Frutas e derivados",65,0.83,13.2,0.7,1.7,0
+BRC0070C,"Atemóia, in natura, Brasil","Frutas e derivados",103,0.97,23.2,0.3,2.14,0.79
+BRC0071C,"Cacau, polpa, in natura, Brasil","Frutas e derivados",78,0.95,17.2,0.14,2.19,0.7
+BRC0072C,"Cajá-Manga, in natura, Brasil","Frutas e derivados",45,1.28,8.87,0,2.58,1.44
+BRC0073C,"Cajá, polpa, congelada, Brasil","Frutas e derivados",26,0.59,5.01,0.17,1.36,6.95
+BRC0074C,"Ciriguela, in natura, Brasil","Frutas e derivados",76,1.4,15,0.36,3.9,1.68
+BRC0075C,"Cupuaçu, in natura, Brasil","Frutas e derivados",52,1.11,8.06,1.25,2.42,1.96
+BRC0076C,"Cupuaçu, polpa, congelada, Brasil","Frutas e derivados",51,0.84,9.8,0.59,1.59,0.69
+BRC0077C,"Graviola, in natura, Brasil","Frutas e derivados",64,0.85,13.9,0.21,1.91,4.16
+BRC0078C,"Graviola, polpa, congelada, Brasil","Frutas e derivados",40,0.57,8.6,0.14,1.19,3.05
+BRC0079C,"Jabuticaba, in natura, Brasil","Frutas e derivados",60,0.61,13,0.13,2.3,0
+BRC0080C,"Jambo, in natura, Brasil","Frutas e derivados",19,0.89,1.42,0.07,5.07,21.7
+BRC0081C,"Macaúba, in natura, Brasil","Frutas e derivados",403,2.08,0.5,40.7,13.4,0.65
+BRC0082C,"Maracujá, polpa, congelada, Brasil","Frutas e derivados",42,0.81,9.09,0.18,0.51,8.1
+BRC0083C,"Maracujá, suco, concentrado, envasado, Brasil","Frutas e derivados",42,0.77,9.28,0.19,0.35,21.7
+BRC0084C,"Pinha, in natura, Brasil","Frutas e derivados",91,1.49,19.1,0.32,3.36,1.34
+BRC0085C,"Pitanga, polpa, congelada, Brasil","Frutas e derivados",19,0.29,4.02,0.12,0.74,5.03
+BRC0086C,"Romã, in natura, Brasil","Frutas e derivados",61,0.4,14.7,0,0.44,0.59
+BRC0087C,"Tamarindo, in natura, Brasil","Frutas e derivados",294,3.21,66.1,0.46,6.45,0.36
+BRC0088C,"Tucumã, in natura, Brasil","Frutas e derivados",260,2.09,13.8,19.1,12.7,3.89
+BRC0089C,"Umbu, in natura, Brasil","Frutas e derivados",37,0.84,7.46,0,1.98,0
+BRC0090C,"Umbu, polpa, congelada, Brasil","Frutas e derivados",35,0.51,7.52,0.07,1.34,5.77
+BRC0174C,"Coco, água, industrializada, Brasil","Frutas e derivados",20,0,5.15,0,0.13,1.78
+BRC0175C,"Coco, leite, industrializado, Brasil","Frutas e derivados",176,1.01,1.5,18.4,0.68,44.3
+BRC0109C,"Suco natural, abacaxi, s/ açúcar","Frutas e derivados",17,0.23,3.6,0.11,0.38,0.97
+BRC0110C,"Suco natural, abacaxi, c/ açúcar","Frutas e derivados",46,0.23,11.1,0.11,0.35,1.85
+BRC0111C,"Suco natural, abacaxi e melão, s/ açúcar","Frutas e derivados",35,0.64,7.07,0.23,1.17,6.33
+BRC0112C,"Suco natural, abacaxi e melão, c/ açúcar","Frutas e derivados",63,0.6,14.3,0.21,1.08,6.79
+BRC0113C,"Suco natural, abacaxi, maracujá e caju, s/ açúcar","Frutas e derivados",43,0.57,9.31,0.25,0.76,14.7
+BRC0114C,"Suco natural, abacaxi, maracujá e caju, c/ açúcar","Frutas e derivados",69,0.54,16,0.23,0.71,14.5
+BRC0115C,"Suco natural, abacaxi, melão e maracujá, s/ açúcar","Frutas e derivados",35,0.63,7.24,0.21,0.92,8.94
+BRC0116C,"Suco natural, abacaxi, melão e maracujá, c/ açúcar","Frutas e derivados",62,0.59,14.1,0.19,0.85,9.16
+BRC0119C,"Suco natural, abacaxi, banana e cenoura, s/ açúcar","Frutas e derivados",27,0.6,5.19,0.15,1.4,4.42
+BRC0120C,"Suco natural, abacaxi, banana e cenoura, c/ açúcar","Frutas e derivados",63,0.56,14.4,0.14,1.26,5.18
+BRC0095C,"Açaí, polpa, com xarope de guaraná e glucose","Frutas e derivados",118,0.72,19.7,3.66,1.72,15.1
+BRC0160C,"Suco, açaí, c/ xarope de guaraná e glucose","Frutas e derivados",59,0.36,9.87,1.83,0.86,7.55
+BRC0149C,"Suco natural, acerola, s/ açúcar","Frutas e derivados",6,0.15,1.08,0.08,0.37,0.14
+BRC0150C,"Suco natural, acerola, c/ açúcar","Frutas e derivados",25,0.15,5.98,0.08,0.35,0.74
+BRC0094C,"Banana, doce, em barra, Brasil","Frutas e derivados",304,2.17,71.8,0.05,3.83,9.88
+BRC0093C,"Banana, Figo, in natura, Brasil","Frutas e derivados",110,1.1,25,0.1,2.8,0
+BRC0105C,"Banana, var. Narica (caturra ou dágua), à milanesa (farinha de rosca* e ovo), frita em imersão (c/ óleo de soja), s/ açúcar, Brasil","Frutas e derivados",256,3.77,29.2,13.3,2.32,50
+BRC0107C,"Banana, da terra, assada, s/ adição de ingredientes","Frutas e derivados",164,1.69,37.9,0.28,1.8,0
+BRC0106C,"Banana, nanica, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão, s/ açúcar","Frutas e derivados",293,2.97,40.6,12.8,2.03,33.7
+BRC0103C,"Banana, da terra, frita, c/ óleo de soja","Frutas e derivados",247,1.71,38.2,9.29,1.82,0
+BRC0104C,"Banana, da terra, frita, c/ manteiga","Frutas e derivados",235,1.74,38.2,8.03,1.82,0.35
+BRC0092C,"Banana, pacova, in natura, Brasil","Frutas e derivados",114,1.69,25.3,0.11,2.8,0.88
+BRC0135C,"Suco, concentrado, preparado, caju, s/ açúcar","Frutas e derivados",6,0.06,1.52,0.03,0.09,5.77
+BRC0136C,"Suco, concentrado, preparado, caju, c/ açúcar","Frutas e derivados",37,0.07,9.19,0.03,0.09,6.25
+BRC0151C,"Suco, polpa, congelada, preparado, cupuaçu, s/ açúcar","Frutas e derivados",10,0.18,2.06,0.13,0.34,0.15
+BRC0152C,"Suco, polpa, congelada, preparado, cupuaçu, c/ açúcar","Frutas e derivados",30,0.18,6.91,0.12,0.32,0.75
+BRC0097C,"Goiaba, doce, cascão, goiabada, Brasil","Frutas e derivados",308,0.42,74.3,0.1,4.37,11
+BRC0096C,"Goiaba, doce, em pasta, Brasil","Frutas e derivados",291,0.58,70.4,0,3.73,3.7
+BRC0121C,"Suco natural, goiaba, vermelha, s/ açúcar","Frutas e derivados",36,0.67,5.58,0.39,4.05,0
+BRC0122C,"Suco natural, goiaba, vermelha, c/ açúcar","Frutas e derivados",64,0.63,12.9,0.36,3.73,0.96
+BRC0123C,"Suco natural, laranja, abacaxi e beterraba, s/ açúcar","Frutas e derivados",42,0.94,8.67,0.17,1.05,2.87
+BRC0124C,"Suco natural, laranja, abacaxi e beterraba, c/ açúcar","Frutas e derivados",69,0.88,15.8,0.16,0.96,3.6
+BRC0125C,"Suco natural, laranja e acerola, s/ açúcar","Frutas e derivados",27,0.61,6.05,0.09,0.17,0.06
+BRC0126C,"Suco natural, laranja e acerola, c/ açúcar","Frutas e derivados",54,0.58,12.8,0.08,0.15,0.95
+BRC0153C,"Suco natural, laranja e banana, s/ açúcar","Frutas e derivados",47,0.76,9.98,0.17,1.58,0.29
+BRC0154C,"Suco natural, laranja e banana, c/ açúcar","Frutas e derivados",65,0.73,14.4,0.16,1.5,0.89
+BRC0155C,"Suco natural, laranja e beterraba, s/ açúcar","Frutas e derivados",45,1.18,8.53,0.2,2.38,2.95
+BRC0156C,"Suco natural, laranja e beterraba, c/ açúcar","Frutas e derivados",62,1.13,13.1,0.19,2.26,3.41
+BRC0157C,"Suco natural, laranja var. Pera, cenoura e beterraba, s/ açúcar (sem diluição em água), Brasil","Frutas e derivados",36,0.98,7.13,0.09,0.95,3.12
+BRC0158C,"Suco natural, laranja, cenoura e beterraba, c/ açúcar","Frutas e derivados",60,1.05,12.6,0.2,2.25,3.94
+BRC0137C,"Suco natural, laranja e cenoura, s/ açúcar","Frutas e derivados",32,0.85,6.66,0.12,0.9,3.34
+BRC0138C,"Suco natural, laranja e cenoura, c/ açúcar","Frutas e derivados",87,0.75,20.5,0.1,0.76,4.66
+BRC0127C,"Suco natural, laranja e mamão, s/ açúcar","Frutas e derivados",28,0.57,6.18,0.08,0.2,0.26
+BRC0128C,"Suco natural, laranja e mamão, c/ açúcar","Frutas e derivados",57,0.54,13.5,0.07,0.18,1.2
+BRC0129C,"Suco natural, laranja var. Pera, mamão, pera e maçã, s/ açúcar (sem diluição em água), Brasil","Frutas e derivados",39,0.64,8.63,0.15,0.69,0.36
+BRC0130C,"Suco natural, laranja, mamão, pera e maçã, c/ açúcar","Frutas e derivados",67,0.57,15.6,0.14,0.68,1.31
+BRC0131C,"Suco natural, laranja e morango, s/ açúcar","Frutas e derivados",32,0.76,6.99,0.14,0.35,2.32
+BRC0132C,"Suco natural, laranja var. Pera e morango, c/ açúcar (sem dilução em água, Brasil","Frutas e derivados",52,0.91,11.3,0.15,1.05,5.15
+BRC0108C,"Suco, laranjada, c/ açúcar","Frutas e derivados",43,0.28,10.5,0.03,0,0.96
+BRC0098C,"Mamão, doce, em calda, drenado, Brasil","Frutas e derivados",214,0.19,52.7,0.07,1.31,2.91
+BRC0139C,"Suco natural, mamão, s/ açúcar","Frutas e derivados",23,0.3,4.68,0.13,0.96,1.29
+BRC0140C,"Suco natural, mamão, c/ açúcar","Frutas e derivados",41,0.29,9.4,0.13,0.91,1.83
+BRC0099C,"Mamão, verde, doce, em calda, drenado, Brasil","Frutas e derivados",230,0.32,56.4,0.1,1.23,4.74
+BRC0141C,"Suco natural, manga, s/ açúcar","Frutas e derivados",20,0.17,4.36,0.1,0.68,0.29
+BRC0142C,"Suco natural, manga, c/ açúcar","Frutas e derivados",39,0.17,9.1,0.09,0.64,0.88
+BRC0133C,"Suco, concentrado, preparado, maracujá, s/ açúcar","Frutas e derivados",4,0.08,0.93,0.02,0.04,2.17
+BRC0134C,"Suco, concentrado, preparado, maracujá, c/ açúcar","Frutas e derivados",35,0.08,8.62,0.02,0.03,2.88
+BRC0143C,"Suco natural, maracujá, s/ açúcar","Frutas e derivados",6,0.19,1.05,0.2,0.11,0.15
+BRC0144C,"Suco natural, maracujá, c/ açúcar","Frutas e derivados",26,0.19,5.95,0.19,0.1,0.75
+BRC0117C,"Suco natural, melancia e acerola, s/ açúcar","Frutas e derivados",21,0.52,4.46,0.1,0.4,0.12
+BRC0118C,"Suco natural, melancia e acerola, c/ açúcar","Frutas e derivados",46,0.49,10.8,0.09,0.37,0.93
+BRC0145C,"Suco natural, melão, s/ açúcar","Frutas e derivados",13,0.33,2.47,0.08,0.67,4.91
+BRC0146C,"Suco natural, melão, c/ açúcar","Frutas e derivados",32,0.33,7.3,0.08,0.63,5.27
+BRC0147C,"Suco natural, morango, s/ açúcar","Frutas e derivados",16,0.45,2.67,0.22,0.91,6.01
+BRC0148C,"Suco natural, morango, c/ açúcar","Frutas e derivados",34,0.42,7.39,0.2,0.83,6.1
+BRC0173C,"Pequi, polpa, maduro, in natura, Brasil (média diferentes amostras)","Frutas e derivados",232,2.34,5.95,18,19,1.74
+BRC0100C,"Pêssego, enlatado, em calda, drenado, Brasil","Frutas e derivados",68,0.71,15.9,0,1.02,3.2
+BRC0159C,"Suco, pêssego, com fruta em calda","Frutas e derivados",34,0.35,7.93,0,0.51,1.6
+BRC0101C,"Suco, mexerica, Poncã, s/ açúcar","Frutas e derivados",37,0.52,8.76,0,0,0
+BRC0102C,"Uva, suco, concentrado, envasado, Brasil","Frutas e derivados",58,0,14.5,0,0.23,9.58
+BRC0170C,"Amora preta, in natura, Brasil","Frutas e derivados",35,1.39,6.25,0.49,0.49,0.75
+BRC0171C,"Uva passa, s/ caroço (importada)","Frutas e derivados",326,3.07,75.5,0.46,3.7,11
+BRC0172C,"Maçã , verde, s/ casca, in natura (dado importado)","Frutas e derivados",54,0.3,12.1,0,2.4,2
+BRC0460B,"Alcachofra, cozida, drenada, s/ óleo, s/ sal (dado importado)","Vegetais e derivados",51,2.89,6.25,0.34,5.7,60
+BRC0461B,"Aspargo, in natura (dado importado)","Vegetais e derivados",21,2.2,1.78,0.12,2.1,2
+BRC0462B,"Aspargo, cozido, drenado, s/ óleo, s/ sal (dado importado)","Vegetais e derivados",24,2.4,2.11,0.22,2,14
+BRC0001E,"Crustáceo, camarão, s/ casca, cozido, drenado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",82,17.7,0.01,1.28,0,366
+BRC0002E,"Crustáceo, camarão, s/ casca, cru, Brasil","Pescados e frutos do mar",45,10.3,0,0.43,0,208
+BRC0003E,"Crustáceo, camarão, Sete Barbas, sem cabeça, com casca, frito, s/ sal, Brasil","Pescados e frutos do mar",225,18.4,2.88,15.6,0,99.1
+BRC0004E,"Crustáceo, caranguejo, cozido, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",98,19.8,0.22,2.02,0,360
+BRC0005E,"Crustáceo, caranguejo, cru, Brasil","Pescados e frutos do mar",89,13.3,8.09,0.39,0,243
+BRC0006E,"Crustáceo, lagosta, cozido, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",83,19,0.08,0.74,0,147
+BRC0007E,"Crustáceo, lagosta, cru, Brasil","Pescados e frutos do mar",92,21.4,0.09,0.7,0,162
+BRC0008E,"Crustáceo, siri, azul, cru, Brasil","Pescados e frutos do mar",107,19.2,0,3.4,0,
+BRC0009E,"Molusco, lula, músculo, cru, Brasil","Pescados e frutos do mar",106,14.4,7.7,2,0,52.9
+BRC0010E,"Molusco, mexilhão, cru, Brasil","Pescados e frutos do mar",70,12.7,2.53,1.1,0,271
+BRC0011E,"Molusco, mexilhão, cozido, drenado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",77,15.8,0,1.59,,183
+BRC0012E,"Molusco, mexilhão (marisco), cru, Brasil","Pescados e frutos do mar",81,6.77,6.71,3.09,0,284
+BRC0013E,"Molusco, mexilhão, Sururu, cozido, c/ leite de coco, s/ sal","Pescados e frutos do mar",130,12,4.68,7.09,0,395
+BRC0014E,"Molusco, mexilhão, Sururu, cru, Brasil","Pescados e frutos do mar",105,17.3,0.42,3.84,0,343
+BRC0015E,"Molusco, mexilhão, Unha de Velho, cozido, c/ leite de coco, s/ sal","Pescados e frutos do mar",144,14,6.9,6.75,0,457
+BRC0016E,"Molusco, mexilhão, Unha de Velho, cru, Brasil","Pescados e frutos do mar",100,16.4,2.46,2.84,0,343
+BRC0017E,"Molusco, ostra, cozido, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",97,15.8,3.18,2.34,0,57.5
+BRC0018E,"Molusco, ostra, cru, Brasil","Pescados e frutos do mar",70,10.5,3.29,1.67,0,61.4
+BRC0019E,"Peixe, água doce, Corvina, cru, Brasil","Pescados e frutos do mar",96,18.1,0.03,2.64,,45.1
+BRC0020E,"Peixe, água doce, corimba/curimatã, filé, cru, Brasil","Pescados e frutos do mar",147,18,0,8.42,0,47
+BRC0021E,"Peixe, água doce, corimba/curimatã, inteiro, cru, Brasil","Pescados e frutos do mar",234,16.1,3.15,17.6,0,73.3
+BRC0022E,"Peixe, água doce, corimbatá, assado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",255,19.9,0,19.6,0,40.4
+BRC0023E,"Peixe, água doce, Corimbatá, cozido, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",226,19.7,0,16.4,0,37.2
+BRC0024E,"Peixe, água doce, dourado, cru, Brasil","Pescados e frutos do mar",100,18.4,0,2.97,0,40.3
+BRC0025E,"Peixe, água doce, lambari, congelado, cru, Brasil","Pescados e frutos do mar",130,16.8,1.18,6.55,0,47.9
+BRC0026E,"Peixe, água doce, lambari, congelado, frito, s/ sal, Brasil","Pescados e frutos do mar",328,28.4,2.49,22.8,0,64.6
+BRC0027E,"Peixe, água doce, lambari, cru, Basil","Pescados e frutos do mar",149,15.7,0.57,9.4,0,41.1
+BRC0028E,"Peixe, água doce, pintado, assado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",183,36.5,0.56,3.98,0,81
+BRC0029E,"Peixe, água doce, Pintado, cru, Brasil","Pescados e frutos do mar",85,18.4,0,1.31,0,43.3
+BRC0030E,"Peixe, água doce, pintado, grelhado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",143,30.8,0.04,2.29,0,53.1
+BRC0031E,"Peixe, água doce, tilápia, filé, cru, Brasil","Pescados e frutos do mar",93,18.1,0,2.3,0,52
+BRC0032E,"Peixe, água doce, Tucunaré, filé, cru, Brasil","Pescados e frutos do mar",94,19.2,0.57,1.76,0,56.6
+BRC0033E,"Peixe, água doce, tucunaré, inteiro, cru, Brasil","Pescados e frutos do mar",132,23.1,0,4.65,0,86.6
+BRC0034E,"Peixe, água salgada, abadejo, filé, congelado, assado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",104,23.3,0,1.24,0,334
+BRC0035E,"Peixe, água salgada, abadejo, filé, congelado, cru, Brasil","Pescados e frutos do mar",55,13,0,0.36,0,78.5
+BRC0036E,"Peixe, água salgada, abadejo, filé, congelado, grelhado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",121,27.3,0.04,1.3,0,305
+BRC0037E,"Peixe, água salgada, abadejo, filé, congelado, cozido, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",85,19.3,0,0.94,0,189
+BRC0038E,"Peixe, água salgada, atum, ralado, conserva em óleo, Brasil","Pescados e frutos do mar",187,23.6,1.23,9.8,0,367
+BRC0039E,"Peixe, água salgada, atum, sólido, conserva em óleo, Brasil","Pescados e frutos do mar",147,26.2,1.37,4.1,0,337
+BRC0040E,"Peixe, água salgada, atum, conserva em óleo (média de diferentes marcas, sólido e ralado)","Pescados e frutos do mar",171,26.3,1.58,6.63,0,356
+BRC0042E,"Peixe, água salgada, atum, cru, Brasil","Pescados e frutos do mar",109,25.5,0.04,0.87,0,30.3
+BRC0043E,"Peixe, água salgada, bacalhau, salgado, cru, Brasil","Pescados e frutos do mar",127,28.8,0,1.32,0,13585
+BRC0044E,"Peixe, água salgada, bacalhau, salgado, dessalgado, refogado (c/ óleo de soja, cebola e alho), s/ sal, Brasil","Pescados e frutos do mar",133,24,1.22,3.61,0,1256
+BRC0045E,"Peixe, água salgada, cação posta, frito, c/ farinha de trigo, s/ sal","Pescados e frutos do mar",200,25,2.56,9.95,0.54,160
+BRC0046E,"Peixe, água salgada, cação, cru, Brasil","Pescados e frutos do mar",97,22.3,0,0.91,0,114
+BRC0047E,"Peixe, água salgada, cação, cru, Brasil (média de diferentes espécies)","Pescados e frutos do mar",82,17.3,1.87,0.67,0,176
+BRC0048E,"Peixe, água salgada, cavalinha, escabeche (molho com vinagre, óleo e temperos),  s/ sal","Pescados e frutos do mar",184,24.3,0,9.7,0,75.8
+BRC0049E,"Peixe, água salgada, corvina, crua, Brasil","Pescados e frutos do mar",87,18.4,0,1.58,0,68
+BRC0050E,"Peixe, água salgada, corvina, assado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",138,26.6,0.01,3.57,0,85.4
+BRC0051E,"Peixe, água salgada, corvina, cozido, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",116,23.3,0,2.56,0,68.4
+BRC0052E,"Peixe, água salgada, pescada branca, cru, Brasil","Pescados e frutos do mar",104,16,0.04,4.49,0,76.2
+BRC0053E,"Peixe, água salgada, pescada branca, frita, s/ sal, Brasil","Pescados e frutos do mar",217,27.4,0.62,11.8,0,107
+BRC0054E,"Peixe, água salgada, pescada, filé empanado, frito, s/ sal","Pescados e frutos do mar",277,21.4,5.03,19.1,0,90.5
+BRC0055E,"Peixe, água salgada, pescada, filé, cru, Brasil","Pescados e frutos do mar",100,16.5,0,3.9,0,77.5
+BRC0056E,"Peixe, água salgada, pescada, filé, frito, s/ sal, Brasil","Pescados e frutos do mar",145,28.4,0,3.57,0,114
+BRC0057E,"Peixe, água salgada, pescada, filé, escabeche (molho com vinagre, óleo e temperos), s/ sal","Pescados e frutos do mar",137,11.8,4.24,8.02,0.78,51.3
+BRC0058E,"Peixe, água salgada, pescadinha/tortinha, cru, Brasil","Pescados e frutos do mar",77,16.3,0.44,1.22,0,120
+BRC0059E,"Peixe, água salgada, porquinho, cru, Brasil","Pescados e frutos do mar",83,19.4,0.04,0.66,0,66.7
+BRC0060E,"Peixe, água salgada, Manjuba, frito, c/ farinha de trigo, s/ sal","Pescados e frutos do mar",338,23.5,10.2,22.6,,36.5
+BRC0061E,"Peixe, água salgada, Manjuba, frita, s/ sal, Brasil","Pescados e frutos do mar",342,30.1,0.49,24.5,,40.6
+BRC0062E,"Peixe, água salgada, Merluza, filé, assado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",116,26.6,0.51,0.92,0,119
+BRC0063E,"Peixe, água salgada, merluza, filé, cru, Brasil","Pescados e frutos do mar",83,16.2,0.02,2.02,0,79.5
+BRC0064E,"Peixe, água salgada, Merluza, filé, frito, s/ sal, Brasil","Pescados e frutos do mar",183,26.8,0,8.5,0,90
+BRC0065E,"Peixe, água salgada, salmão, s/ pele,  cru, Brasil","Pescados e frutos do mar",164,19.4,0,9.7,0,64.2
+BRC0066E,"Peixe, água salgada, salmão, filé, c/ pele, fresco, grelhado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",221,23.9,0,14,0,85.1
+BRC0067E,"Peixe, água salgada, salmão, s/ pele, fresco, grelhado, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",233,26,0,14.4,0,95.8
+BRC0068E,"Peixe, água salgada, sardinha, assada, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",176,27,10.3,2.99,0,74.5
+BRC0069E,"Peixe, água salgada, sardinha, inteira, crua, Brasil","Pescados e frutos do mar",135,20.9,0,5.78,0,61.4
+BRC0070E,"Peixe, água salgada, sardinha, filé, crua, Brasil","Pescados e frutos do mar",139,18.8,0.04,7.12,0,71.5
+BRC0071E,"Peixe, água salgada, sardinha, conserva, c/ molho de tomate, Brasil","Pescados e frutos do mar",211,24.8,0.02,12.4,0.22,311
+BRC0072E,"Peixe, água salgada, sardinha, filé, conserva, c/ molho de tomate temperado, Brasil","Pescados e frutos do mar",149,25.2,2.88,4.1,0.22,424
+BRC0073E,"Peixe, água salgada, sardinha, filé, conserva, em óleo, Brasil","Pescados e frutos do mar",277,18.1,0.01,22.8,0,665
+BRC0074E,"Peixe, água salgada, sardinha, filé, c/ cebola e louro, conserva, Brasil","Pescados e frutos do mar",151,26.4,1.64,4.4,0.1,304
+BRC0075E,"Peixe, água salgada, sardinha, filé, cozido/30 min, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",144,27.3,1.9,3.07,0,65.6
+BRC0076E,"Peixe, sardinha, filé, micro-ondas/10 min, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",231,44.2,0,6.02,0,50.3
+BRC0077E,"Peixe, água salgada, sardinha, frita, s/ sal, Brasil","Pescados e frutos do mar",251,33.7,0,13,0,60.1
+BRC0078E,"Peixe, água salgada, tainha, filé, assado/45 min, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",178,21.5,3.33,8.83,0,55.7
+BRC0079E,"Peixe, água salgada, tainha, filé, cozido/30 min, s/ óleo, s/ sal, Brasil","Pescados e frutos do mar",189,29.2,0,8.03,0,50.3
+BRC0080E,"Peixe, água salgada, tainha, filé, cru, Brasil","Pescados e frutos do mar",150,25.2,0,5.5,0,48.6
+BRC0081E,"Peixe, água salgada, tainha, filé, preparado em micro-ondas, s/ óleo, s/ sal, Brazil","Pescados e frutos do mar",184,32,1.33,5.7,0,48.3
+BRC0082E,"Peixe, água salgada, surimi, fresco, Brasil","Pescados e frutos do mar",66,13.7,1.72,0.56,0,99
+BRC0083E,"Camarão à baiana, s/ sal","Pescados e frutos do mar",97,7.94,2.79,5.97,0.39,84.8
+BRC0001B,"Abóbora, s/ casca, s/ sementes, crua, Brasil","Vegetais e derivados",21,1.05,3.01,0.18,2.02,0.19
+BRC0002B,"Abóbora, cabotian (japonesa), s/ casca, s/sementes, crua, Brasil","Vegetais e derivados",40,1.75,6.19,0.54,2.17,0
+BRC0003B,"Abóbora, menina brasileira, s/ casca, s/ sementes, crua, Brasil","Vegetais e derivados",13,0.61,2.17,0,1.17,0
+BRC0004B,"Abóbora, moranga, s/ casca, s/ sementes, crua, Brasil","Vegetais e derivados",15,1.12,1.44,0.13,2.22,0
+BRC0005B,"Abóbora, pescoço, s/ casca, s/ sementes, crua, Brasil","Vegetais e derivados",23,0.67,3.82,0.12,2.3,0.75
+BRC0006B,"Abobrinha, italiana, c/ casca, crua, Brasil","Vegetais e derivados",17,1.01,2.43,0.12,1.28,0
+BRC0007B,"Acelga, crua, Brasil","Vegetais e derivados",23,1.44,3.51,0.11,1.12,1.18
+BRC0008B,"Agrião, cru, Brasil","Vegetais e derivados",23,3.17,0.59,0.45,1.98,10.7
+BRC0009B,"Alface, crua, Brasil","Vegetais e derivados",9,1.08,0,0.12,1.79,4.2
+BRC0010B,"Alho, cru, Brasil","Vegetais e derivados",121,5.7,22.6,0.2,3.19,5.43
+BRC0011B,"Almeirão (chicória amarga), cru, Brasil","Vegetais e derivados",20,1.78,1.08,0.29,3.04,2.76
+BRC0012B,"Batata, doce, s/ casca, crua, Brasil","Vegetais e derivados",117,1.78,25.5,0.23,3.17,9.46
+BRC0013B,"Batata, inglesa, s/ casca, crua, Brasil","Vegetais e derivados",71,2.04,15.2,0.04,1.32,0
+BRC0014B,"Berinjela, c/ casca, crua, Brasil","Vegetais e derivados",18,1.01,1.88,0.13,2.69,0
+BRC0015B,"Beterraba, s/ casca, crua, Brasil","Vegetais e derivados",46,1.95,7.74,0.09,3.37,9.72
+BRC0016B,"Brócolis, cru, Brasil","Vegetais e derivados",36,4.14,1.96,0.72,3.04,4.21
+BRC0017B,"Cará (ube, inhame roxo), s/ casca, cru, Brasil","Vegetais e derivados",87,2.28,15.7,0.14,7.27,0
+BRC0018B,"Cebola, branca, crua, Brasil","Vegetais e derivados",40,1.76,7.16,0.13,2.04,0.62
+BRC0019B,"Cebolinha, verde, crua, Brasil","Vegetais e derivados",18,1.66,1.16,0.3,2.39,1.6
+BRC0020B,"Cenoura, s/ casca, crua, Brasil","Vegetais e derivados",30,1.12,4.56,0.21,2.98,11.1
+BRC0021B,"Cheiro verde (50% cebolinha verde, 50% salsa), cru, Brasil","Vegetais e derivados",33,2.78,3.19,0.43,2.65,2.32
+BRC0022B,"Chuchu, s/ casca, cru, Brasil","Vegetais e derivados",17,0.89,2.77,0.06,1.4,0
+BRC0023B,"Couve, manteiga, crua, Brasil","Vegetais e derivados",27,2.87,1.21,0.55,3.12,9.09
+BRC0024B,"Couve-flor, crua, Brasil","Vegetais e derivados",27,1.98,3.01,0.26,2.42,3.97
+BRC0025B,"Inhame (taro), s/ casca, cru, Brasil","Vegetais e derivados",88,2.27,18.7,0.14,1.59,0
+BRC0026B,"Jiló, c/ casca, cru, Brasil","Vegetais e derivados",22,1.4,1.36,0.22,4.83,0
+BRC0027B,"Mandioca (aipim, macaxeira), s/ casca, crua, Brasil","Vegetais e derivados",132,0.98,30.5,0.22,2.09,1.95
+BRC0028B,"Batata, baroa (mandioquinha, batata salsa), s/ casca, crua, Brasil","Vegetais e derivados",86,0.82,19.6,0.12,1.93,0
+BRC0029B,"Maxixe, maduro, c/ casca, cru, Brasil","Vegetais e derivados",17,0.9,1.71,0.22,2.74,22.9
+BRC0030B,"Pepino, c/ casca, cru, Brasil","Vegetais e derivados",10,0.7,1.2,0.09,1.04,0
+BRC0031B,"Pimentão, cru, Brasil (média de diferentes tipos)","Vegetais e derivados",24,1.1,3.57,0.27,1.67,0
+BRC0032B,"Quiabo, cru, Brasil","Vegetais e derivados",26,1.77,2.45,0.2,4.08,0.87
+BRC0033B,"Repolho, branco, cru, Brasil","Vegetais e derivados",19,1.12,2.5,0.14,1.92,3.32
+BRC0034B,"Salsa (salsinha), crua, Brasil","Vegetais e derivados",47,3.91,5.23,0.56,2.91,3.04
+BRC0035B,"Tomate, cru, Brasil","Vegetais e derivados",17,1.04,2.22,0.17,1.6,3.13
+BRC0037B,"Pimentão, verde, cru, Brasil","Vegetais e derivados",20,0.91,2.79,0.27,1.59,0
+BRC0038B,"Pimentão, vermelho, cru, Brasil","Vegetais e derivados",24,1.04,3.87,0.15,1.59,0
+BRC0039B,"Pimentão, amarelo, cru, Brasil","Vegetais e derivados",26,1.21,3.82,0.3,1.8,0
+BRC0040B,"Abobrinha, italiana, c/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",14,0.99,1.32,0.23,1.51,0.79
+BRC0041B,"Batata, inglesa, s/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",51,1.33,10.8,0.05,1.47,2.37
+BRC0042B,"Batata, doce, s/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",91,0.85,20.3,0.18,2.74,3.39
+BRC0043B,"Berinjela, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",26,0.79,4.29,0.24,1.91,1.77
+BRC0044B,"Beterraba, s/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",26,1.23,4.25,0.09,2.04,19.9
+BRC0045B,"Brócolis, flor, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",26,2.71,1.17,0.54,3.28,2.38
+BRC0046B,"Cará (inhame), s/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",77,1.53,16.2,0.11,2.64,1.01
+BRC0047B,"Cenoura, s/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",16,0.54,2.13,0.2,2.18,5.13
+BRC0048B,"Batata, inglesa, frita (c/ óleo de soja), s/ sal, Brasil","Vegetais e derivados",247,4.06,29.4,11.9,3.18,1.74
+BRC0049B,"Batata inglesa, chips, frita, c/ sal, Brasil","Vegetais e derivados",541,5.44,47.5,35.8,4,624
+BRC0050B,"Chuchu, s/ casca, cozido, drenado, s/ óleo, s/ sal, BrasiI","Vegetais e derivados",20,0.5,3.7,0.15,1.39,1.97
+BRC0051B,"Couve, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",25,2.66,1.12,0.51,2.89,10.7
+BRC0052B,"Couve-flor, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",16,1.28,1.36,0.2,2.05,1.64
+BRC0053B,"Mandioca (aipim, macaxeira), s/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",120,0.64,28,0.24,1.77,0.9
+BRC0054B,"Batata, baroa (mandioquinha, batata salsa), s/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",77,0.85,17.2,0.17,1.76,2.1
+BRC0055B,"Quiabo, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",20,1.32,1.94,0.12,3.13,0.49
+BRC0056B,"Repolho, branco, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",22,1.54,2.77,0.34,1.28,2.48
+BRC0057B,"Salsa (salsinha), cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",42,3.39,4.43,0.56,3.17,2.74
+BRC0059B,"Abóbora, cabotian (japonesa), s/ casca, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",50,1.44,8.3,0.73,2.46,1.45
+BRC0060B,"Alface, crespa, crua, brasil","Vegetais e derivados",10,1.35,0,0.16,1.83,3.38
+BRC0061B,"Alface, lisa, crua, Brasil","Vegetais e derivados",12,1.7,0.1,0.12,2.33,4.23
+BRC0062B,"Alface, roxa, crua, Brasil","Vegetais e derivados",11,0.91,0.48,0.19,2.01,7.12
+BRC0063B,"Alface, americana, crua, Brasil","Vegetais e derivados",6,0.41,0.26,0.11,1.24,5.93
+BRC0064B,"Abóbora, paulista, crua, Brasil","Vegetais e derivados",30,0.64,5.26,0.14,2.61,0.5
+BRC0065B,"Aipo (salsão), cru, Brasil","Vegetais e derivados",18,0.76,3.32,0.07,0.96,9.52
+BRC0067B,"Alfavaca (manjericão-doce), crua, Brasil","Vegetais e derivados",27,2.66,1.1,0.48,4.14,4.55
+BRC0068B,"Alho-poró, cru, Brasil","Vegetais e derivados",29,1.41,4.37,0.14,2.51,1.76
+BRC0069B,"Caruru, folha, crua, Brasil","Vegetais e derivados",33,3.2,1.51,0.59,4.47,13.7
+BRC0070B,"Catalonha, crua, Brasil","Vegetais e derivados",24,1.87,2.7,0.28,2.05,9.39
+BRC0071B,"Chicória, crua, Brasil","Vegetais e derivados",12,1.14,0.56,0.14,2.2,16.3
+BRC0072B,"Espinafre, folha, cru, Brasil","Vegetais e derivados",23,2.24,1.34,0.35,2.83,23
+BRC0074B,"Feijão, broto, cru, Brasil","Vegetais e derivados",44,4.17,5.79,0.1,1.97,1.79
+BRC0075B,"Manjericão, in natura, Brasil","Vegetais e derivados",19,1.99,0.34,0.39,3.31,3.89
+BRC0076B,"Mostarda, folha, crua, Brasil","Vegetais e derivados",26,2.12,2.24,0.5,2.18,3.32
+BRC0077B,"Nabo, c/ casca, cru, Brasil","Vegetais e derivados",18,0.91,2.59,0.06,1.88,2.38
+BRC0078B,"Palmito, conversa, drenado (média de variedades - Pupunha e Juçara), Brasil","Vegetais e derivados",25,2.44,1.57,0.34,3.12,538
+BRC0079B,"Rabanete, c/ casca, cru, Brasil","Vegetais e derivados",13,1.13,1.2,0.08,1.81,10.9
+BRC0080B,"Repolho, roxo, cru, Brasil","Vegetais e derivados",21,1.22,3.19,0.06,1.68,1.57
+BRC0081B,"Rúcula, crua, Brasil","Vegetais e derivados",17,2.48,0.29,0.12,2.44,6.71
+BRC0082B,"Serralha, folha, crua, Brasil","Vegetais e derivados",30,2.67,1.43,0.74,3.52,19.3
+BRC0083B,"Taioba, folha, crua, Brasil","Vegetais e derivados",48,3.65,3.19,1.34,4.5,1.48
+BRC0084B,"Cebolinha, verde, cozida, s/ óleo, s/ sal, Brasil","Vegetais e derivados",9,0.89,0.92,0.15,0.68,1.61
+BRC0120B,"Azeitona, preta, conserva, drenada, Brasil","Vegetais e derivados",200,1.16,0.99,20.3,4.56,1566
+BRC0121B,"Azeitona, verde, conserva, drenada, Brasil","Vegetais e derivados",140,0.95,0.26,14.2,3.85,1347
+BRC0123B,"Pão, de queijo, industrializado, assado, Brasil","Vegetais e derivados",380,7.18,35,23.4,0.61,804
+BRC0124B,"Pão, de queijo, industrializado, massa congelada, crua, Brasil","Vegetais e derivados",295,3.65,38.7,14,,406
+BRC0125B,"Sopa, creme, ervilha, industrializada, congelada, preparada, Brasil","Vegetais e derivados",72,5.55,6.4,1.2,6.85,445
+BRC0126B,"Sopa, creme, ervilha, industrializada, desidratada, preparada, Brasil","Vegetais e derivados",30,0.96,3.47,1.11,1.18,166
+BRC0127B,"Purê de abóbora, c/ sal","Vegetais e derivados",50,0.96,8.87,0.91,1.7,315
+BRC0128B,"Charuto de repolho, com arroz polido e carne moída, s/ molho, s/ sal","Vegetais e derivados",74,6.78,8.67,1.12,1.46,12.1
+BRC0119B,"Cuxá, molho, s/ sal","Vegetais e derivados",72,5.64,2.72,3.59,3.02,1344
+BRC0130B,"Maniçoba, s/ sal","Vegetais e derivados",127,9.96,1.26,8.7,2.16,406
+BRC0131B,"Quibebe, carne seca (carne de sol, jaba) dessalgada, s/ sal, Brasil","Vegetais e derivados",81,8.56,4.98,2.67,1.67,246
+BRC0132B,"Salada de legumes, c/ maionese, s/ sal","Vegetais e derivados",98,1.05,6.71,7.04,2.22,228
+BRC0133B,"Salada de legumes, cozidos no vapor, s/ sal","Vegetais e derivados",34,2.01,4.58,0.31,2.51,2.51
+BRC0134B,"Salpicão, de frango, s/ sal","Vegetais e derivados",143,13.9,4.16,7.84,0.41,248
+BRC0135B,"Tabule, s/ sal, Brazil","Vegetais e derivados",57,2.05,8.5,1.21,2.08,1.19
+BRC0136B,"Tacacá, s/ sal","Vegetais e derivados",44,6.96,3.18,0.36,0.21,1349
+BRC0137B,"Tapioca, c/ manteiga, c/ sal","Vegetais e derivados",352,0.09,63.6,10.9,0,157
+BRC0139B,"Tucupi, com pimenta-de-cheiro, s/ óleo, s/ sal","Vegetais e derivados",28,2.06,4.51,0.28,0.23,5.13
+BRC0101B,"Abóbora, moranga, refogada (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",29,0.39,4.44,0.8,1.55,3.03
+BRC0104B,"Abobrinha, italiana, c/ casca, refogada (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",25,1.07,2.81,0.82,1.38,2.21
+BRC0096B,"Biscoito, polvilho, doce, industrializado, Brasil","Vegetais e derivados",435,1.29,79.4,12.2,1.16,97.8
+BRC0110B,"Cheiro-verde (50% cebolinha verde, 50% salsa), cozido, s/ óleo, s/ sal, Brasil","Vegetais e derivados",26,2.14,2.68,0.36,1.93,2.17
+BRC0086B,"Jurubeba, crua, Brasil","Vegetais e derivados",100,4.41,0,3.91,23.9,0.77
+BRC0103B,"Batata, inglesa, sauté (c/ margarina e salsa), s/ sal","Vegetais e derivados",66,1.29,12.7,0.9,1.38,8.18
+BRC0097B,"Polvilho, doce, Brasil","Vegetais e derivados",348,0.43,86.6,0,0.24,1.58
+BRC0095B,"Legumes, seleta, enlatada, drenada, Brasil","Vegetais e derivados",46,3.11,6.39,0.28,2.95,314
+BRC0098B,"Tomate, extrato, industrializado, Brasil","Vegetais e derivados",61,2.72,10.7,0.3,2.8,476
+BRC0099B,"Tomate, purê, industrializado, Brasil","Vegetais e derivados",23,1.05,4.07,0.08,1.16,103
+BRC0100B,"Tomate, molho, industrializado, Brasil","Vegetais e derivados",35,1.61,3.18,1.06,3.64,488
+BRC0091B,"Mandioca (aipim, macaxeira), frita, s/ sal, Brasil","Vegetais e derivados",303,1.38,48.4,11.2,1.87,8.94
+BRC0089B,"Mandioca, farofa, temperada, c/ sal, Brasil","Vegetais e derivados",395,2.06,72.5,9.12,7.82,574
+BRC0073B,"Espinafre, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",19,1.84,1.57,0.26,1.9,13.3
+BRC0085B,"Coentro, folhas, desidratadas, Brasil","Vegetais e derivados",294,20.9,10.7,10.4,37.3,18.3
+BRC0087B,"Mandioca, farinha, crua, Brasil","Vegetais e derivados",348,1.69,81.5,0.42,6.03,1.03
+BRC0088B,"Farinha, mandioca (aipim, macaxeira), torrada, industrializada, Brasil","Vegetais e derivados",351,1.23,82.7,0.29,6.54,10.3
+BRC0092B,"Mandioca, farinha, fermentada, puba, crua, Brasil","Vegetais e derivados",351,1.62,83,0.47,4.24,3.61
+BRC0094B,"Pão, de queijo, industrializado, cru, Brasil","Vegetais e derivados",292,3.65,37.5,14,0.98,404
+BRC0102B,"Couve, manteiga, refogada (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",82,2.03,1.49,6.41,5.59,10.4
+BRC0105B,"Almeirão (chicória amarga), refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",86,1.68,1.08,7.2,5.07,17.7
+BRC0106B,"Catalonha, refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",62,1.95,1.16,4.81,3.65,24.7
+BRC0107B,"Espinafre, refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",71,2.72,1.72,5.44,2.52,47
+BRC0109B,"Repolho, roxo, refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",45,1.8,5.81,1.24,1.75,3.42
+BRC0111B,"Nhoque (batata, ovo, margarina e farinha de trigo), cozido, s/ molho, s/ sal","Vegetais e derivados",184,5.86,35,1.94,1.78,7.07
+BRC0354B,"Abóbora, moranga, s/ casca, s/ semente, assada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",24,1.68,2.16,0.2,3.33,0
+BRC0355B,"Abóbora, moranga, s/ casca, s/ semente, assada, s/ óleo, c/ sal, Brasil","Vegetais e derivados",25,1.8,2.33,0.21,3.59,127
+BRC0166B,"Abóbora, moranga, s/ casca, s/ semente, cozida, drenada, s/ óleo, c/ sal","Vegetais e derivados",17,1.21,1.57,0.14,2.41,127
+BRC0165B,"Abóbora, moranga, s/ casca, s/ semente, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",17,1.22,1.57,0.14,2.42,0
+BRC0225B,"Abóbora, moranga, s/ casca, s/ semente, cozida, drenada, c/ óleo de soja, s/ sal","Vegetais e derivados",38,1.19,1.53,2.53,2.36,0
+BRC0226B,"Abóbora, moranga, s/ casca, s/ semente, cozida, drenada, c/ óleo de soja, c/ sal","Vegetais e derivados",38,1.18,1.53,2.52,2.36,127
+BRC0151B,"Abóbora, moranga, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",29,0.39,4.44,0.8,1.55,130
+BRC0227B,"Abóbora, pescoço, s/ casca, s/ semente, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",25,0.73,4.17,0.13,2.51,0.61
+BRC0228B,"Abóbora, pescoço, s/ casca, s/ semente, cozida, drenada, s/ óleo, c/ sal","Vegetais e derivados",25,0.73,4.15,0.13,2.5,128
+BRC0152B,"Abobrinha, italiana, c/ casca, cozida, drenada, s/ óleo, c/ sal","Vegetais e derivados",14,0.99,1.32,0.23,1.51,128
+BRC0231B,"Abobrinha, italiana, c/ casca, cozida, drenada, c/ óleo de soja, s/ sal","Vegetais e derivados",35,0.96,1.29,2.61,1.47,0.77
+BRC0232B,"Abobrinha, italiana, c/ casca, cozida, drenada, c/ óleo de soja, c/ sal","Vegetais e derivados",35,0.96,1.28,2.61,1.47,128
+BRC0263B,"Abobrinha, italiana, c/ casca, grelhada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",24,1.41,3.4,0.17,1.79,0
+BRC0264B,"Abobrinha, italiana, c/ casca, grelhada, s/ óleo, c/ sal","Vegetais e derivados",26,1.56,3.77,0.19,1.99,187
+BRC0265B,"Abobrinha, italiana, c/ casca, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão, s/ sal","Vegetais e derivados",131,3.78,10.4,7.8,2.02,53.4
+BRC0266B,"Abobrinha, italiana, c/ casca, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão, c/ sal","Vegetais e derivados",131,3.78,10.4,7.8,2.02,181
+BRC0153B,"Abobrinha, italiana, c/ casca, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",25,1.07,2.81,0.82,1.38,130
+BRC0211B,"Acelga, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",22,1.47,3.25,0.11,1.14,0.9
+BRC0212B,"Acelga, cozida, drenada, s/ óleo, c/ sal, Brasil","Vegetais e derivados",22,1.47,2.93,0.11,1.14,128
+BRC0201B,"Acelga, refogada, (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",35,1.6,3.8,1.32,1.26,1.28
+BRC0202B,"Acelga, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",34,1.6,3.48,1.32,1.26,129
+BRC0187B,"Salada, agrião, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",46,2.48,1.82,2.86,1.69,8.49
+BRC0188B,"Salada, agrião, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",45,2.48,1.6,2.86,1.69,136
+BRC0162B,"Agrião, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",27,3.65,0.68,0.52,2.28,9.23
+BRC0219B,"Agrião, cozido, drenado, c/ óleo de soja, s/ sal","Vegetais e derivados",47,3.55,0.67,2.89,2.23,9.03
+BRC0220B,"Agrião, cozido, drenado, c/ óleo de soja, c/ sal","Vegetais e derivados",47,3.54,0.66,2.89,2.22,136
+BRC0214B,"Aipo (salsão), cozido, drenado, s/ óleo, c/ sal","Vegetais e derivados",19,0.83,3.33,0.08,1.05,135
+BRC0215B,"Aipo (salsão), refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",43,1.33,5.75,1.32,1.62,14.8
+BRC0216B,"Aipo (salsão), refogado (c/ óleo, cebola e alho), c/ sal, Brasil","Vegetais e derivados",43,1.33,5.76,1.32,1.62,143
+BRC0115B,"Alho, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",144,6.78,26.9,0.24,3.8,3.55
+BRC0113B,"Alho, refogado (c/ óleo de soja), s/ sal, Brasil","Vegetais e derivados",433,8.09,32.1,29.3,4.53,7.71
+BRC0189B,"Salada, almeirão, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",45,1.51,2.26,2.75,2.43,2.91
+BRC0190B,"Salada, almeirão, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",43,1.51,1.94,2.75,2.43,130
+BRC0209B,"Almeirão, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",20,1.84,1.11,0.3,3.13,2.13
+BRC0210B,"Almeirão, cozido, drenado, s/ óleo, c/ sal","Vegetais e derivados",19,1.84,0.79,0.3,3.13,129
+BRC0149B,"Almeirão (chicoria, radiche), refogado (c/ óleo, cebola e alho), c/ sal, Brasil","Vegetais e derivados",86,1.68,1.08,7.2,5.07,145
+BRC0296B,"Batata, baroa (mandioquinha, batata salsa), s/ casca, cozida, drenada, c/ óleo de soja, s/ sal","Vegetais e derivados",96,0.83,16.8,2.55,1.72,2.05
+BRC0297B,"Batata, baroa (mandioquinha, batata salsa), cozida, s/ casca, drenada, c/ óleo de soja, c/ sal","Vegetais e derivados",96,0.83,16.7,2.54,1.71,189
+BRC0316B,"Batata, baroa (mandioquinha, batata salsa), s/ casca, frita, s/ sal, Brasil","Vegetais e derivados",231,1.36,27.5,12.3,2.81,3.36
+BRC0317B,"Batata, baroa (mandioquinha, batata salsa), s/ casca, frita, c/ sal","Vegetais e derivados",230,1.36,27.4,12.2,2.8,191
+BRC0294B,"Batata, baroa (mandioquinha, batata salsa), s/ casca, sauté (c/ margarina e salsa), s/ sal","Vegetais e derivados",103,0.81,16.3,3.51,1.67,3.65
+BRC0295B,"Batata, baroa (mandioquinha, batata salsa), s/ casca, sauté (c/ margarina e salsa), c/ sal","Vegetais e derivados",102,0.81,16.2,3.5,1.66,191
+BRC0302B,"Batata doce, s/ casca, assada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",145,2.19,31.4,0.28,3.9,11.6
+BRC0303B,"Batata, doce, s/ casca, assada, c/ óleo de soja, c/ sal","Vegetais e derivados",143,2.18,31.2,0.28,3.88,199
+BRC0298B,"Batata, doce, s/ casca, cozida, drenada, c/ óleo de soja, s/ sal","Vegetais e derivados",111,0.83,19.9,2.56,2.68,3.31
+BRC0299B,"Batata, doce, s/ casca, cozida, drenada, c/ óleo de soja, c/ sal","Vegetais e derivados",110,0.83,19.8,2.55,2.66,191
+BRC0304B,"Batata, doce, s/ casca, frita (c/ óleo de soja), s/ sal, Brasil","Vegetais e derivados",254,1.37,32.5,12.3,4.39,5.42
+BRC0305B,"Batata, doce, s/ casca, frita (c/ óleo de soja), c/ sal","Vegetais e derivados",253,1.36,32.4,12.2,4.37,193
+BRC0300B,"Batata, doce, s/ casca, sauté (c/ margarina e salsa), s/ sal","Vegetais e derivados",135,0.79,18.9,5.79,2.54,4.8
+BRC0301B,"Batata, doce, s/ casca, sauté (c/ margarina e salsa), c/ sal","Vegetais e derivados",135,0.79,18.7,5.76,2.53,192
+BRC0312B,"Salada, batata, inglesa, s/ casca, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",66,1.19,8.97,2.58,1.33,2.65
+BRC0313B,"Salada, batata, inglesa, s/ casca, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",66,1.19,9.03,2.56,1.32,190
+BRC0117B,"Batata, inglesa, s/ casca, cozida, drenada, s/ óleo, c/ sal","Vegetais e derivados",51,1.33,10.8,0.05,1.47,190
+BRC0314B,"Batata, inglesa, s/ casca, cozida, drenada, c/ óleo de soja, s/ sal","Vegetais e derivados",94,1.27,10.3,5.05,1.4,2.26
+BRC0315B,"Batata, inglesa, s/ casca, cozida, drenada, c/ óleo de soja, c/ sal","Vegetais e derivados",93,1.26,10.2,5.02,1.39,189
+BRC0292B,"Batata, inglesa, cozida, s/ casca, c/ molho branco (leite, farinha de trigo e manteiga), s/ sal","Vegetais e derivados",80,2.16,11.9,2.38,1.23,21.7
+BRC0293B,"Batata, inglesa, cozida, s/ casca, c/ molho branco (leite, farinha de trigo e manteiga), c/ sal","Vegetais e derivados",79,2.15,11.8,2.37,1.22,209
+BRC0290B,"Batata, inglesa, cozida, s/ casca, c/ molho de tomate (tomate, c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",57,1.42,9.48,1.09,1.69,82.8
+BRC0291B,"Batata, inglesa, s/ casca, cozida, c/ molho de tomate (molho sugo), c/ sal, Brasil","Vegetais e derivados",49,1.5,9.02,0.42,1.89,131
+BRC0141B,"Batata, inglesa, s/ casca, assada, s/ óleo, c/ sal","Vegetais e derivados",88,2.52,18.8,0.05,1.63,187
+BRC0140B,"Batata, inglesa, s/ casca, assada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",89,2.51,18.7,0.05,1.62,0
+BRC0143B,"Sopa, batata inglesa, c/ sal","Vegetais e derivados",45,0.95,7.1,1.24,1.02,189
+BRC0142B,"Sopa, batata inglesa, s/ sal","Vegetais e derivados",45,0.95,7.1,1.24,1.02,1.52
+BRC0118B,"Batata, inglesa, frita (c/ óleo de soja), c/ sal","Vegetais e derivados",248,4.04,29.5,11.9,3.16,189
+BRC0322B,"Purê, batata, inglesa, s/ sal, Brasil","Vegetais e derivados",65,1.6,9.62,1.93,1.21,12.8
+BRC0323B,"Purê, batata inglesa, c/ margarina e sal, Brasil","Vegetais e derivados",80,1.72,10.2,3.34,1.26,143
+BRC0170B,"Batata inglesa, sauté (c/ margarina e salsa), c/ sal, Brasil","Vegetais e derivados",79,1.28,10.2,3.41,1.4,132
+BRC0157B,"Berinjela, c/ casca, cozida, drenada, s/ óleo, c/ sal","Vegetais e derivados",26,0.79,4.29,0.24,1.91,129
+BRC0221B,"Berinjela, c/ casca, cozida, drenada, c/ óleo de soja, s/ sal","Vegetais e derivados",47,0.78,4.19,2.62,1.87,1.72
+BRC0222B,"Berinjela, c/ casca, cozida, drenada, c/ óleo de soja, c/ sal","Vegetais e derivados",47,0.77,4.17,2.61,1.86,129
+BRC0195B,"Salada, berinjela, c/ casca, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",48,0.82,4.4,2.71,1.64,2.22
+BRC0196B,"Salada, berinjela, c/ casca, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",47,0.82,4.19,2.71,1.64,130
+BRC0168B,"Berinjela, c/ casca, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão, c/ sal","Vegetais e derivados",133,3.87,9.92,7.82,3.95,181
+BRC0167B,"Berinjela, c/ casca, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão, s/ sal","Vegetais e derivados",133,3.87,9.92,7.82,3.95,53.4
+BRC0156B,"Berinjela, c/ casca, grelhada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",23,1.26,2.35,0.16,3.36,0
+BRC0287B,"Berinjela, c/ casca, grelhada, s/ óleo, c/ sal","Vegetais e derivados",22,1.25,2.34,0.16,3.35,127
+BRC0358B,"Berinjela, refogada (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",34,1.29,2.73,1.35,3.18,0.1
+BRC0359B,"Berinjela, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",34,1.28,2.72,1.35,3.17,127
+BRC0324B,"Salada, beterraba, crua, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",62,1.62,6.82,2.6,2.66,7.79
+BRC0325B,"Salada, beterrraba, crua, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",62,1.62,6.9,2.6,2.65,135
+BRC0326B,"Beterraba, refogada (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",66,2.35,9.36,1.31,3.95,11.1
+BRC0327B,"Beterraba, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",66,2.34,9.33,1.31,3.94,138
+BRC0150B,"Brócolis, flor, cozido, drenado, s/ óleo, c/ sal","Vegetais e derivados",26,2.71,1.17,0.54,3.28,130
+BRC0191B,"Salada, brócolis, flor, cozido, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",48,2.16,2.32,2.92,2.6,2.65
+BRC0192B,"Salada, brócolis, flor, cozido, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",48,2.16,2,2.92,2.6,130
+BRC0261B,"Brócolis, flor, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão, s/ sal","Vegetais e derivados",134,4.46,8.31,8.64,2.78,55
+BRC0262B,"Brócolis, flor, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão, c/ sal","Vegetais e derivados",133,4.45,8.28,8.61,2.77,182
+BRC0163B,"Brócolis, flor, refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",50,4.17,2.51,1.91,3.08,4.18
+BRC0164B,"Brócolis, flor, refogado (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",50,4.17,2.51,1.91,3.08,131
+BRC0350B,"Cará, s/ casca, cozido, drenado, c/ óleo de soja, s/ sal","Vegetais e derivados",118,1.45,15.4,5.11,2.5,0.96
+BRC0351B,"Cará, s/ casca, cozido, drenado, c/ óleo de soja, c/ sal","Vegetais e derivados",117,1.45,15.3,5.08,2.49,188
+BRC0352B,"Cará, refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",99,2.37,15.8,1.34,7.19,0.1
+BRC0353B,"Cará, refogado (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",98,2.36,15.7,1.34,7.16,187
+BRC0245B,"Caruru, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",36,3.52,1.66,0.65,4.92,14.3
+BRC0246B,"Caruru, cozido, drenado, s/ óleo, c/ sal","Vegetais e derivados",33,3.25,1.53,0.6,4.54,138
+BRC0356B,"Cebola, branca, assada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",58,2.5,10.2,0.18,2.9,0.88
+BRC0357B,"Cebola, branca, assada, s/ óleo, c/ sal","Vegetais e derivados",57,2.49,10.1,0.18,2.89,128
+BRC0114B,"Cebola, branca, cozida, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",62,2.66,10.8,0.2,3.08,0.51
+BRC0288B,"Cebola, branca, cozida, c/ molho de tomate (tomate, c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",40,1.8,6.17,0.26,2.98,98.2
+BRC0289B,"Cebola, branca, cozida, c/ molho de tomate (tomate, c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",39,1.79,6.15,0.26,2.97,285
+BRC0197B,"Salada, cebola, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",58,1.49,6.42,2.63,1.73,1.42
+BRC0198B,"Salada, cebola, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",57,1.49,6.2,2.63,1.73,129
+BRC0112B,"Cebola, branca, refogada (c/ óleo de soja), s/ sal, Brasil","Vegetais e derivados",254,2.01,8.16,23.1,2.33,0.71
+BRC0108B,"Cebola e alho, refogados, c/ óleo de soja, s/ sal, Brasil","Vegetais e derivados",284,3.04,12.2,24.2,2.7,1.89
+BRC0338B,"Salada, cenoura, crua, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",51,1.05,4.6,2.69,2.39,8.78
+BRC0339B,"Salada, cenoura, crua, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",51,1.04,4.69,2.68,2.38,136
+BRC0340B,"Cenoura, s/ casca, cozida, c/ molho de tomate (tomate, c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",20,0.82,2.15,0.31,3.09,101
+BRC0341B,"Cenoura, s/ casca, cozida, c/ molho de tomate (tomate, c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",20,0.82,2.14,0.31,3.08,289
+BRC0332B,"Cenoura, s/ casca, cozida, drenada, c/ óleo de soja, s/ sal","Vegetais e derivados",60,0.52,2.02,5.19,2.07,4.87
+BRC0333B,"Cenoura, s/ casca, cozida, drenada, c/ óleo de soja, c/ sal","Vegetais e derivados",60,0.51,2.02,5.17,2.06,132
+BRC0334B,"Cenoura, s/ casca, refogada (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",52,1.56,6.32,1.47,3.87,14
+BRC0335B,"Cenoura, s/ casca, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",52,1.55,6.3,1.47,3.85,141
+BRC0336B,"Cenoura, s/ casca, sauté (c/ margarina e salsa), s/ sal","Vegetais e derivados",62,1.2,4.89,3.57,3.08,12.8
+BRC0337B,"Cenoura, s/ casca, sauté (c/ margarina e salsa), c/ sal","Vegetais e derivados",62,1.2,4.86,3.56,3.06,200
+BRC0205B,"Salada, chicória, crua, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",38,1.06,1.79,2.64,1.84,12.4
+BRC0206B,"Salada, chicória, crua, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",37,1.06,1.58,2.64,1.84,140
+BRC0207B,"Chicória, cozida, drenada, s/ óleo, s/ sal, Brasil","Vegetais e derivados",12,1.17,0.58,0.15,2.27,12.6
+BRC0208B,"Chicória, cozida, drenada, s/ óleo, c/ sal","Vegetais e derivados",11,1.17,0.26,0.15,2.27,140
+BRC0159B,"Chicória, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",35,2.09,1.57,1.45,3.88,155
+BRC0158B,"Chicória, refogada (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",35,2.09,1.57,1.45,3.88,27.7
+BRC0154B,"Chuchu, s/ casca, cozido, drenado, s/ óleo, c/ sal, Brasil","Vegetais e derivados",20,0.5,3.7,0.15,1.39,129
+BRC0229B,"Chuchu, s/ casca, cozido, drenado, c/ óleo de soja, s/ sal","Vegetais e derivados",41,0.49,3.61,2.54,1.36,1.92
+BRC0230B,"Chuchu, s/ casca, cozido, drenado, c/ óleo de soja, c/ sal","Vegetais e derivados",41,0.49,3.6,2.53,1.35,129
+BRC0273B,"Chuchu, s/ casca, cozido, c/ molho de tomate (tomate, c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",32,0.75,3.79,1.17,1.62,269
+BRC0274B,"Chuchu, s/ casca, cozido, c/ molho de tomate (tomate, c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",24,0.79,3.39,0.27,2.45,286
+BRC0193B,"Salada, chuchu, s/ casca, cozido, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",44,0.61,4.1,2.65,1.27,2.36
+BRC0194B,"Salada, chuchu, s/ casca, cozido, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",45,0.61,4.09,2.64,1.27,130
+BRC0036B,"Chuchu, s/ casca, refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",36,1.26,4.08,1.28,1.89,0.1
+BRC0058B,"Chuchu, s/ casca, refogado (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",36,1.26,4.07,1.27,1.88,127
+BRC0144B,"Couve, cozida, drenada, s/ óleo, c/ sal","Vegetais e derivados",25,2.66,1.12,0.51,2.89,138
+BRC0173B,"Salada, couve, crua, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",49,2.27,2.25,2.92,2.48,7.34
+BRC0174B,"Salada, couve, crua, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",49,2.26,2.35,2.91,2.48,135
+BRC0145B,"Couve, manteiga, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",82,2.03,1.49,6.41,5.59,138
+BRC0179B,"Couve-flor, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão (c/ óleo de soja), s/ sal","Vegetais e derivados",127,3.48,8.46,8.4,1.93,54.5
+BRC0180B,"Couve-flor, à milanesa (farinha de trigo, ovo e farinha de rosca), frita em imersão, c/ sal","Vegetais e derivados",127,3.48,8.46,8.4,1.93,182
+BRC0116B,"Couve-flor, cozida, drenada, s/ óleo, c/ sal","Vegetais e derivados",16,1.28,1.36,0.2,2.05,129
+BRC0181B,"Salada, couve-flor, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",41,1.16,2.35,2.68,1.73,91.6
+BRC0182B,"Salada, couve-flor, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",40,1.16,2.14,2.68,1.73,219
+BRC0203B,"Couve-flor, refogada (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",40,2.07,3.53,1.46,2.48,3.95
+BRC0204B,"Couve-flor, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",39,2.07,3.21,1.46,2.48,131
+BRC0169B,"Escarola, folha, crua, Brasil","Vegetais e derivados",16,1.54,0.88,0.3,1.86,19.7
+BRC0146B,"Espinafre, folha, cozida, drenado, s/ óleo, c/ sal, Brasil","Vegetais e derivados",19,1.84,1.57,0.26,1.9,141
+BRC0183B,"Salada, espinafre, folha, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), s/ sal","Vegetais e derivados",43,1.55,2.5,2.72,1.63,10.3
+BRC0184B,"Salada, espinafre, folha, cozida, c/ molho vinagrete (tomate, cebola, salsinha, vinagre e óleo), c/ sal","Vegetais e derivados",43,1.55,2.29,2.72,1.63,138
+BRC0147B,"Espinafre, folha, refogada (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",71,2.72,1.72,5.44,2.52,174
+BRC0275B,"Feijão, broto, cozido, drenado, s/ óleo, s/ sal","Vegetais e derivados",44,4.17,5.79,0.1,1.97,1.35
+BRC0276B,"Feijão, broto, cozido, drenado, s/ óleo, c/ sal","Vegetais e derivados",44,4.15,5.77,0.1,1.96,129
+BRC0348B,"Inhame, s/ casca, refogado (c/ óleo, cebola e alho), s/ sal","Vegetais e derivados",99,2.36,18.7,1.34,1.67,0.1
+BRC0349B,"Inhame, s/ casca, refogado (c/ óleo, cebola e alho), c/ sal","Vegetais e derivados",99,2.35,18.6,1.34,1.67,187
+BRC0346B,"Inhame, s/ casca, assado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",92,2.39,19.6,0.15,1.67,0
+BRC0347B,"Inhame, s/ casca, assado, s/ óleo, c/ sal","Vegetais e derivados",92,2.38,19.6,0.15,1.66,127
+BRC0342B,"Inhame, s/ casca, cozido, drenado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",89,2.3,18.9,0.14,1.6,0
+BRC0343B,"Inhame, s/ casca, cozido, drenado, s/ óleo, c/ sal","Vegetais e derivados",88,2.28,18.8,0.14,1.6,187
+BRC0344B,"Inhame, s/ casca, cozido, drenado, c/ óleo de soja, s/ sal","Vegetais e derivados",129,2.18,17.9,5.13,1.52,0
+BRC0345B,"Inhame, c/ casca, cozido, drenado, c/ óleo de soja, c/ sal","Vegetais e derivados",129,2.17,17.8,5.11,1.52,187
+BRC0277B,"Jiló, c/ casca, cozido, drenado, s/ óleo,  s/ sal, Brasil","Vegetais e derivados",27,1.68,1.64,0.26,5.79,0
+BRC0278B,"Jiló, c/ casca, cozido, drenado, s/ óleo,  c/ sal","Vegetais e derivados",27,1.68,1.63,0.26,5.77,127
+BRC0279B,"Jiló, c/ casca, cozido, drenado, c/ óleo de soja, s/ sal","Vegetais e derivados",48,1.64,1.6,2.65,5.65,0
+BRC0280B,"Jiló, c/ casca, cozido, drenado, c/ óleo de soja, c/ sal","Vegetais e derivados",47,1.64,1.59,2.64,5.64,127
+BRC0281B,"Jiló, c/ casca, assado, s/ óleo, s/ sal, Brasil","Vegetais e derivados",28,1.75,1.71,0.28,6.03,0
+BRC0282B,"Jiló, c/ casca, assado, s/ óleo, c/ sal","Vegetais e derivados",28,1.75,1.7,0.27,6.01,127
+BRC0285B,"Jiló, c/ casca, frito (c/ óleo de soja), s/ sal, Brasil","Vegetais e derivados",262,1.75,1.71,26.3,6.03,0
