@@ -39,6 +39,32 @@ const MIGRATIONS = [
     )`
   },
   {
+    name: 'idx_password_reset_token_active',
+    sql: `SELECT 1`,
+    check: async () => {
+      const [rows] = await pool.query(
+        `SELECT 1 FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_NAME = 'password_reset_token' AND INDEX_NAME = 'idx_prt_token_used' LIMIT 1`
+      );
+      return rows.length > 0;
+    },
+    migrate: async () => {
+      await pool.query(`CREATE INDEX idx_prt_token_used ON password_reset_token(token, used)`);
+    }
+  },
+  {
+    name: 'idx_consultation_nutritionist',
+    sql: `SELECT 1`,
+    check: async () => {
+      const [rows] = await pool.query(
+        `SELECT 1 FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_NAME = 'consultation' AND INDEX_NAME = 'idx_consult_nutri_date' LIMIT 1`
+      );
+      return rows.length > 0;
+    },
+    migrate: async () => {
+      await pool.query(`CREATE INDEX idx_consult_nutri_date ON consultation(nutritionist_id, starts_at, status)`);
+    }
+  },
+  {
     name: 'patient.email_verified',
     sql: `SELECT 1`,
     check: async () => {

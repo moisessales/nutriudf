@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { minify: terserMinify } = require('terser');
 
 const repoRoot = path.resolve(__dirname, '..', '..');
 const sourceHtmlPath = path.join(repoRoot, 'nutri_saas_mockup_v2.html');
@@ -19,7 +20,7 @@ function minifyCss(css) {
     .trim();
 }
 
-function buildFrontend() {
+async function buildFrontend() {
   const html = fs.readFileSync(sourceHtmlPath, 'utf8');
 
   const styleStart = html.indexOf('<style>');
@@ -34,6 +35,12 @@ function buildFrontend() {
   const rawCss = html.slice(styleStart + '<style>'.length, styleEnd).trim();
   const rawJs = html.slice(scriptStart + '<script>'.length, scriptEnd).trim();
 
+  // Minificar JS com terser
+  const minifiedJs = await terserMinify(rawJs, {
+    compress: { drop_console: false, passes: 2 },
+    mangle: true
+  });
+
   const builtHtml = [
     html.slice(0, styleStart),
     '  <link rel="preload" href="assets/app.css" as="style">\n',
@@ -45,14 +52,15 @@ function buildFrontend() {
 
   ensureDir(assetsDir);
   fs.writeFileSync(path.join(assetsDir, 'app.css'), minifyCss(rawCss));
-  fs.writeFileSync(path.join(assetsDir, 'app.js'), rawJs);
+  fs.writeFileSync(path.join(assetsDir, 'app.js'), minifiedJs.code);
   fs.writeFileSync(path.join(publicDir, 'index.html'), builtHtml);
 
+  const jsSaved = Math.round((1 - Buffer.byteLength(minifiedJs.code) / Buffer.byteLength(rawJs)) * 100);
   console.log('Frontend buildado com sucesso.');
   console.log(`HTML fonte: ${Math.round(Buffer.byteLength(html) / 1024)} KB`);
   console.log(`HTML gerado: ${Math.round(Buffer.byteLength(builtHtml) / 1024)} KB`);
   console.log(`CSS gerado: ${Math.round(Buffer.byteLength(rawCss) / 1024)} KB`);
-  console.log(`JS gerado: ${Math.round(Buffer.byteLength(rawJs) / 1024)} KB`);
+  console.log(`JS gerado: ${Math.round(Buffer.byteLength(minifiedJs.code) / 1024)} KB (${jsSaved}% menor)`);
 }
 
 buildFrontend();
