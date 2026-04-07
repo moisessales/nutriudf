@@ -24,44 +24,35 @@ function enrichPatient(p) {
 exports.getDashboardStats = async (req, res) => {
   try {
     const nutritionistId = req.userId;
-    const connection = await pool.getConnection();
 
-    const [patientRows] = await connection.query(
-      'SELECT id, full_name, birth_date, weight_kg, height_cm, goal_summary, created_at FROM patient WHERE nutritionist_id = ? ORDER BY created_at DESC',
-      [nutritionistId]
-    );
-
-    const patientIds = patientRows.map(p => p.id);
-
-    let activePlans = 0;
-    if (patientIds.length > 0) {
-      const [plans] = await connection.query(
-        'SELECT COUNT(*) as total FROM meal_plans WHERE created_at > DATE_SUB(NOW(), INTERVAL 30 DAY) AND patient_id IN (?)',
-        [patientIds]
-      );
-      activePlans = plans[0].total;
-    }
-
-    let consultationsToday = 0;
-    let upcomingConsultations = [];
-    if (patientIds.length > 0) {
-      const [todayRows] = await connection.query(
+    // Todas as queries em paralelo (sem N+1)
+    const [patientRows, [plansRow], [todayRow], upcomingRows] = await Promise.all([
+      pool.query(
+        'SELECT id, full_name, birth_date, weight_kg, height_cm, goal_summary, created_at FROM patient WHERE nutritionist_id = ? ORDER BY created_at DESC',
+        [nutritionistId]
+      ).then(([r]) => r),
+      pool.query(
+        `SELECT COUNT(*) as total FROM meal_plans mp
+         JOIN patient p ON p.id = mp.patient_id
+         WHERE p.nutritionist_id = ? AND mp.created_at > DATE_SUB(NOW(), INTERVAL 30 DAY)`,
+        [nutritionistId]
+      ).then(([r]) => r),
+      pool.query(
         'SELECT COUNT(*) as total FROM consultation WHERE nutritionist_id = ? AND DATE(starts_at) = CURDATE() AND status != ?',
         [nutritionistId, 'CANCELLED']
-      );
-      consultationsToday = todayRows[0].total;
-
-      const [upcoming] = await connection.query(
+      ).then(([r]) => r),
+      pool.query(
         `SELECT c.id, c.starts_at, c.title, c.status, p.full_name as patient_name
          FROM consultation c JOIN patient p ON p.id = c.patient_id
          WHERE c.nutritionist_id = ? AND c.starts_at >= NOW() AND c.status != ?
          ORDER BY c.starts_at ASC LIMIT 5`,
         [nutritionistId, 'CANCELLED']
-      );
-      upcomingConsultations = upcoming;
-    }
+      ).then(([r]) => r)
+    ]);
 
-    connection.release();
+    const activePlans = plansRow.total;
+    const consultationsToday = todayRow.total;
+    const upcomingConsultations = upcomingRows;
 
     const patientData = patientRows.map(enrichPatient);
 
@@ -139,34 +130,31 @@ exports.getPatientAdvancedStats = async (req, res) => {
   try {
     const { patientId } = req.params;
     const nutritionistId = req.userId;
-    const connection = await pool.getConnection();
 
-    const [patientRows] = await connection.query(
-      'SELECT * FROM patient WHERE id = ? AND nutritionist_id = ?',
+    const [patientRows] = await pool.query(
+      'SELECT id, full_name, birth_date, weight_kg, height_cm, goal_summary, created_at FROM patient WHERE id = ? AND nutritionist_id = ?',
       [patientId, nutritionistId]
     );
 
     if (patientRows.length === 0) {
-      connection.release();
       return res.status(404).json({ error: 'Paciente não encontrado' });
     }
 
-    const [plans] = await connection.query(
-      'SELECT * FROM meal_plans WHERE patient_id = ? ORDER BY created_at DESC LIMIT 5',
-      [patientId]
-    );
-
-    const [reports] = await connection.query(
-      'SELECT * FROM reports WHERE patient_id = ? ORDER BY created_at DESC LIMIT 10',
-      [patientId]
-    );
-
-    const [consultations] = await connection.query(
-      'SELECT * FROM consultation WHERE patient_id = ? ORDER BY starts_at DESC LIMIT 10',
-      [patientId]
-    );
-
-    connection.release();
+    // Queries em paralelo
+    const [plans, reports, consultations] = await Promise.all([
+      pool.query(
+        'SELECT id, patient_id, meal_data, created_at FROM meal_plans WHERE patient_id = ? ORDER BY created_at DESC LIMIT 5',
+        [patientId]
+      ).then(([r]) => r),
+      pool.query(
+        'SELECT id, patient_id, type, period, created_at FROM reports WHERE patient_id = ? ORDER BY created_at DESC LIMIT 10',
+        [patientId]
+      ).then(([r]) => r),
+      pool.query(
+        'SELECT id, patient_id, starts_at, ends_at, title, status, notes FROM consultation WHERE patient_id = ? ORDER BY starts_at DESC LIMIT 10',
+        [patientId]
+      ).then(([r]) => r)
+    ]);
 
     res.json({
       patient: enrichPatient(patientRows[0]),

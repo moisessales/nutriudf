@@ -90,7 +90,10 @@ exports.create = async (req, res) => {
       [id, nutritionistId, patient_id, starts_at, ends_at || null, title || null, notes || null, status || 'SCHEDULED']
     );
 
-    const [created] = await connection.query('SELECT * FROM consultation WHERE id = ?', [id]);
+    const [created] = await connection.query(
+      'SELECT id, nutritionist_id, patient_id, starts_at, ends_at, title, notes, status, created_at FROM consultation WHERE id = ?',
+      [id]
+    );
     connection.release();
 
     res.status(201).json(created[0]);
@@ -133,7 +136,10 @@ exports.update = async (req, res) => {
     values.push(id);
     await connection.query(`UPDATE consultation SET ${fields.join(', ')} WHERE id = ?`, values);
 
-    const [updated] = await connection.query('SELECT * FROM consultation WHERE id = ?', [id]);
+    const [updated] = await connection.query(
+      'SELECT id, nutritionist_id, patient_id, starts_at, ends_at, title, notes, status, created_at FROM consultation WHERE id = ?',
+      [id]
+    );
     connection.release();
 
     res.json(updated[0]);

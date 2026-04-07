@@ -22,7 +22,7 @@ function getIMCCategory(imc) {
 
 async function findPatient(connection, patientId, nutritionistId) {
   const [rows] = await connection.query(
-    'SELECT * FROM patient WHERE id = ? AND nutritionist_id = ?',
+    'SELECT id, full_name, email, birth_date, weight_kg, height_cm, goal_summary FROM patient WHERE id = ? AND nutritionist_id = ?',
     [patientId, nutritionistId]
   );
   return rows.length > 0 ? rows[0] : null;
@@ -42,7 +42,7 @@ exports.getReports = async (req, res) => {
     }
 
     const [rows] = await connection.query(
-      'SELECT * FROM reports WHERE patient_id = ? AND period = ? ORDER BY created_at DESC',
+      'SELECT id, patient_id, type, period, data, created_at FROM reports WHERE patient_id = ? AND period = ? ORDER BY created_at DESC',
       [patientId, period || '7d']
     );
 
@@ -67,7 +67,7 @@ exports.getReportData = async (req, res) => {
     }
 
     const [reports] = await connection.query(
-      'SELECT * FROM reports WHERE patient_id = ? AND type = ? AND period = ?',
+      'SELECT id, patient_id, type, period, data, created_at FROM reports WHERE patient_id = ? AND type = ? AND period = ?',
       [patientId, reportType, period]
     );
 
@@ -114,7 +114,7 @@ exports.generatePDF = async (req, res) => {
     }
 
     const [plans] = await connection.query(
-      'SELECT * FROM meal_plans WHERE patient_id = ? ORDER BY created_at DESC LIMIT 1',
+      'SELECT id, patient_id, meal_data, created_at FROM meal_plans WHERE patient_id = ? ORDER BY created_at DESC LIMIT 1',
       [patientId]
     );
     connection.release();
