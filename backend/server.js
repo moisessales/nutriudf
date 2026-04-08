@@ -37,6 +37,7 @@ const consultationRoutes = require('./src/routes/consultationRoutes');
 
 const app = express();
 const isProd = process.env.NODE_ENV === 'production';
+const hashedAssetPattern = /[\\/]app\.[0-9a-f]{8}\.(css|js)$/i;
 
 // Trust proxy (Render usa reverse proxy)
 app.set('trust proxy', 1);
@@ -73,10 +74,10 @@ app.use(compression({
 
 // Servir arquivos estáticos com cache agressivo
 app.use(express.static(path.join(__dirname, 'public'), {
-  maxAge: isProd ? '30d' : '0',
+  maxAge: 0,
   etag: true,
   lastModified: true,
-  immutable: isProd,
+  immutable: false,
   setHeaders(res, filePath) {
     if (filePath.endsWith('.html')) {
       res.setHeader('Cache-Control', 'no-cache');
@@ -84,6 +85,16 @@ app.use(express.static(path.join(__dirname, 'public'), {
         '<https://fonts.googleapis.com>; rel=preconnect',
         '<https://fonts.gstatic.com>; rel=preconnect; crossorigin'
       ].join(', '));
+      return;
+    }
+
+    if (isProd && hashedAssetPattern.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      return;
+    }
+
+    if (isProd) {
+      res.setHeader('Cache-Control', 'no-cache');
     }
   }
 }));
