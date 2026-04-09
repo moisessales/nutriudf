@@ -241,14 +241,14 @@
   .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
   .chip { font-size: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 4px 10px; }
   .profile-next { text-align: right; }
-  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .metric-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 16px 18px; box-shadow: var(--shadow-sm); transition: all 0.2s ease; border-left: 3px solid var(--accent); }
   .metric-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
   .metric-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; }
   .metric-value { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); }
   .metric-unit { font-size: 12px; color: var(--muted); font-family: 'DM Sans'; font-weight: 500; }
-  .back-link { font-size: 13px; color: var(--muted); cursor: pointer; margin-bottom: 14px; padding: 4px 0; }
-  .back-link:hover { color: var(--accent); }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--card); cursor: pointer; margin-bottom: 14px; padding: 8px 16px; background: var(--accent); border-radius: 8px; font-weight: 600; transition: all 0.2s; }
+  .back-link:hover { background: var(--accent-dark); color: #fff; }
   .macro-circles { display: flex; gap: 30px; padding: 20px; justify-content: center; align-items: center; }
   .circle-wrap { text-align: center; }
   .macro-circle-label { font-size: 12px; color: var(--muted); margin-top: 8px; }
@@ -370,6 +370,16 @@
   /* Form styles */
   .form-group { display: flex; flex-direction: column; margin-bottom: 18px; }
   .form-group label { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .form-group label .required { color: #e74c3c; font-weight: 700; }
+  .form-required-legend { font-size: 12px; color: var(--muted); margin-bottom: 16px; padding: 8px 12px; background: var(--surface-soft); border-radius: 6px; border-left: 3px solid #e74c3c; }
+  .form-required-legend .required { color: #e74c3c; font-weight: 700; }
+  .btn-loading { position: relative; pointer-events: none; opacity: 0.7; }
+  .btn-loading::after { content: ''; position: absolute; width: 16px; height: 16px; top: 50%; right: 10px; transform: translateY(-50%); border: 2px solid transparent; border-top-color: #fff; border-radius: 50%; animation: spin 0.6s linear infinite; }
+  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+  .no-results-msg { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 15px; }
+  .no-results-msg .no-results-icon { font-size: 48px; margin-bottom: 12px; display: block; }
+  .no-results-msg .no-results-text { font-weight: 600; margin-bottom: 4px; color: var(--text); }
+  .no-results-msg .no-results-hint { font-size: 13px; }
   .form-group input, .form-group select, .form-group textarea { padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; font-family: 'DM Sans'; background: var(--card); color: var(--text); transition: all 0.2s; }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(74, 155, 95, 0.1); background: #FAFCFB; }
   .form-group textarea { resize: vertical; min-height: 90px; }
@@ -549,6 +559,12 @@
     /* Export buttons */
     .export-btn { font-size: 11px; padding: 8px 10px; }
     .app-footer { width: calc(100% - 28px); margin-bottom: 18px; }
+
+    /* Metrics grid responsive */
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+    /* Form grids responsive */
+    .modal-content [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
   }
 
   /* ========== SMALL MOBILE (≤480px) ========== */
@@ -1275,7 +1291,7 @@
         <button class="hamburger" aria-label="Menu" onclick="toggleSidebar()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
         <div><div class="topbar-title">Pacientes</div><div class="topbar-sub">24 pacientes cadastrados</div></div>
         <div class="topbar-actions">
-          <button class="btn btn-ghost">Exportar lista</button>
+          <button class="btn btn-ghost" onclick="exportPatientList()">📋 Exportar lista</button>
           <button class="btn btn-primary" onclick="openModal('modal-novo-paciente')">+ Novo paciente</button>
         </div>
       </div>
@@ -1289,7 +1305,6 @@
             <option value="Hipertrofia">💪 Hipertrofia</option>
             <option value="Saúde">🏥 Saúde</option>
           </select>
-          <button class="btn btn-primary" onclick="openModal('modal-novo-paciente')">+ Novo paciente</button>
         </div>
         <div class="patients-table">
           <div class="pt-head">
@@ -1726,7 +1741,7 @@
 
     <!-- App Footer -->
     <div class="app-footer" id="app-footer">
-      <span>&copy; 2025 NutriUDF. Todos os direitos reservados.</span>
+      <span>&copy; 2026 NutriUDF. Todos os direitos reservados.</span>
       <div class="footer-links">
         <a href="#" onclick="event.preventDefault();Toast.info('Pol\u00edtica de Privacidade em breve.')">Privacidade</a>
         <a href="#" onclick="event.preventDefault();Toast.info('Termos de Uso em breve.')">Termos de Uso</a>
@@ -1737,7 +1752,7 @@
 </div>
 
 <!-- Portion adjust modal -->
-<div class="modal-overlay" id="portion-modal">
+<div class="modal-overlay" id="portion-modal" onclick="if(event.target===this)closeModal('portion-modal')">
   <div class="modal">
     <div class="modal-title">Ajustar porção</div>
     <div class="modal-content">
@@ -1760,23 +1775,24 @@
 </div>
 
 <!-- Novo Paciente Modal -->
-<div class="modal-overlay" id="modal-novo-paciente">
+<div class="modal-overlay" id="modal-novo-paciente" onclick="if(event.target===this)closeModal('modal-novo-paciente')">
   <div class="modal">
     <div class="modal-title">➕ Novo Paciente</div>
     <div class="modal-content">
+      <div class="form-required-legend"><span class="required">*</span> Campos obrigatórios</div>
       <form id="form-novo-paciente" onsubmit="saveNovoPaciente(event)">
         <div class="form-group">
-          <label>Nome completo *</label>
-          <input type="text" name="nome" placeholder="Ex: Marina Costa" required>
+          <label>Nome completo <span class="required">*</span></label>
+          <input type="text" name="nome" placeholder="Ex: Marina Costa" required autocomplete="off">
         </div>
         <div class="form-group">
-          <label>Email *</label>
+          <label>Email <span class="required">*</span></label>
           <input type="email" name="email" placeholder="marina@email.com" required>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="form-group">
-            <label>Idade *</label>
-            <input type="number" name="age" min="1" max="120" placeholder="28" required>
+            <label>Idade <span class="required">*</span></label>
+            <input type="number" name="age" min="1" max="120" step="1" placeholder="28" required oninput="this.value=this.value.replace(/[^0-9]/g,'')" onkeydown="if(event.key==='.'||event.key===',')event.preventDefault()">
           </div>
           <div class="form-group">
             <label>Sexo</label>
@@ -1789,16 +1805,16 @@
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="form-group">
-            <label>Peso (kg) *</label>
-            <input type="number" name="weight" step="0.1" placeholder="65" required>
+            <label>Peso (kg) <span class="required">*</span></label>
+            <input type="text" name="weight" inputmode="decimal" placeholder="65.0" required oninput="this.value=formatDecimalInput(this.value,1)">
           </div>
           <div class="form-group">
-            <label>Altura (m) *</label>
-            <input type="number" name="height" step="0.01" placeholder="1.67" required>
+            <label>Altura (m) <span class="required">*</span></label>
+            <input type="text" name="height" inputmode="decimal" placeholder="1.67" required oninput="this.value=formatDecimalInput(this.value,2)">
           </div>
         </div>
         <div class="form-group">
-          <label>Objetivo nutricional *</label>
+          <label>Objetivo nutricional <span class="required">*</span></label>
           <select name="goal" required>
             <option value="">Selecionar objetivo</option>
             <option value="Emagrecimento">Emagrecimento</option>
@@ -1815,19 +1831,20 @@
     </div>
     <div class="modal-actions">
       <button class="btn btn-secondary" onclick="closeModal('modal-novo-paciente')">Cancelar</button>
-      <button class="btn btn-primary" onclick="document.getElementById('form-novo-paciente').requestSubmit()">Salvar paciente</button>
+      <button class="btn btn-primary" id="btn-salvar-paciente" onclick="document.getElementById('form-novo-paciente').requestSubmit()">Salvar paciente</button>
     </div>
   </div>
 </div>
 
 <!-- Nova Consulta Modal -->
-<div class="modal-overlay" id="modal-nova-consulta">
+<div class="modal-overlay" id="modal-nova-consulta" onclick="if(event.target===this)closeModal('modal-nova-consulta')">
   <div class="modal">
     <div class="modal-title">📅 Nova Consulta</div>
     <div class="modal-content">
+      <div class="form-required-legend"><span class="required">*</span> Campos obrigatórios</div>
       <form id="form-nova-consulta" onsubmit="saveNovaConsulta(event)">
         <div class="form-group">
-          <label>Paciente *</label>
+          <label>Paciente <span class="required">*</span></label>
           <select name="patient_id" required>
             <option value="">Selecionar paciente</option>
           </select>
@@ -1865,13 +1882,14 @@
 </div>
 
 <!-- Novo Plano Modal -->
-<div class="modal-overlay" id="modal-novo-plano">
+<div class="modal-overlay" id="modal-novo-plano" onclick="if(event.target===this)closeModal('modal-novo-plano')">
   <div class="modal">
     <div class="modal-title">🍽️ Novo Plano Alimentar</div>
     <div class="modal-content">
+      <div class="form-required-legend"><span class="required">*</span> Campos obrigatórios</div>
       <form id="form-novo-plano" onsubmit="saveNovoPlano(event)">
         <div class="form-group">
-          <label>Paciente *</label>
+          <label>Paciente <span class="required">*</span></label>
           <select name="patient_id" required>
             <option value="">Selecionar paciente</option>
             <option value="1">Marina Costa</option>
@@ -1882,26 +1900,26 @@
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="form-group">
-            <label>Calorias (kcal) *</label>
+            <label>Calorias (kcal) <span class="required">*</span></label>
             <input type="number" name="kcal" step="50" placeholder="1600" required>
           </div>
           <div class="form-group">
-            <label>Proteína (g) *</label>
+            <label>Proteína (g) <span class="required">*</span></label>
             <input type="number" name="protein" step="5" placeholder="130" required>
           </div>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="form-group">
-            <label>Carboidratos (g) *</label>
+            <label>Carboidratos (g) <span class="required">*</span></label>
             <input type="number" name="carbs" step="5" placeholder="190" required>
           </div>
           <div class="form-group">
-            <label>Gordura (g) *</label>
+            <label>Gordura (g) <span class="required">*</span></label>
             <input type="number" name="fat" step="5" placeholder="55" required>
           </div>
         </div>
         <div class="form-group">
-          <label>Duração do plano (dias) *</label>
+          <label>Duração do plano (dias) <span class="required">*</span></label>
           <select name="duration" required>
             <option value="7">1 semana</option>
             <option value="14">2 semanas</option>
@@ -1918,30 +1936,31 @@
     </div>
     <div class="modal-actions">
       <button class="btn btn-secondary" onclick="closeModal('modal-novo-plano')">Cancelar</button>
-      <button class="btn btn-primary" onclick="document.getElementById('form-novo-plano').requestSubmit()">Criar plano</button>
+      <button class="btn btn-primary" id="btn-criar-plano" onclick="document.getElementById('form-novo-plano').requestSubmit()">Criar plano</button>
     </div>
   </div>
 </div>
 
 <!-- ✏️ Modal Editar Paciente -->
-<div class="modal-overlay" id="modal-editar-paciente">
+<div class="modal-overlay" id="modal-editar-paciente" onclick="if(event.target===this)closeModal('modal-editar-paciente')">
   <div class="modal">
     <div class="modal-title">✏️ Editar Paciente</div>
     <div class="modal-content">
+      <div class="form-required-legend"><span class="required">*</span> Campos obrigatórios</div>
       <form id="form-editar-paciente" onsubmit="saveEditedPatient(event)">
         <input type="hidden" name="patient_id" id="edit-patient-id">
         <div class="form-group">
-          <label>Nome completo *</label>
-          <input type="text" name="nome" placeholder="Ex: Marina Costa" required>
+          <label>Nome completo <span class="required">*</span></label>
+          <input type="text" name="nome" placeholder="Ex: Marina Costa" required autocomplete="off">
         </div>
         <div class="form-group">
-          <label>Email *</label>
+          <label>Email <span class="required">*</span></label>
           <input type="email" name="email" placeholder="marina@email.com" required>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="form-group">
-            <label>Idade *</label>
-            <input type="number" name="age" min="1" max="120" placeholder="28" required>
+            <label>Idade <span class="required">*</span></label>
+            <input type="number" name="age" min="1" max="120" step="1" placeholder="28" required oninput="this.value=this.value.replace(/[^0-9]/g,'')" onkeydown="if(event.key==='.'||event.key===',')event.preventDefault()">
           </div>
           <div class="form-group">
             <label>Sexo</label>
@@ -1954,16 +1973,16 @@
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
           <div class="form-group">
-            <label>Peso (kg) *</label>
-            <input type="number" name="weight" step="0.1" placeholder="65" required>
+            <label>Peso (kg) <span class="required">*</span></label>
+            <input type="text" name="weight" inputmode="decimal" placeholder="65.0" required oninput="this.value=formatDecimalInput(this.value,1)">
           </div>
           <div class="form-group">
-            <label>Altura (m) *</label>
-            <input type="number" name="height" step="0.01" placeholder="1.67" required>
+            <label>Altura (m) <span class="required">*</span></label>
+            <input type="text" name="height" inputmode="decimal" placeholder="1.67" required oninput="this.value=formatDecimalInput(this.value,2)">
           </div>
         </div>
         <div class="form-group">
-          <label>Objetivo nutricional *</label>
+          <label>Objetivo nutricional <span class="required">*</span></label>
           <select name="goal" required>
             <option value="">Selecionar objetivo</option>
             <option value="Emagrecimento">Emagrecimento</option>
@@ -1980,13 +1999,13 @@
     </div>
     <div class="modal-actions">
       <button class="btn btn-secondary" onclick="closeModal('modal-editar-paciente')">Cancelar</button>
-      <button class="btn btn-primary" onclick="document.getElementById('form-editar-paciente').requestSubmit()">Salvar alterações</button>
+      <button class="btn btn-primary" id="btn-salvar-edicao" onclick="document.getElementById('form-editar-paciente').requestSubmit()">Salvar alterações</button>
     </div>
   </div>
 </div>
 
 <!-- 🗑️ Modal Confirmar Deletar Paciente -->
-<div class="modal-overlay" id="modal-confirmar-delete">
+<div class="modal-overlay" id="modal-confirmar-delete" onclick="if(event.target===this)closeModal('modal-confirmar-delete')">
   <div class="modal" style="max-width: 400px;">
     <div class="modal-title" style="color: #e74c3c;">⚠️ Confirmar Exclusão</div>
     <div class="modal-content">
@@ -2007,6 +2026,82 @@
 if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
   console.log = () => {};
   console.warn = () => {};
+}
+
+// ========================================
+// 🛠️ UTILITÁRIOS DE FORMULÁRIO
+// ========================================
+
+/**
+ * Formata input decimal: aceita apenas números e ponto, limita casas decimais.
+ * Converte vírgula para ponto automaticamente.
+ */
+function formatDecimalInput(value, maxDecimals) {
+  // Converte vírgula para ponto
+  let v = value.replace(/,/g, '.');
+  // Remove tudo que não é número ou ponto
+  v = v.replace(/[^0-9.]/g, '');
+  // Permite apenas um ponto
+  const parts = v.split('.');
+  if (parts.length > 2) {
+    v = parts[0] + '.' + parts.slice(1).join('');
+  }
+  // Limita casas decimais
+  if (parts.length === 2 && parts[1].length > maxDecimals) {
+    v = parts[0] + '.' + parts[1].slice(0, maxDecimals);
+  }
+  return v;
+}
+
+/**
+ * Capitaliza nome: primeira letra de cada palavra em maiúscula.
+ * Exceções: de, da, do, dos, das (preposições em português).
+ */
+function capitalizeName(name) {
+  if (!name) return '';
+  const prepositions = ['de', 'da', 'do', 'dos', 'das', 'e'];
+  return name.trim().split(/\s+/).map((word, index) => {
+    const lower = word.toLowerCase();
+    if (index > 0 && prepositions.includes(lower)) return lower;
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
+  }).join(' ');
+}
+
+/**
+ * Adiciona estado de loading a um botão de submit.
+ */
+function setButtonLoading(btnId, loading) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  if (loading) {
+    btn._originalText = btn.textContent;
+    btn.classList.add('btn-loading');
+    btn.textContent = 'Salvando...';
+    btn.disabled = true;
+  } else {
+    btn.classList.remove('btn-loading');
+    btn.textContent = btn._originalText || btn.textContent;
+    btn.disabled = false;
+  }
+}
+
+// ========================================
+// 🔄 LOGOUT BROADCAST (sincronizar abas)
+// ========================================
+const logoutChannel = (typeof BroadcastChannel !== 'undefined') ? new BroadcastChannel('nutriudf_auth') : null;
+
+if (logoutChannel) {
+  logoutChannel.onmessage = function(event) {
+    if (event.data === 'logout') {
+      authToken = null;
+      currentUser = null;
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('currentUser');
+      document.getElementById('loginEmail').value = '';
+      document.getElementById('loginPassword').value = '';
+      showAuthScreen('login');
+    }
+  };
 }
 
 // Aplicar tema salvo ANTES do render para evitar flash
@@ -2138,6 +2233,8 @@ function forceLogout() {
   currentUser = null;
   localStorage.removeItem('authToken');
   localStorage.removeItem('currentUser');
+  // Broadcast logout para outras abas
+  if (logoutChannel) logoutChannel.postMessage('logout');
   Toast.warning('Sessão encerrada por inatividade');
   setTimeout(() => {
     document.getElementById('loginEmail').value = '';
@@ -2537,6 +2634,8 @@ async function logout() {
     api.logout();
     document.getElementById('loginEmail').value = '';
     document.getElementById('loginPassword').value = '';
+    // Broadcast logout para todas as abas
+    if (logoutChannel) logoutChannel.postMessage('logout');
     showAuthScreen('login');
   }
 }
@@ -4237,6 +4336,17 @@ let currentPlan = { cafe: [], almoco: [], lanche: [], janta: [] };
 function renderPatientRows(list) {
   const container = document.getElementById('patients-rows');
   if (!container) return;
+  
+  if (!list || list.length === 0) {
+    container.innerHTML = `
+      <div class="no-results-msg">
+        <span class="no-results-icon">🔍</span>
+        <div class="no-results-text">Nenhum paciente encontrado</div>
+        <div class="no-results-hint">Tente buscar por outro nome, email ou objetivo</div>
+      </div>`;
+    return;
+  }
+  
   container.innerHTML = list.map(p => {
     const tagClass = p.status === 'ok' ? 'tag-ok' : p.status === 'att' ? 'tag-att' : 'tag-new';
     const tagLabel = p.status === 'ok' ? 'Em dia' : p.status === 'att' ? 'Atenção' : 'Novo';
@@ -6194,10 +6304,43 @@ function downloadReportPDF() {
   }[currentReportType];
   
   const patient = buildReportProfile(getCurrentPatientRecord(), null);
-  if (!patient) return;
+  if (!patient) { Toast.error('Selecione um paciente primeiro.'); return; }
   const fileName = `Relatorio_${reportType}_${patient.name.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
   
-  Toast.info(`Relatório "${reportType}" de ${patient.name} será baixado como ${fileName}`);
+  Toast.info(`Gerando PDF "${reportType}" para ${patient.name}...`);
+  
+  // Chamar API real de geração de PDF
+  const patientRecord = getCurrentPatientRecord();
+  fetch(`${api.getBaseURL()}/reports/generate-pdf`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    },
+    body: JSON.stringify({
+      patientId: patientRecord.id,
+      reportType: currentReportType,
+      period: currentReportPeriod || '7d'
+    })
+  }).then(response => {
+    if (!response.ok) throw new Error(`Erro ${response.status}`);
+    return response.blob();
+  }).then(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    Toast.success(`PDF "${fileName}" baixado com sucesso!`);
+  }).catch(error => {
+    console.error('❌ Erro ao gerar PDF:', error);
+    // Fallback: gerar PDF via impressão do navegador
+    Toast.warning('Não foi possível gerar PDF pelo servidor. Abrindo impressão do navegador...');
+    setTimeout(() => printReport(), 500);
+  });
 }
 
 function printReport() {
@@ -6209,13 +6352,37 @@ function printReport() {
   }[currentReportType];
   
   const patient = buildReportProfile(getCurrentPatientRecord(), null);
-  if (!patient) return;
-  Toast.info(`Enviando relatório "${reportType}" de ${patient.name} para impressão...`);
+  if (!patient) { Toast.error('Selecione um paciente primeiro.'); return; }
+  
+  // Capturar o conteúdo do relatório atual e imprimir
+  const reportEl = document.getElementById(`report-${currentReportType}`);
+  if (!reportEl) { Toast.error('Relatório não encontrado.'); return; }
+  
+  const printWindow = window.open('', '_blank');
+  if (!printWindow) { Toast.error('Pop-up bloqueado. Permita pop-ups para imprimir.'); return; }
+  
+  const styles = document.querySelector('style') ? document.querySelector('style').innerHTML : '';
+  printWindow.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Relatório ${reportType} - ${patient.name}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=optional" rel="stylesheet">
+    <style>${styles}
+    body { background: #fff; padding: 24px; font-family: 'DM Sans', sans-serif; color: #0F1419; }
+    .back-link, .topbar, .sidebar, .hamburger, .export-options, .modal-overlay { display: none !important; }
+    .content { padding: 0 !important; }
+    .card { box-shadow: none !important; border: 1px solid #ddd; }
+    @media print { body { padding: 0; } }
+    </style></head><body>
+    <h1 style="font-family:'Syne',sans-serif;color:#4A9B5F;margin-bottom:4px">Relatório ${reportType}</h1>
+    <p style="color:#767676;margin-bottom:24px">Paciente: ${patient.name} | Gerado em: ${new Date().toLocaleDateString('pt-BR')}</p>
+    ${reportEl.innerHTML}
+    <footer style="margin-top:32px;padding-top:16px;border-top:1px solid #ddd;font-size:11px;color:#767676;text-align:center">&copy; 2026 NutriUDF — Sistema de Gestão Nutricional</footer>
+    </body></html>`);
+  printWindow.document.close();
+  printWindow.onload = function() { printWindow.print(); };
 }
 
 function sendReportTo(type) {
   const patient = buildReportProfile(getCurrentPatientRecord(), null);
-  if (!patient) return;
+  if (!patient) { Toast.error('Selecione um paciente primeiro.'); return; }
   const reportType = {
     nutritional: 'Nutricional',
     progress: 'Progresso',
@@ -6223,10 +6390,20 @@ function sendReportTo(type) {
     recommendations: 'Recomendações'
   }[currentReportType];
   
+  const patientRecord = getCurrentPatientRecord();
+  
   if (type === 'patient') {
-    Toast.success(`Relatório "${reportType}" enviado para ${patient.name} via portal do paciente`);
+    Toast.info(`Enviando relatório para ${patient.name}...`);
+    api.sendEmailReport(patientRecord.id, currentReportType, currentReportPeriod || '7d', patientRecord.email)
+      .then(() => Toast.success(`Relatório "${reportType}" enviado para ${patient.name} por email!`))
+      .catch(err => Toast.error('Erro ao enviar: ' + err.message));
   } else if (type === 'email') {
-    Toast.success(`Relatório "${reportType}" enviado por email para ${patient.name}`);
+    const email = prompt(`Informe o email de destino:`, patientRecord.email || '');
+    if (!email) return;
+    Toast.info(`Enviando relatório por email para ${email}...`);
+    api.sendEmailReport(patientRecord.id, currentReportType, currentReportPeriod || '7d', email)
+      .then(() => Toast.success(`Relatório "${reportType}" enviado para ${email}!`))
+      .catch(err => Toast.error('Erro ao enviar: ' + err.message));
   }
 }
 
@@ -6259,13 +6436,14 @@ async function saveNovoPaciente(event) {
   event.preventDefault();
   const form = event.target;
   
+  const rawName = form.querySelector('[name="nome"]').value;
   const formData = {
-    name: form.querySelector('[name="nome"]').value,
-    email: form.querySelector('[name="email"]').value,
+    name: capitalizeName(rawName),
+    email: form.querySelector('[name="email"]').value.trim().toLowerCase(),
     age: parseInt(form.querySelector('[name="age"]').value),
     sex: form.querySelector('[name="sexo"]')?.value || null,
-    weight: parseFloat(form.querySelector('[name="weight"]').value),
-    height: parseFloat(form.querySelector('[name="height"]').value),
+    weight: parseFloat(form.querySelector('[name="weight"]').value.replace(',', '.')),
+    height: parseFloat(form.querySelector('[name="height"]').value.replace(',', '.')),
     goal: form.querySelector('[name="goal"]').value,
     notes: form.querySelector('[name="notes"]').value
   };
@@ -6274,8 +6452,16 @@ async function saveNovoPaciente(event) {
     Toast.error('Por favor, preencha todos os campos obrigatórios do paciente!');
     return;
   }
+
+  if (isNaN(formData.weight) || formData.weight <= 0 || formData.weight > 500) {
+    Toast.error('Peso inválido. Informe um valor entre 0.1 e 500 kg.'); return;
+  }
+  if (isNaN(formData.height) || formData.height <= 0 || formData.height > 3) {
+    Toast.error('Altura inválida. Informe um valor em metros (ex: 1.67).'); return;
+  }
   
   console.log('📤 [CREATE] Enviando novo paciente:', formData);
+  setButtonLoading('btn-salvar-paciente', true);
   
   try {
     const result = await api.createPatient(formData);
@@ -6307,6 +6493,8 @@ async function saveNovoPaciente(event) {
   } catch (error) {
     console.error('❌ [CREATE] Erro:', error);
     Toast.error('Erro ao criar paciente: ' + error.message);
+  } finally {
+    setButtonLoading('btn-salvar-paciente', false);
   }
 }
 
@@ -6388,6 +6576,7 @@ async function saveNovoPlano(event) {
   const fatPerc = ((formData.fat * 9) / formData.kcal * 100).toFixed(1);
   
   console.log('📤 Enviando novo plano para API...', formData);
+  setButtonLoading('btn-criar-plano', true);
   
   try {
     const mealData = {
@@ -6430,6 +6619,8 @@ async function saveNovoPlano(event) {
   } catch (error) {
     console.error('❌ Erro:', error);
     Toast.error('Erro ao criar plano: ' + error.message);
+  } finally {
+    setButtonLoading('btn-criar-plano', false);
   }
 }
 
@@ -6739,18 +6930,27 @@ async function saveEditedPatient(event) {
   const form = event.target;
   const patientId = form.querySelector('[name="patient_id"]').value;
   
+  const rawName = form.querySelector('[name="nome"]').value;
   const formData = {
-    name: form.querySelector('[name="nome"]').value,
-    email: form.querySelector('[name="email"]').value,
+    name: capitalizeName(rawName),
+    email: form.querySelector('[name="email"]').value.trim().toLowerCase(),
     age: parseInt(form.querySelector('[name="age"]').value),
     sex: form.querySelector('[name="sexo"]')?.value || null,
-    weight: parseFloat(form.querySelector('[name="weight"]').value),
-    height: parseFloat(form.querySelector('[name="height"]').value),
+    weight: parseFloat(form.querySelector('[name="weight"]').value.replace(',', '.')),
+    height: parseFloat(form.querySelector('[name="height"]').value.replace(',', '.')),
     goal: form.querySelector('[name="goal"]').value,
     notes: form.querySelector('[name="notes"]').value
   };
+
+  if (isNaN(formData.weight) || formData.weight <= 0 || formData.weight > 500) {
+    Toast.error('Peso inválido. Informe um valor entre 0.1 e 500 kg.'); return;
+  }
+  if (isNaN(formData.height) || formData.height <= 0 || formData.height > 3) {
+    Toast.error('Altura inválida. Informe um valor em metros (ex: 1.67).'); return;
+  }
   
   console.log('📝 [EDIT] Atualizando paciente ID:', patientId, formData);
+  setButtonLoading('btn-salvar-edicao', true);
   
   try {
     const result = await api.request(`/patients/${patientId}`, 'PUT', formData);
@@ -6786,6 +6986,8 @@ async function saveEditedPatient(event) {
   } catch (error) {
     console.error('❌ [EDIT] Erro:', error);
     Toast.error('Erro ao atualizar paciente: ' + error.message);
+  } finally {
+    setButtonLoading('btn-salvar-edicao', false);
   }
 }
 
@@ -6894,6 +7096,40 @@ function filterPatientsByIMC(minImc, maxImc) {
 // ========================================
 // EXPORTAÇÃO E VISUALIZAÇÕES
 // ========================================
+
+function exportPatientList() {
+  const patients = window.patients;
+  if (!patients || patients.length === 0) {
+    Toast.error('Nenhum paciente para exportar.');
+    return;
+  }
+  
+  // Gerar CSV
+  const headers = ['Nome', 'Email', 'Idade', 'Sexo', 'Peso (kg)', 'Altura (m)', 'IMC', 'Objetivo', 'Status'];
+  const rows = patients.map(p => [
+    `"${(p.name || '').replace(/"/g, '""')}"`,
+    `"${(p.email || '').replace(/"/g, '""')}"`,
+    p.age || '',
+    p.sex || '',
+    p.weight || '',
+    p.height || '',
+    parseFloat(p.imc) > 0 ? parseFloat(p.imc).toFixed(1) : '',
+    `"${(p.goal || '').replace(/"/g, '""')}"`,
+    p.status === 'ok' ? 'Em dia' : p.status === 'att' ? 'Atenção' : 'Novo'
+  ].join(','));
+  
+  const csvContent = '\uFEFF' + headers.join(',') + '\n' + rows.join('\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `pacientes_nutriudf_${new Date().toISOString().split('T')[0]}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  Toast.success(`Lista de ${patients.length} pacientes exportada com sucesso!`);
+}
 
 async function exportPatientPDF(patientId) {
   const patient = window.patients.find(p => p.id === patientId);
