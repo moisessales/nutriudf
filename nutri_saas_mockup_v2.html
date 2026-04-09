@@ -814,7 +814,7 @@
       <div class="nav-label">Clínica</div>
       <div class="nav-item" onclick="showScreen('patients',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-        Pacientes <span class="badge" id="patient-count-badge">24</span>
+        Pacientes <span class="badge" id="patient-count-badge">0</span>
       </div>
 
       <div class="nav-label">Ferramentas</div>
@@ -1289,7 +1289,7 @@
     <div class="screen" id="screen-patients">
       <div class="topbar">
         <button class="hamburger" aria-label="Menu" onclick="toggleSidebar()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-        <div><div class="topbar-title">Pacientes</div><div class="topbar-sub">24 pacientes cadastrados</div></div>
+        <div><div class="topbar-title">Pacientes</div><div class="topbar-sub" id="patients-topbar-sub">0 pacientes cadastrados</div></div>
         <div class="topbar-actions">
           <button class="btn btn-ghost" onclick="exportPatientList()">📋 Exportar lista</button>
           <button class="btn btn-primary" onclick="openModal('modal-novo-paciente')">+ Novo paciente</button>
@@ -2959,6 +2959,7 @@ async function loadPatientsFromAPI(preferredPatientId = null) {
     syncCurrentPatientSelection(preferredPatientId);
     renderPatientRows(window.patients);
     updatePatientSelectors();
+    updatePatientCounters();
     return window.patients;
     
   } catch (error) {
@@ -2970,6 +2971,7 @@ async function loadPatientsFromAPI(preferredPatientId = null) {
     syncCurrentPatientSelection(preferredPatientId);
     renderPatientRows(window.patients);
     updatePatientSelectors();
+    updatePatientCounters();
     return window.patients;
   }
 }
@@ -4333,9 +4335,24 @@ window.patients = [
 let currentPlan = { cafe: [], almoco: [], lanche: [], janta: [] };
 
 // Patients functions
+function updatePatientCounters() {
+  const total = Array.isArray(window.patients) ? window.patients.length : 0;
+  const badge = document.getElementById('patient-count-badge');
+  const sub = document.getElementById('patients-topbar-sub');
+
+  if (badge) {
+    badge.textContent = String(total);
+  }
+
+  if (sub) {
+    sub.textContent = `${total} paciente${total === 1 ? '' : 's'} cadastrado${total === 1 ? '' : 's'}`;
+  }
+}
+
 function renderPatientRows(list) {
   const container = document.getElementById('patients-rows');
   if (!container) return;
+  updatePatientCounters();
   
   if (!list || list.length === 0) {
     container.innerHTML = `
