@@ -7870,6 +7870,10 @@ const Analytics = {
     const entries = this._get();
     const counts = {};
     entries.forEach(e => { counts[e.event] = (counts[e.event] || 0) + 1; });
+    return { total: entries.length, counts, since: entries[0]?.ts };
+  }
+};
+
 // ========================================
 // MEU PERFIL (NUTRICIONISTA)
 // ========================================
@@ -8149,9 +8153,6 @@ function handlePerfilPhotoUpload(input) {
   }
 }
 
-    return { total: entries.length, counts, since: entries[0]?.ts };
-  }
-};
 // Track screen views
 const _origShowScreen = typeof showScreen === 'function' ? showScreen : null;
 if (_origShowScreen) {
