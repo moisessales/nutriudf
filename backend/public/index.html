@@ -19,8 +19,8 @@
     } catch (error) {}
   })();
   </script>
-    <link rel="preload" href="assets/app.39ba9038.css" as="style">
-  <link rel="stylesheet" href="assets/app.39ba9038.css">
+    <link rel="preload" href="assets/app.107e19f5.css" as="style">
+  <link rel="stylesheet" href="assets/app.107e19f5.css">
 
 </head>
 <body>
@@ -76,11 +76,6 @@
         Banco TBCA
       </div>
 
-      <div class="nav-label">Conta</div>
-      <div class="nav-item" onclick="showScreen('perfil',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Meu Perfil
-      </div>
     </div>
     <div class="sidebar-footer">
       <button class="theme-toggle" onclick="toggleDarkMode()" title="Alternar tema">
@@ -88,10 +83,14 @@
         <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
         <span id="theme-label">Modo escuro</span>
       </button>
-      <div class="user-row">
-        <div class="avatar">AN</div>
-        <div><div class="user-name">Dra. Ana Nunes</div><div class="user-role">CRN-3 · Nutricionista</div></div>
+      <div class="user-row" onclick="showScreen('perfil')" title="Meu Perfil">
+        <div class="avatar" id="sidebar-avatar">--</div>
+        <div style="flex:1;min-width:0"><div class="user-name" id="sidebar-user-name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Carregando...</div><div class="user-role" id="sidebar-user-role">Nutricionista</div></div>
       </div>
+      <button class="sidebar-logout-btn" onclick="logout()" title="Sair da conta">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sair
+      </button>
     </div>
   </div>
 
@@ -1074,16 +1073,37 @@
                   </div>
                   <div class="perfil-contact-item">
                     <div class="perfil-contact-icon">📱</div>
-                    <div class="perfil-contact-info"><div class="perfil-contact-label">WhatsApp</div><div class="perfil-contact-value" id="perfil-phone-display">—</div></div>
+                    <div class="perfil-contact-info">
+                      <div class="perfil-contact-label">WhatsApp</div>
+                      <div class="perfil-contact-value" id="perfil-phone-display">—</div>
+                      <input class="perfil-info-input" type="tel" id="perfil-phone-input" placeholder="(11) 99999-9999" style="display:none;margin-top:4px">
+                    </div>
                   </div>
                   <div class="perfil-contact-item">
                     <div class="perfil-contact-icon">📍</div>
-                    <div class="perfil-contact-info"><div class="perfil-contact-label">Cidade</div><div class="perfil-contact-value" id="perfil-city-display">—</div></div>
+                    <div class="perfil-contact-info">
+                      <div class="perfil-contact-label">Cidade</div>
+                      <div class="perfil-contact-value" id="perfil-city-display">—</div>
+                      <input class="perfil-info-input" type="text" id="perfil-city-input" placeholder="São Paulo, SP" style="display:none;margin-top:4px">
+                    </div>
                   </div>
                   <div class="perfil-contact-item">
                     <div class="perfil-contact-icon">💼</div>
-                    <div class="perfil-contact-info"><div class="perfil-contact-label">Modalidade</div><div class="perfil-contact-value" id="perfil-modality-display">—</div></div>
+                    <div class="perfil-contact-info">
+                      <div class="perfil-contact-label">Modalidade</div>
+                      <div class="perfil-contact-value" id="perfil-modality-display">—</div>
+                      <select class="perfil-info-input" id="perfil-modality-input" style="display:none;margin-top:4px">
+                        <option value="">Selecionar</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="Online">Online</option>
+                        <option value="Presencial & Online">Presencial & Online</option>
+                      </select>
+                    </div>
                   </div>
+                </div>
+                <div class="perfil-button-group" id="perfil-contact-edit-buttons" style="display:none">
+                  <button class="btn btn-secondary" onclick="cancelPerfilEdit()">Cancelar</button>
+                  <button class="btn btn-primary" id="perfil-save-contact-btn" onclick="savePerfilContact()">Salvar contato</button>
                 </div>
               </div>
             </div>
@@ -1459,7 +1479,7 @@
   </div>
 </div>
 
-  <script src="assets/app.04047d99.js"></script>
+  <script src="assets/app.9105c76d.js"></script>
 
 </body>
 </html>

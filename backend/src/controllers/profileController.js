@@ -23,21 +23,33 @@ exports.getProfile = async (req, res) => {
 
     const profile = profiles[0] || {};
 
-    // Stats
-    const [[patientCount]] = await pool.query(
-      'SELECT COUNT(*) AS count FROM patient WHERE nutritionist_id = ?',
-      [userId]
-    );
+    // Stats (resilient to missing tables)
+    let patients = 0, plans = 0, consultations = 0;
+    try {
+      const [[patientCount]] = await pool.query(
+        'SELECT COUNT(*) AS count FROM patient WHERE nutritionist_id = ?',
+        [userId]
+      );
+      patients = patientCount.count;
+    } catch (e) { /* table may not exist */ }
 
-    const [[planCount]] = await pool.query(
-      'SELECT COUNT(*) AS count FROM meal_plan WHERE nutritionist_id = ?',
-      [userId]
-    );
+    try {
+      const [[planCount]] = await pool.query(
+        `SELECT COUNT(*) AS count FROM meal_plans mp
+         INNER JOIN patient p ON mp.patient_id = p.id
+         WHERE p.nutritionist_id = ?`,
+        [userId]
+      );
+      plans = planCount.count;
+    } catch (e) { /* table may not exist */ }
 
-    const [[consultationCount]] = await pool.query(
-      'SELECT COUNT(*) AS count FROM consultation WHERE nutritionist_id = ?',
-      [userId]
-    );
+    try {
+      const [[consultationCount]] = await pool.query(
+        'SELECT COUNT(*) AS count FROM consultation WHERE nutritionist_id = ?',
+        [userId]
+      );
+      consultations = consultationCount.count;
+    } catch (e) { /* table may not exist */ }
 
     res.json({
       id: user.id,
@@ -55,9 +67,9 @@ exports.getProfile = async (req, res) => {
       city: profile.city || null,
       modality: profile.modality || null,
       stats: {
-        patients: patientCount.count,
-        plans: planCount.count,
-        consultations: consultationCount.count
+        patients,
+        plans,
+        consultations
       }
     });
   } catch (error) {
@@ -69,25 +81,35 @@ exports.getProfile = async (req, res) => {
 exports.updateProfile = async (req, res) => {
   try {
     const userId = req.userId;
-    const { profession, experience_years, crn, education, bio, specialties, phone, city, modality } = req.body;
+    const allowedFields = ['profession', 'experience_years', 'crn', 'education', 'bio', 'specialties', 'phone', 'city', 'modality'];
+    const updates = {};
+    for (const field of allowedFields) {
+      if (req.body[field] !== undefined) {
+        updates[field] = req.body[field] || null;
+      }
+    }
 
-    // Upsert: insert or update
+    if (Object.keys(updates).length === 0) {
+      return res.status(400).json({ error: 'Nenhum campo para atualizar' });
+    }
+
     const [existing] = await pool.query(
       'SELECT user_id FROM nutritionist_profile WHERE user_id = ?',
       [userId]
     );
 
     if (existing.length === 0) {
+      const cols = ['user_id', ...Object.keys(updates)];
+      const placeholders = cols.map(() => '?').join(', ');
       await pool.query(
-        `INSERT INTO nutritionist_profile (user_id, crn, phone, bio, profession, experience_years, education, specialties, city, modality)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [userId, crn || null, phone || null, bio || null, profession || null, experience_years || null, education || null, specialties || null, city || null, modality || null]
+        `INSERT INTO nutritionist_profile (${cols.join(', ')}) VALUES (${placeholders})`,
+        [userId, ...Object.values(updates)]
       );
     } else {
+      const setClauses = Object.keys(updates).map(k => `${k} = ?`).join(', ');
       await pool.query(
-        `UPDATE nutritionist_profile SET crn = ?, phone = ?, bio = ?, profession = ?, experience_years = ?, education = ?, specialties = ?, city = ?, modality = ?, updated_at = NOW()
-         WHERE user_id = ?`,
-        [crn || null, phone || null, bio || null, profession || null, experience_years || null, education || null, specialties || null, city || null, modality || null, userId]
+        `UPDATE nutritionist_profile SET ${setClauses}, updated_at = NOW() WHERE user_id = ?`,
+        [...Object.values(updates), userId]
       );
     }
 
