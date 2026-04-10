@@ -3214,20 +3214,8 @@ function getCurrentPatientRecord() {
   return patientList.find(patient => String(patient.id) === String(currentReportPatient)) || null;
 }
 
-// Adicionar logout button na sidebar
+// Inicializar app ao carregar
 window.addEventListener('DOMContentLoaded', () => {
-  const sidebarFooter = document.querySelector('.sidebar-footer');
-  if (sidebarFooter && !document.getElementById('logoutBtn')) {
-    const logoutBtn = document.createElement('button');
-    logoutBtn.id = 'logoutBtn';
-    logoutBtn.className = 'btn btn-ghost';
-    logoutBtn.style.width = '100%';
-    logoutBtn.style.marginTop = '8px';
-    logoutBtn.textContent = 'Sair';
-    logoutBtn.onclick = logout;
-    sidebarFooter.appendChild(logoutBtn);
-  }
-  
   // Checar autenticação ao carregar
   handleUrlActions();
   checkAuth();
@@ -7945,27 +7933,35 @@ function populatePerfilUI(data) {
 }
 
 async function loadPerfilScreen() {
+  console.log('📋 [PERFIL] loadPerfilScreen chamado, currentUser:', currentUser ? currentUser.name : 'NULL');
   // Fallback imediato com dados locais enquanto API carrega
-  if (currentUser) {
-    const localData = {
-      full_name: currentUser.name || currentUser.full_name || 'Usuário',
-      email: currentUser.email || '',
-      crn: null, phone: null, bio: null, profession: null,
-      experience_years: null, education: null, specialties: '',
-      city: null, modality: null,
-      stats: { patients: 0, plans: 0, consultations: 0 }
-    };
-    // Mesclar com perfilData salvo anteriormente (se houver)
-    if (perfilData) Object.assign(localData, perfilData);
-    populatePerfilUI(localData);
+  try {
+    if (currentUser) {
+      const localData = {
+        full_name: currentUser.name || currentUser.full_name || 'Usuário',
+        email: currentUser.email || '',
+        crn: null, phone: null, bio: null, profession: null,
+        experience_years: null, education: null, specialties: '',
+        city: null, modality: null,
+        stats: { patients: 0, plans: 0, consultations: 0 }
+      };
+      // Mesclar com perfilData salvo anteriormente (se houver)
+      if (perfilData) Object.assign(localData, perfilData);
+      console.log('📋 [PERFIL] Populando UI com fallback local:', localData.full_name);
+      populatePerfilUI(localData);
+    }
+  } catch (localErr) {
+    console.error('📋 [PERFIL] Erro ao popular com dados locais:', localErr);
   }
 
   try {
+    console.log('📋 [PERFIL] Buscando perfil da API...');
     const data = await api.getProfile();
+    console.log('📋 [PERFIL] API retornou:', data ? data.full_name : 'NULL');
     perfilData = data;
     populatePerfilUI(data);
   } catch (err) {
-    console.error('Erro ao carregar perfil:', err);
+    console.error('📋 [PERFIL] Erro ao carregar perfil da API:', err);
     // Se nem sequer temos currentUser, mostrar estado de erro
     if (!currentUser) {
       document.getElementById('perfil-name').textContent = 'Erro ao carregar';
