@@ -1827,6 +1827,7 @@
                 <input type="file" id="perfil-photo-input" accept="image/*" style="display:none" onchange="handlePerfilPhotoUpload(this)">
               </div>
               <h1 class="perfil-title" id="perfil-name">Carregando...</h1>
+              <input class="perfil-info-input" type="text" id="perfil-name-input" placeholder="Seu nome completo" style="display:none;text-align:center;font-size:18px;font-weight:600;max-width:320px;margin:0 auto">
               <p class="perfil-subtitle" id="perfil-role">Nutricionista</p>
               <button class="perfil-edit-button" id="perfil-toggle-edit-btn" onclick="togglePerfilEditMode()">Editar perfil</button>
             </div>
@@ -7892,64 +7893,94 @@ function getInitials(name) {
   return name.split(' ').filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
 }
 
+function populatePerfilUI(data) {
+  document.getElementById('perfil-avatar').textContent = getInitials(data.full_name);
+  document.getElementById('perfil-name').textContent = data.full_name || '—';
+  document.getElementById('perfil-role').textContent = data.crn ? `${data.crn} · Nutricionista` : 'Nutricionista';
+
+  // Nome editável
+  const nameInput = document.getElementById('perfil-name-input');
+  if (nameInput) nameInput.value = data.full_name || '';
+
+  document.getElementById('perfil-profession-display').textContent = data.profession || 'Nutricionista';
+  document.getElementById('perfil-profession-input').value = data.profession || 'Nutricionista';
+  document.getElementById('perfil-experience-display').textContent = data.experience_years ? `${data.experience_years} anos` : '—';
+  document.getElementById('perfil-experience-input').value = data.experience_years || '';
+  document.getElementById('perfil-crn-display').textContent = data.crn || '—';
+  document.getElementById('perfil-crn-input').value = data.crn || '';
+  document.getElementById('perfil-education-display').textContent = data.education || '—';
+  document.getElementById('perfil-education-input').value = data.education || '';
+
+  const specialties = (data.specialties || '').split(',').map(s => s.trim()).filter(Boolean);
+  const specContainer = document.getElementById('perfil-specialties-display');
+  specContainer.innerHTML = specialties.length > 0
+    ? specialties.map(s => `<div class="perfil-specialty-badge">${escapeHtml(s)}</div>`).join('')
+    : '<span style="color:var(--muted);font-size:13px">Nenhuma especialidade cadastrada</span>';
+  document.getElementById('perfil-specialties-input').value = data.specialties || '';
+
+  document.getElementById('perfil-bio-display').textContent = data.bio || '—';
+  document.getElementById('perfil-bio-input').value = data.bio || '';
+
+  document.getElementById('perfil-email-display').textContent = data.email || '—';
+  document.getElementById('perfil-phone-display').textContent = data.phone || '—';
+  document.getElementById('perfil-phone-input').value = data.phone || '';
+  document.getElementById('perfil-city-display').textContent = data.city || '—';
+  document.getElementById('perfil-city-input').value = data.city || '';
+  document.getElementById('perfil-modality-display').textContent = data.modality || '—';
+  document.getElementById('perfil-modality-input').value = data.modality || '';
+  document.getElementById('perfil-security-email').textContent = data.email || '—';
+
+  // Stats
+  document.getElementById('perfil-stat-patients').textContent = data.stats?.patients ?? 0;
+  document.getElementById('perfil-stat-plans').textContent = data.stats?.plans ?? 0;
+  document.getElementById('perfil-stat-consultations').textContent = data.stats?.consultations ?? 0;
+
+  // Atualizar sidebar
+  const sidebarName = document.getElementById('sidebar-user-name');
+  if (sidebarName) sidebarName.textContent = data.full_name || 'Usuário';
+  const sidebarAvatar = document.getElementById('sidebar-avatar');
+  if (sidebarAvatar) sidebarAvatar.textContent = getInitials(data.full_name);
+  const sidebarRole = document.getElementById('sidebar-user-role');
+  if (sidebarRole) sidebarRole.textContent = data.crn ? `${data.crn} · Nutricionista` : 'Nutricionista';
+}
+
 async function loadPerfilScreen() {
+  // Fallback imediato com dados locais enquanto API carrega
+  if (currentUser) {
+    const localData = {
+      full_name: currentUser.name || currentUser.full_name || 'Usuário',
+      email: currentUser.email || '',
+      crn: null, phone: null, bio: null, profession: null,
+      experience_years: null, education: null, specialties: '',
+      city: null, modality: null,
+      stats: { patients: 0, plans: 0, consultations: 0 }
+    };
+    // Mesclar com perfilData salvo anteriormente (se houver)
+    if (perfilData) Object.assign(localData, perfilData);
+    populatePerfilUI(localData);
+  }
+
   try {
     const data = await api.getProfile();
     perfilData = data;
-
-    document.getElementById('perfil-avatar').textContent = getInitials(data.full_name);
-    document.getElementById('perfil-name').textContent = data.full_name || '—';
-    document.getElementById('perfil-role').textContent = data.crn ? `${data.crn} · Nutricionista` : 'Nutricionista';
-
-    document.getElementById('perfil-profession-display').textContent = data.profession || 'Nutricionista';
-    document.getElementById('perfil-profession-input').value = data.profession || 'Nutricionista';
-    document.getElementById('perfil-experience-display').textContent = data.experience_years ? `${data.experience_years} anos` : '—';
-    document.getElementById('perfil-experience-input').value = data.experience_years || '';
-    document.getElementById('perfil-crn-display').textContent = data.crn || '—';
-    document.getElementById('perfil-crn-input').value = data.crn || '';
-    document.getElementById('perfil-education-display').textContent = data.education || '—';
-    document.getElementById('perfil-education-input').value = data.education || '';
-
-    const specialties = (data.specialties || '').split(',').map(s => s.trim()).filter(Boolean);
-    const specContainer = document.getElementById('perfil-specialties-display');
-    specContainer.innerHTML = specialties.length > 0
-      ? specialties.map(s => `<div class="perfil-specialty-badge">${s}</div>`).join('')
-      : '<span style="color:var(--muted);font-size:13px">Nenhuma especialidade cadastrada</span>';
-    document.getElementById('perfil-specialties-input').value = data.specialties || '';
-
-    document.getElementById('perfil-bio-display').textContent = data.bio || '—';
-    document.getElementById('perfil-bio-input').value = data.bio || '';
-
-    document.getElementById('perfil-email-display').textContent = data.email || '—';
-    document.getElementById('perfil-phone-display').textContent = data.phone || '—';
-    document.getElementById('perfil-phone-input').value = data.phone || '';
-    document.getElementById('perfil-city-display').textContent = data.city || '—';
-    document.getElementById('perfil-city-input').value = data.city || '';
-    document.getElementById('perfil-modality-display').textContent = data.modality || '—';
-    document.getElementById('perfil-modality-input').value = data.modality || '';
-    document.getElementById('perfil-security-email').textContent = data.email || '—';
-
-    // Stats
-    document.getElementById('perfil-stat-patients').textContent = data.stats?.patients || 0;
-    document.getElementById('perfil-stat-plans').textContent = data.stats?.plans || 0;
-    document.getElementById('perfil-stat-consultations').textContent = data.stats?.consultations || 0;
-
-    // Atualizar sidebar
-    const sidebarName = document.getElementById('sidebar-user-name');
-    if (sidebarName) sidebarName.textContent = data.full_name || 'Usuário';
-    const sidebarAvatar = document.getElementById('sidebar-avatar');
-    if (sidebarAvatar) sidebarAvatar.textContent = getInitials(data.full_name);
-    const sidebarRole = document.getElementById('sidebar-user-role');
-    if (sidebarRole) sidebarRole.textContent = data.crn ? `${data.crn} · Nutricionista` : 'Nutricionista';
-
+    populatePerfilUI(data);
   } catch (err) {
     console.error('Erro ao carregar perfil:', err);
-    Toast.error('Erro ao carregar dados do perfil');
+    // Se nem sequer temos currentUser, mostrar estado de erro
+    if (!currentUser) {
+      document.getElementById('perfil-name').textContent = 'Erro ao carregar';
+      document.getElementById('perfil-role').textContent = '—';
+    }
+    Toast.error('Erro ao carregar dados do perfil. Verifique sua conexão.');
   }
 }
 
 function togglePerfilEditMode() {
   perfilEditMode = !perfilEditMode;
+  // Nome editável no header
+  document.getElementById('perfil-name').style.display = perfilEditMode ? 'none' : 'block';
+  document.getElementById('perfil-name-input').style.display = perfilEditMode ? 'block' : 'none';
+  // Campos profissionais
   const fields = ['profession', 'experience', 'crn', 'education'];
   fields.forEach(f => {
     document.getElementById(`perfil-${f}-display`).style.display = perfilEditMode ? 'none' : 'block';
@@ -7973,6 +8004,7 @@ function togglePerfilEditMode() {
 
 function cancelPerfilEdit() {
   if (perfilData) {
+    document.getElementById('perfil-name-input').value = perfilData.full_name || '';
     document.getElementById('perfil-profession-input').value = perfilData.profession || 'Nutricionista';
     document.getElementById('perfil-experience-input').value = perfilData.experience_years || '';
     document.getElementById('perfil-crn-input').value = perfilData.crn || '';
@@ -7988,10 +8020,10 @@ function cancelPerfilEdit() {
 }
 
 async function savePerfilProfessional() {
-  const btn = document.getElementById('perfil-save-btn');
   setButtonLoading('perfil-save-btn', true);
   try {
     const payload = {
+      full_name: document.getElementById('perfil-name-input').value.trim(),
       profession: document.getElementById('perfil-profession-input').value.trim(),
       experience_years: parseInt(document.getElementById('perfil-experience-input').value) || null,
       crn: document.getElementById('perfil-crn-input').value.trim(),
@@ -8002,16 +8034,21 @@ async function savePerfilProfessional() {
       city: document.getElementById('perfil-city-input').value.trim(),
       modality: document.getElementById('perfil-modality-input').value
     };
+    if (!payload.full_name) {
+      Toast.error('O nome é obrigatório');
+      setButtonLoading('perfil-save-btn', false);
+      return;
+    }
     await api.updateProfile(payload);
+    // Atualizar currentUser local
+    if (currentUser) {
+      currentUser.name = payload.full_name;
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
     Toast.success('Perfil atualizado com sucesso!');
     perfilEditMode = true;
     togglePerfilEditMode();
-    loadPerfilScreen();
-    // Atualizar sidebar com CRN
-    if (payload.crn) {
-      const roleEl = document.getElementById('sidebar-user-role');
-      if (roleEl) roleEl.textContent = payload.crn + ' · Nutricionista';
-    }
+    await loadPerfilScreen();
   } catch (err) {
     console.error('Erro ao salvar perfil:', err);
     Toast.error(err.message || 'Erro ao salvar perfil');
@@ -8032,7 +8069,7 @@ async function savePerfilContact() {
     Toast.success('Contato atualizado com sucesso!');
     perfilEditMode = true;
     togglePerfilEditMode();
-    loadPerfilScreen();
+    await loadPerfilScreen();
   } catch (err) {
     console.error('Erro ao salvar contato:', err);
     Toast.error(err.message || 'Erro ao salvar contato');
@@ -8049,10 +8086,15 @@ async function savePerfilEmail(e) {
   if (!newEmail || !password) return Toast.error('Preencha todos os campos');
   try {
     await api.changeEmail(newEmail, password);
+    // Atualizar email no localStorage
+    if (currentUser) {
+      currentUser.email = newEmail;
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
     Toast.success('Email alterado com sucesso!');
     closeModal('modal-change-email');
     form.reset();
-    loadPerfilScreen();
+    await loadPerfilScreen();
   } catch (err) {
     Toast.error(err.message || 'Erro ao alterar email');
   }
@@ -8082,12 +8124,24 @@ async function confirmPerfilDeleteAccount(e) {
   const form = e.target;
   const password = form.password.value;
   if (!password) return Toast.error('Digite sua senha para confirmar');
-  if (!confirm('Tem certeza absoluta? Todos os seus dados serão perdidos permanentemente.')) return;
+  const ok = await confirmAction({
+    title: 'Deletar conta permanentemente?',
+    msg: 'Todos os seus dados serão perdidos. Esta ação não pode ser desfeita.',
+    icon: '🗑️',
+    okText: 'Deletar permanentemente',
+    okClass: 'btn-danger'
+  });
+  if (!ok) return;
   try {
     await api.deleteAccount(password);
     Toast.success('Conta deletada. Redirecionando...');
     closeModal('modal-delete-account');
-    logout();
+    // Force logout without confirm dialog
+    clearTimeout(_inactivityWarnTimer);
+    clearTimeout(_inactivityLogoutTimer);
+    api.logout();
+    if (logoutChannel) logoutChannel.postMessage('logout');
+    showAuthScreen('login');
   } catch (err) {
     Toast.error(err.message || 'Erro ao deletar conta');
   }

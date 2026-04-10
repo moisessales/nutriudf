@@ -141,7 +141,7 @@ exports.login = async (req, res) => {
 
     // Buscar usuário
     const [rows] = await pool.query(
-      'SELECT id, email, password_hash, full_name, role, email_verified FROM app_user WHERE email = ?',
+      'SELECT id, email, password_hash, full_name, role, email_verified, is_active FROM app_user WHERE email = ?',
       [email]
     );
     
@@ -152,6 +152,11 @@ exports.login = async (req, res) => {
     const user = rows[0];
 
     // Verificar se conta está ativa
+    if (user.is_active === false || user.is_active === 0) {
+      return res.status(403).json({ error: 'Esta conta foi desativada.' });
+    }
+
+    // Verificar se email foi verificado
     if (!user.email_verified) {
       return res.status(403).json({ 
         error: 'Conta não verificada. Verifique seu email para ativar.',

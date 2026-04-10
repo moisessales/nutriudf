@@ -81,6 +81,16 @@ exports.getProfile = async (req, res) => {
 exports.updateProfile = async (req, res) => {
   try {
     const userId = req.userId;
+
+    // full_name vai na tabela app_user
+    if (req.body.full_name && req.body.full_name.trim()) {
+      await pool.query(
+        'UPDATE app_user SET full_name = ?, updated_at = NOW() WHERE id = ?',
+        [req.body.full_name.trim(), userId]
+      );
+    }
+
+    // Demais campos vão na nutritionist_profile
     const allowedFields = ['profession', 'experience_years', 'crn', 'education', 'bio', 'specialties', 'phone', 'city', 'modality'];
     const updates = {};
     for (const field of allowedFields) {
@@ -89,30 +99,29 @@ exports.updateProfile = async (req, res) => {
       }
     }
 
-    if (Object.keys(updates).length === 0) {
-      return res.status(400).json({ error: 'Nenhum campo para atualizar' });
+    if (Object.keys(updates).length > 0) {
+      const [existing] = await pool.query(
+        'SELECT user_id FROM nutritionist_profile WHERE user_id = ?',
+        [userId]
+      );
+
+      if (existing.length === 0) {
+        const cols = ['user_id', ...Object.keys(updates)];
+        const placeholders = cols.map(() => '?').join(', ');
+        await pool.query(
+          `INSERT INTO nutritionist_profile (${cols.join(', ')}) VALUES (${placeholders})`,
+          [userId, ...Object.values(updates)]
+        );
+      } else {
+        const setClauses = Object.keys(updates).map(k => `${k} = ?`).join(', ');
+        await pool.query(
+          `UPDATE nutritionist_profile SET ${setClauses}, updated_at = NOW() WHERE user_id = ?`,
+          [...Object.values(updates), userId]
+        );
+      }
     }
 
-    const [existing] = await pool.query(
-      'SELECT user_id FROM nutritionist_profile WHERE user_id = ?',
-      [userId]
-    );
-
-    if (existing.length === 0) {
-      const cols = ['user_id', ...Object.keys(updates)];
-      const placeholders = cols.map(() => '?').join(', ');
-      await pool.query(
-        `INSERT INTO nutritionist_profile (${cols.join(', ')}) VALUES (${placeholders})`,
-        [userId, ...Object.values(updates)]
-      );
-    } else {
-      const setClauses = Object.keys(updates).map(k => `${k} = ?`).join(', ');
-      await pool.query(
-        `UPDATE nutritionist_profile SET ${setClauses}, updated_at = NOW() WHERE user_id = ?`,
-        [...Object.values(updates), userId]
-      );
-    }
-
+    // Retornar 200 mesmo se só atualizou full_name
     res.json({ message: 'Perfil atualizado com sucesso' });
   } catch (error) {
     console.error('Erro ao atualizar perfil:', error.message);

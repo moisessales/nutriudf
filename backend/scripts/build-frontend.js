@@ -63,8 +63,8 @@ async function buildFrontend() {
   let finalJs = rawJs;
   if (terserMinify) {
     const minifiedJs = await terserMinify(rawJs, {
-      compress: { drop_console: false, passes: 2 },
-      mangle: true
+      compress: { drop_console: false, passes: 2, toplevel: false, unused: false },
+      mangle: false
     });
     finalJs = minifiedJs.code;
   }
