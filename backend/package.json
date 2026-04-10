@@ -31,13 +31,11 @@
     "pdfkit": "^0.18.0",
     "swagger-ui-express": "^5.0.1",
     "uuid": "^13.0.0",
-    "winston": "^3.19.0"
+    "winston": "^3.19.0",
+    "terser": "^5.46.1"
   },
   "devDependencies": {
     "html-minifier-terser": "^7.2.0",
     "nodemon": "^2.0.20"
-  },
-  "optionalDependencies": {
-    "terser": "^5.46.1"
   }
 }
