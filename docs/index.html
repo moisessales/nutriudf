@@ -19,8 +19,8 @@
     } catch (error) {}
   })();
   </script>
-    <link rel="preload" href="assets/app.1c3c8481.css" as="style">
-  <link rel="stylesheet" href="assets/app.1c3c8481.css">
+    <link rel="preload" href="assets/app.39ba9038.css" as="style">
+  <link rel="stylesheet" href="assets/app.39ba9038.css">
 
 </head>
 <body>
@@ -74,6 +74,12 @@
       <div class="nav-item" onclick="showScreen('tbca',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
         Banco TBCA
+      </div>
+
+      <div class="nav-label">Conta</div>
+      <div class="nav-item" onclick="showScreen('perfil',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Meu Perfil
       </div>
     </div>
     <div class="sidebar-footer">
@@ -992,6 +998,133 @@
       </div>
     </div>
 
+    <!-- MEU PERFIL screen (nutricionista) -->
+    <div class="screen" id="screen-perfil">
+      <div class="topbar">
+        <button class="hamburger" aria-label="Menu" onclick="toggleSidebar()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <div><div class="topbar-title">Meu Perfil</div><div class="topbar-sub">Gerencie suas informações profissionais</div></div>
+      </div>
+      <div class="content" style="padding-top:0">
+        <div class="perfil-container">
+          <!-- HEADER HERO -->
+          <div class="perfil-header">
+            <div class="perfil-header-bg"></div>
+            <div class="perfil-card">
+              <div class="perfil-avatar-wrapper">
+                <div class="perfil-avatar" id="perfil-avatar">--</div>
+                <div class="perfil-avatar-badge" title="Editar foto" onclick="document.getElementById('perfil-photo-input').click()">📷</div>
+                <input type="file" id="perfil-photo-input" accept="image/*" style="display:none" onchange="handlePerfilPhotoUpload(this)">
+              </div>
+              <h1 class="perfil-title" id="perfil-name">Carregando...</h1>
+              <p class="perfil-subtitle" id="perfil-role">Nutricionista</p>
+              <button class="perfil-edit-button" id="perfil-toggle-edit-btn" onclick="togglePerfilEditMode()">Editar perfil</button>
+            </div>
+          </div>
+          <!-- INFORMAÇÕES PROFISSIONAIS -->
+          <div class="perfil-content">
+            <div class="perfil-section">
+              <div class="perfil-section-header"><div class="perfil-section-title">Informações profissionais</div></div>
+              <div class="perfil-section-body">
+                <div class="perfil-info-grid">
+                  <div class="perfil-info-item">
+                    <div class="perfil-info-label">Profissão</div>
+                    <div class="perfil-info-value" id="perfil-profession-display">—</div>
+                    <input class="perfil-info-input" type="text" id="perfil-profession-input" style="display:none">
+                  </div>
+                  <div class="perfil-info-item">
+                    <div class="perfil-info-label">Anos de experiência</div>
+                    <div class="perfil-info-value" id="perfil-experience-display">—</div>
+                    <input class="perfil-info-input" type="number" id="perfil-experience-input" min="0" max="70" style="display:none">
+                  </div>
+                  <div class="perfil-info-item">
+                    <div class="perfil-info-label">CRN</div>
+                    <div class="perfil-info-value" id="perfil-crn-display">—</div>
+                    <input class="perfil-info-input" type="text" id="perfil-crn-input" style="display:none">
+                  </div>
+                  <div class="perfil-info-item">
+                    <div class="perfil-info-label">Formação</div>
+                    <div class="perfil-info-value" id="perfil-education-display">—</div>
+                    <input class="perfil-info-input" type="text" id="perfil-education-input" style="display:none">
+                  </div>
+                </div>
+                <div style="margin-top:28px">
+                  <div class="perfil-info-label">Especialidades</div>
+                  <div class="perfil-specialties" id="perfil-specialties-display"></div>
+                  <input class="perfil-info-input" type="text" id="perfil-specialties-input" placeholder="Ex: Emagrecimento, Hipertrofia, Gestantes (separadas por vírgula)" style="display:none;margin-top:16px;width:100%">
+                </div>
+                <div style="margin-top:28px">
+                  <div class="perfil-info-label">Bio profissional</div>
+                  <p class="perfil-bio-text" id="perfil-bio-display" style="margin-top:12px">—</p>
+                  <textarea class="perfil-bio-textarea" id="perfil-bio-input" style="display:none" rows="4"></textarea>
+                </div>
+                <div class="perfil-button-group" id="perfil-edit-buttons" style="display:none">
+                  <button class="btn btn-secondary" onclick="cancelPerfilEdit()">Cancelar</button>
+                  <button class="btn btn-primary" id="perfil-save-btn" onclick="savePerfilProfessional()">Salvar alterações</button>
+                </div>
+              </div>
+            </div>
+            <!-- CONTATO -->
+            <div class="perfil-section">
+              <div class="perfil-section-header"><div class="perfil-section-title">Contato e localização</div></div>
+              <div class="perfil-section-body">
+                <div class="perfil-contact-grid">
+                  <div class="perfil-contact-item">
+                    <div class="perfil-contact-icon">✉️</div>
+                    <div class="perfil-contact-info"><div class="perfil-contact-label">Email</div><div class="perfil-contact-value" id="perfil-email-display">—</div></div>
+                  </div>
+                  <div class="perfil-contact-item">
+                    <div class="perfil-contact-icon">📱</div>
+                    <div class="perfil-contact-info"><div class="perfil-contact-label">WhatsApp</div><div class="perfil-contact-value" id="perfil-phone-display">—</div></div>
+                  </div>
+                  <div class="perfil-contact-item">
+                    <div class="perfil-contact-icon">📍</div>
+                    <div class="perfil-contact-info"><div class="perfil-contact-label">Cidade</div><div class="perfil-contact-value" id="perfil-city-display">—</div></div>
+                  </div>
+                  <div class="perfil-contact-item">
+                    <div class="perfil-contact-icon">💼</div>
+                    <div class="perfil-contact-info"><div class="perfil-contact-label">Modalidade</div><div class="perfil-contact-value" id="perfil-modality-display">—</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ATIVIDADE -->
+            <div class="perfil-section">
+              <div class="perfil-section-header"><div class="perfil-section-title">Atividade</div></div>
+              <div class="perfil-section-body">
+                <div class="perfil-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+                  <div class="perfil-stat-card"><div class="perfil-stat-number" id="perfil-stat-patients">0</div><div class="perfil-stat-label">Pacientes ativos</div></div>
+                  <div class="perfil-stat-card"><div class="perfil-stat-number" id="perfil-stat-plans">0</div><div class="perfil-stat-label">Planos criados</div></div>
+                  <div class="perfil-stat-card"><div class="perfil-stat-number" id="perfil-stat-consultations">0</div><div class="perfil-stat-label">Consultas</div></div>
+                </div>
+              </div>
+            </div>
+            <!-- SEGURANÇA -->
+            <div class="perfil-section">
+              <div class="perfil-section-header"><div class="perfil-section-title">Segurança</div></div>
+              <div class="perfil-section-body">
+                <div class="perfil-security-item">
+                  <div class="perfil-security-left"><div class="perfil-security-label">Email</div><div class="perfil-security-value" id="perfil-security-email">—</div></div>
+                  <button class="perfil-edit-link" onclick="openModal('modal-change-email')">Alterar</button>
+                </div>
+                <div class="perfil-security-item">
+                  <div class="perfil-security-left"><div class="perfil-security-label">Senha</div><div class="perfil-security-value">Altere sua senha periodicamente</div></div>
+                  <button class="perfil-edit-link" onclick="openModal('modal-change-password')">Alterar</button>
+                </div>
+              </div>
+            </div>
+            <!-- ZONA DE PERIGO -->
+            <div class="perfil-section perfil-danger-zone">
+              <div class="perfil-section-header"><div class="perfil-section-title">Zona de perigo</div></div>
+              <div class="perfil-section-body">
+                <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Deletar sua conta removerá permanentemente todos os dados. Esta ação não pode ser desfeita.</p>
+                <button class="perfil-btn-danger" onclick="openModal('modal-delete-account')">Deletar conta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- App Footer -->
     <div class="app-footer" id="app-footer">
       <span>&copy; 2026 NutriUDF. Todos os direitos reservados.</span>
@@ -1274,7 +1407,59 @@
   </div>
 </div>
 
-  <script src="assets/app.7767b239.js"></script>
+<!-- Alterar Email Modal (Perfil) -->
+<div class="modal-overlay" id="modal-change-email" onclick="if(event.target===this)closeModal('modal-change-email')">
+  <div class="modal" style="max-width:450px">
+    <div class="modal-title">Alterar email</div>
+    <div class="modal-content">
+      <form id="form-change-email" onsubmit="savePerfilEmail(event)">
+        <div class="form-group"><label>Novo email</label><input type="email" name="new_email" placeholder="seu.email@exemplo.com" required></div>
+        <div class="form-group"><label>Confirme sua senha</label><input type="password" name="password" placeholder="••••••••" required></div>
+      </form>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('modal-change-email')">Cancelar</button>
+      <button class="btn btn-primary" onclick="document.getElementById('form-change-email').requestSubmit()">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Alterar Senha Modal (Perfil) -->
+<div class="modal-overlay" id="modal-change-password" onclick="if(event.target===this)closeModal('modal-change-password')">
+  <div class="modal" style="max-width:450px">
+    <div class="modal-title">Alterar senha</div>
+    <div class="modal-content">
+      <form id="form-change-password" onsubmit="savePerfilPassword(event)">
+        <div class="form-group"><label>Senha atual</label><input type="password" name="current_password" placeholder="••••••••" required></div>
+        <div class="form-group"><label>Nova senha</label><input type="password" name="new_password" placeholder="Mínimo 8 caracteres" required minlength="8"></div>
+        <div class="form-group"><label>Confirme a nova senha</label><input type="password" name="confirm_password" placeholder="••••••••" required minlength="8"></div>
+      </form>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('modal-change-password')">Cancelar</button>
+      <button class="btn btn-primary" onclick="document.getElementById('form-change-password').requestSubmit()">Alterar senha</button>
+    </div>
+  </div>
+</div>
+
+<!-- Deletar Conta Modal (Perfil) -->
+<div class="modal-overlay" id="modal-delete-account" onclick="if(event.target===this)closeModal('modal-delete-account')">
+  <div class="modal" style="max-width:450px">
+    <div class="modal-title" style="color:#EF4444">Deletar conta</div>
+    <div class="modal-content">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Tem certeza? Esta ação não pode ser desfeita. Todos os seus dados serão permanentemente removidos.</p>
+      <form id="form-delete-account" onsubmit="confirmPerfilDeleteAccount(event)">
+        <div class="form-group"><label>Digite sua senha para confirmar</label><input type="password" name="password" placeholder="••••••••" required></div>
+      </form>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('modal-delete-account')">Cancelar</button>
+      <button class="btn" style="background:#EF4444;color:#fff;border:none" onclick="document.getElementById('form-delete-account').requestSubmit()">Deletar permanentemente</button>
+    </div>
+  </div>
+</div>
+
+  <script src="assets/app.04047d99.js"></script>
 
 </body>
 </html>

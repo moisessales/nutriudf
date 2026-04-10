@@ -768,6 +768,69 @@
   #screen-verify-pending a {
     color: var(--primary) !important;
   }
+
+  /* ── Tela Meu Perfil ─────────────────────────── */
+  .perfil-container { max-width: 1000px; margin: 0 auto; }
+  .perfil-header { padding: 40px 24px 0; text-align: center; position: relative; }
+  .perfil-header-bg { height: 200px; background: linear-gradient(135deg, rgba(29,158,117,.1) 0%, rgba(29,158,117,.05) 100%); border-radius: 16px; margin: -40px -24px 0; position: absolute; width: calc(100% + 48px); top: 0; z-index: 0; }
+  .perfil-card { position: relative; z-index: 1; }
+  .perfil-avatar-wrapper { position: relative; display: inline-block; margin-bottom: 24px; }
+  .perfil-avatar { width: 140px; height: 140px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, #16A085 100%); display: flex; align-items: center; justify-content: center; font-size: 56px; font-weight: 700; color: #fff; border: 4px solid var(--bg); box-shadow: 0 8px 32px rgba(29,158,117,.2); }
+  .perfil-avatar-badge { position: absolute; bottom: 0; right: 0; width: 48px; height: 48px; background: var(--primary); border: 3px solid var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; font-size: 24px; }
+  .perfil-avatar-badge:hover { background: #16A085; transform: scale(1.1); }
+  .perfil-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .perfil-subtitle { font-size: 16px; color: var(--primary); margin-bottom: 24px; font-weight: 500; }
+  .perfil-edit-button { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; margin-bottom: 40px; }
+  .perfil-edit-button:hover { background: rgba(29,158,117,.1); }
+  .perfil-content { padding: 0 24px 40px; }
+  .perfil-section { background: var(--card); border-radius: 16px; border: 1px solid var(--border); margin-bottom: 24px; overflow: hidden; transition: all .2s; }
+  .perfil-section:hover { border-color: var(--muted); }
+  .perfil-section-header { padding: 20px 24px; border-bottom: 1px solid var(--border); background: linear-gradient(to right, rgba(29,158,117,.05), transparent); }
+  .perfil-section-title { font-size: 14px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+  .perfil-section-body { padding: 24px; }
+  .perfil-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .perfil-info-item { display: flex; flex-direction: column; }
+  .perfil-info-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+  .perfil-info-value { font-size: 15px; font-weight: 500; color: var(--text); }
+  .perfil-info-input { font-size: 15px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--text); outline: none; transition: all .2s; font-family: inherit; }
+  .perfil-info-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(29,158,117,.1); }
+  .perfil-bio-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .perfil-bio-textarea { width: 100%; font-size: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; color: var(--text); outline: none; resize: vertical; font-family: inherit; transition: all .2s; min-height: 100px; }
+  .perfil-bio-textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(29,158,117,.1); }
+  .perfil-specialties { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .perfil-specialty-badge { background: linear-gradient(135deg, rgba(29,158,117,.2), rgba(29,158,117,.1)); border: 1px solid rgba(29,158,117,.4); color: var(--primary); padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; transition: all .2s; cursor: default; }
+  .perfil-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .perfil-contact-item { display: flex; align-items: flex-start; gap: 12px; }
+  .perfil-contact-icon { width: 40px; height: 40px; background: rgba(29,158,117,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--primary); flex-shrink: 0; }
+  .perfil-contact-info { flex: 1; }
+  .perfil-contact-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
+  .perfil-contact-value { font-size: 14px; color: var(--muted); }
+  .perfil-schedules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .perfil-schedule-item { background: rgba(29,158,117,.08); border: 1px solid rgba(29,158,117,.2); border-radius: 8px; padding: 12px; text-align: center; }
+  .perfil-schedule-day { font-size: 11px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+  .perfil-schedule-time { font-size: 13px; color: var(--primary); font-weight: 600; }
+  .perfil-stat-card { text-align: center; padding: 20px; background: rgba(29,158,117,.08); border-radius: 12px; border: 1px solid rgba(29,158,117,.15); }
+  .perfil-stat-number { font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+  .perfil-stat-label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+  .perfil-security-item { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .perfil-security-item:last-child { border-bottom: none; }
+  .perfil-security-left { display: flex; flex-direction: column; gap: 4px; }
+  .perfil-security-label { font-size: 13px; font-weight: 500; color: var(--text); }
+  .perfil-security-value { font-size: 12px; color: var(--muted); }
+  .perfil-edit-link { color: var(--primary); cursor: pointer; font-size: 12px; font-weight: 500; text-decoration: none; transition: color .2s; padding: 6px 12px; border-radius: 4px; border: none; background: none; }
+  .perfil-edit-link:hover { color: #16A085; background: rgba(29,158,117,.1); }
+  .perfil-danger-zone { background: rgba(239,68,68,.05) !important; border-color: rgba(239,68,68,.2) !important; }
+  .perfil-danger-zone .perfil-section-header { background: rgba(239,68,68,.08) !important; }
+  .perfil-danger-zone .perfil-section-title { color: #EF4444 !important; }
+  .perfil-btn-danger { background: transparent; border: 1px solid #EF4444; color: #EF4444; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; font-family: inherit; }
+  .perfil-btn-danger:hover { background: rgba(239,68,68,.1); }
+  .perfil-button-group { display: flex; gap: 12px; margin-top: 20px; justify-content: flex-end; }
+  @media (max-width: 600px) {
+    .perfil-info-grid, .perfil-contact-grid, .perfil-schedules, .perfil-stats-grid { grid-template-columns: 1fr; }
+    .perfil-header { padding: 32px 16px 0; }
+    .perfil-content { padding: 0 16px 32px; }
+    .perfil-stat-card { padding: 16px; }
+  }
 </style>
 </head>
 <body>
@@ -821,6 +884,12 @@
       <div class="nav-item" onclick="showScreen('tbca',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
         Banco TBCA
+      </div>
+
+      <div class="nav-label">Conta</div>
+      <div class="nav-item" onclick="showScreen('perfil',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Meu Perfil
       </div>
     </div>
     <div class="sidebar-footer">
@@ -1739,6 +1808,133 @@
       </div>
     </div>
 
+    <!-- MEU PERFIL screen (nutricionista) -->
+    <div class="screen" id="screen-perfil">
+      <div class="topbar">
+        <button class="hamburger" aria-label="Menu" onclick="toggleSidebar()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <div><div class="topbar-title">Meu Perfil</div><div class="topbar-sub">Gerencie suas informações profissionais</div></div>
+      </div>
+      <div class="content" style="padding-top:0">
+        <div class="perfil-container">
+          <!-- HEADER HERO -->
+          <div class="perfil-header">
+            <div class="perfil-header-bg"></div>
+            <div class="perfil-card">
+              <div class="perfil-avatar-wrapper">
+                <div class="perfil-avatar" id="perfil-avatar">--</div>
+                <div class="perfil-avatar-badge" title="Editar foto" onclick="document.getElementById('perfil-photo-input').click()">📷</div>
+                <input type="file" id="perfil-photo-input" accept="image/*" style="display:none" onchange="handlePerfilPhotoUpload(this)">
+              </div>
+              <h1 class="perfil-title" id="perfil-name">Carregando...</h1>
+              <p class="perfil-subtitle" id="perfil-role">Nutricionista</p>
+              <button class="perfil-edit-button" id="perfil-toggle-edit-btn" onclick="togglePerfilEditMode()">Editar perfil</button>
+            </div>
+          </div>
+          <!-- INFORMAÇÕES PROFISSIONAIS -->
+          <div class="perfil-content">
+            <div class="perfil-section">
+              <div class="perfil-section-header"><div class="perfil-section-title">Informações profissionais</div></div>
+              <div class="perfil-section-body">
+                <div class="perfil-info-grid">
+                  <div class="perfil-info-item">
+                    <div class="perfil-info-label">Profissão</div>
+                    <div class="perfil-info-value" id="perfil-profession-display">—</div>
+                    <input class="perfil-info-input" type="text" id="perfil-profession-input" style="display:none">
+                  </div>
+                  <div class="perfil-info-item">
+                    <div class="perfil-info-label">Anos de experiência</div>
+                    <div class="perfil-info-value" id="perfil-experience-display">—</div>
+                    <input class="perfil-info-input" type="number" id="perfil-experience-input" min="0" max="70" style="display:none">
+                  </div>
+                  <div class="perfil-info-item">
+                    <div class="perfil-info-label">CRN</div>
+                    <div class="perfil-info-value" id="perfil-crn-display">—</div>
+                    <input class="perfil-info-input" type="text" id="perfil-crn-input" style="display:none">
+                  </div>
+                  <div class="perfil-info-item">
+                    <div class="perfil-info-label">Formação</div>
+                    <div class="perfil-info-value" id="perfil-education-display">—</div>
+                    <input class="perfil-info-input" type="text" id="perfil-education-input" style="display:none">
+                  </div>
+                </div>
+                <div style="margin-top:28px">
+                  <div class="perfil-info-label">Especialidades</div>
+                  <div class="perfil-specialties" id="perfil-specialties-display"></div>
+                  <input class="perfil-info-input" type="text" id="perfil-specialties-input" placeholder="Ex: Emagrecimento, Hipertrofia, Gestantes (separadas por vírgula)" style="display:none;margin-top:16px;width:100%">
+                </div>
+                <div style="margin-top:28px">
+                  <div class="perfil-info-label">Bio profissional</div>
+                  <p class="perfil-bio-text" id="perfil-bio-display" style="margin-top:12px">—</p>
+                  <textarea class="perfil-bio-textarea" id="perfil-bio-input" style="display:none" rows="4"></textarea>
+                </div>
+                <div class="perfil-button-group" id="perfil-edit-buttons" style="display:none">
+                  <button class="btn btn-secondary" onclick="cancelPerfilEdit()">Cancelar</button>
+                  <button class="btn btn-primary" id="perfil-save-btn" onclick="savePerfilProfessional()">Salvar alterações</button>
+                </div>
+              </div>
+            </div>
+            <!-- CONTATO -->
+            <div class="perfil-section">
+              <div class="perfil-section-header"><div class="perfil-section-title">Contato e localização</div></div>
+              <div class="perfil-section-body">
+                <div class="perfil-contact-grid">
+                  <div class="perfil-contact-item">
+                    <div class="perfil-contact-icon">✉️</div>
+                    <div class="perfil-contact-info"><div class="perfil-contact-label">Email</div><div class="perfil-contact-value" id="perfil-email-display">—</div></div>
+                  </div>
+                  <div class="perfil-contact-item">
+                    <div class="perfil-contact-icon">📱</div>
+                    <div class="perfil-contact-info"><div class="perfil-contact-label">WhatsApp</div><div class="perfil-contact-value" id="perfil-phone-display">—</div></div>
+                  </div>
+                  <div class="perfil-contact-item">
+                    <div class="perfil-contact-icon">📍</div>
+                    <div class="perfil-contact-info"><div class="perfil-contact-label">Cidade</div><div class="perfil-contact-value" id="perfil-city-display">—</div></div>
+                  </div>
+                  <div class="perfil-contact-item">
+                    <div class="perfil-contact-icon">💼</div>
+                    <div class="perfil-contact-info"><div class="perfil-contact-label">Modalidade</div><div class="perfil-contact-value" id="perfil-modality-display">—</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ATIVIDADE -->
+            <div class="perfil-section">
+              <div class="perfil-section-header"><div class="perfil-section-title">Atividade</div></div>
+              <div class="perfil-section-body">
+                <div class="perfil-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+                  <div class="perfil-stat-card"><div class="perfil-stat-number" id="perfil-stat-patients">0</div><div class="perfil-stat-label">Pacientes ativos</div></div>
+                  <div class="perfil-stat-card"><div class="perfil-stat-number" id="perfil-stat-plans">0</div><div class="perfil-stat-label">Planos criados</div></div>
+                  <div class="perfil-stat-card"><div class="perfil-stat-number" id="perfil-stat-consultations">0</div><div class="perfil-stat-label">Consultas</div></div>
+                </div>
+              </div>
+            </div>
+            <!-- SEGURANÇA -->
+            <div class="perfil-section">
+              <div class="perfil-section-header"><div class="perfil-section-title">Segurança</div></div>
+              <div class="perfil-section-body">
+                <div class="perfil-security-item">
+                  <div class="perfil-security-left"><div class="perfil-security-label">Email</div><div class="perfil-security-value" id="perfil-security-email">—</div></div>
+                  <button class="perfil-edit-link" onclick="openModal('modal-change-email')">Alterar</button>
+                </div>
+                <div class="perfil-security-item">
+                  <div class="perfil-security-left"><div class="perfil-security-label">Senha</div><div class="perfil-security-value">Altere sua senha periodicamente</div></div>
+                  <button class="perfil-edit-link" onclick="openModal('modal-change-password')">Alterar</button>
+                </div>
+              </div>
+            </div>
+            <!-- ZONA DE PERIGO -->
+            <div class="perfil-section perfil-danger-zone">
+              <div class="perfil-section-header"><div class="perfil-section-title">Zona de perigo</div></div>
+              <div class="perfil-section-body">
+                <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Deletar sua conta removerá permanentemente todos os dados. Esta ação não pode ser desfeita.</p>
+                <button class="perfil-btn-danger" onclick="openModal('modal-delete-account')">Deletar conta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- App Footer -->
     <div class="app-footer" id="app-footer">
       <span>&copy; 2026 NutriUDF. Todos os direitos reservados.</span>
@@ -2017,6 +2213,58 @@
     <div class="modal-actions">
       <button class="btn btn-secondary" onclick="closeModal('modal-confirmar-delete')">Cancelar</button>
       <button class="btn" style="background: #e74c3c; color: white;" onclick="confirmDeletePatient()">Deletar paciente</button>
+    </div>
+  </div>
+</div>
+
+<!-- Alterar Email Modal (Perfil) -->
+<div class="modal-overlay" id="modal-change-email" onclick="if(event.target===this)closeModal('modal-change-email')">
+  <div class="modal" style="max-width:450px">
+    <div class="modal-title">Alterar email</div>
+    <div class="modal-content">
+      <form id="form-change-email" onsubmit="savePerfilEmail(event)">
+        <div class="form-group"><label>Novo email</label><input type="email" name="new_email" placeholder="seu.email@exemplo.com" required></div>
+        <div class="form-group"><label>Confirme sua senha</label><input type="password" name="password" placeholder="••••••••" required></div>
+      </form>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('modal-change-email')">Cancelar</button>
+      <button class="btn btn-primary" onclick="document.getElementById('form-change-email').requestSubmit()">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Alterar Senha Modal (Perfil) -->
+<div class="modal-overlay" id="modal-change-password" onclick="if(event.target===this)closeModal('modal-change-password')">
+  <div class="modal" style="max-width:450px">
+    <div class="modal-title">Alterar senha</div>
+    <div class="modal-content">
+      <form id="form-change-password" onsubmit="savePerfilPassword(event)">
+        <div class="form-group"><label>Senha atual</label><input type="password" name="current_password" placeholder="••••••••" required></div>
+        <div class="form-group"><label>Nova senha</label><input type="password" name="new_password" placeholder="Mínimo 8 caracteres" required minlength="8"></div>
+        <div class="form-group"><label>Confirme a nova senha</label><input type="password" name="confirm_password" placeholder="••••••••" required minlength="8"></div>
+      </form>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('modal-change-password')">Cancelar</button>
+      <button class="btn btn-primary" onclick="document.getElementById('form-change-password').requestSubmit()">Alterar senha</button>
+    </div>
+  </div>
+</div>
+
+<!-- Deletar Conta Modal (Perfil) -->
+<div class="modal-overlay" id="modal-delete-account" onclick="if(event.target===this)closeModal('modal-delete-account')">
+  <div class="modal" style="max-width:450px">
+    <div class="modal-title" style="color:#EF4444">Deletar conta</div>
+    <div class="modal-content">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Tem certeza? Esta ação não pode ser desfeita. Todos os seus dados serão permanentemente removidos.</p>
+      <form id="form-delete-account" onsubmit="confirmPerfilDeleteAccount(event)">
+        <div class="form-group"><label>Digite sua senha para confirmar</label><input type="password" name="password" placeholder="••••••••" required></div>
+      </form>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('modal-delete-account')">Cancelar</button>
+      <button class="btn" style="background:#EF4444;color:#fff;border:none" onclick="document.getElementById('form-delete-account').requestSubmit()">Deletar permanentemente</button>
     </div>
   </div>
 </div>
@@ -2560,6 +2808,27 @@ class ApiService {
     const params = new URLSearchParams({ query, limit: String(limit) });
     return this.request(`/foods?${params.toString()}`);
   }
+
+  // PERFIL DO NUTRICIONISTA
+  async getProfile() {
+    return this.request('/profile');
+  }
+
+  async updateProfile(data) {
+    return this.request('/profile', 'PUT', data);
+  }
+
+  async changeEmail(newEmail, password) {
+    return this.request('/profile/email', 'PUT', { new_email: newEmail, password });
+  }
+
+  async changePassword(currentPassword, newPassword) {
+    return this.request('/profile/password', 'PUT', { current_password: currentPassword, new_password: newPassword });
+  }
+
+  async deleteAccount(password) {
+    return this.request('/profile', 'DELETE', { password });
+  }
 }
 
 // Instanciar o serviço
@@ -3068,6 +3337,8 @@ function showScreen(id, navEl) {
     loadPlan();
   } else if (id === 'tbca') {
     document.getElementById('tbca-search-input').focus();
+  } else if (id === 'perfil') {
+    loadPerfilScreen();
   }
 }
 
@@ -7584,6 +7855,172 @@ const Analytics = {
     const entries = this._get();
     const counts = {};
     entries.forEach(e => { counts[e.event] = (counts[e.event] || 0) + 1; });
+// ========================================
+// MEU PERFIL (NUTRICIONISTA)
+// ========================================
+let perfilEditMode = false;
+let perfilData = null;
+
+function getInitials(name) {
+  if (!name) return '--';
+  return name.split(' ').filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+}
+
+async function loadPerfilScreen() {
+  try {
+    const data = await api.getProfile();
+    perfilData = data;
+
+    document.getElementById('perfil-avatar').textContent = getInitials(data.full_name);
+    document.getElementById('perfil-name').textContent = data.full_name || '—';
+    document.getElementById('perfil-role').textContent = data.crn ? `${data.crn} · Nutricionista` : 'Nutricionista';
+
+    document.getElementById('perfil-profession-display').textContent = data.profession || 'Nutricionista';
+    document.getElementById('perfil-profession-input').value = data.profession || 'Nutricionista';
+    document.getElementById('perfil-experience-display').textContent = data.experience_years ? `${data.experience_years} anos` : '—';
+    document.getElementById('perfil-experience-input').value = data.experience_years || '';
+    document.getElementById('perfil-crn-display').textContent = data.crn || '—';
+    document.getElementById('perfil-crn-input').value = data.crn || '';
+    document.getElementById('perfil-education-display').textContent = data.education || '—';
+    document.getElementById('perfil-education-input').value = data.education || '';
+
+    const specialties = (data.specialties || '').split(',').map(s => s.trim()).filter(Boolean);
+    const specContainer = document.getElementById('perfil-specialties-display');
+    specContainer.innerHTML = specialties.length > 0
+      ? specialties.map(s => `<div class="perfil-specialty-badge">${s}</div>`).join('')
+      : '<span style="color:var(--muted);font-size:13px">Nenhuma especialidade cadastrada</span>';
+    document.getElementById('perfil-specialties-input').value = data.specialties || '';
+
+    document.getElementById('perfil-bio-display').textContent = data.bio || '—';
+    document.getElementById('perfil-bio-input').value = data.bio || '';
+
+    document.getElementById('perfil-email-display').textContent = data.email || '—';
+    document.getElementById('perfil-phone-display').textContent = data.phone || '—';
+    document.getElementById('perfil-city-display').textContent = data.city || '—';
+    document.getElementById('perfil-modality-display').textContent = data.modality || '—';
+    document.getElementById('perfil-security-email').textContent = data.email || '—';
+
+    // Stats
+    document.getElementById('perfil-stat-patients').textContent = data.stats?.patients || 0;
+    document.getElementById('perfil-stat-plans').textContent = data.stats?.plans || 0;
+    document.getElementById('perfil-stat-consultations').textContent = data.stats?.consultations || 0;
+
+  } catch (err) {
+    console.error('Erro ao carregar perfil:', err);
+    Toast.error('Erro ao carregar dados do perfil');
+  }
+}
+
+function togglePerfilEditMode() {
+  perfilEditMode = !perfilEditMode;
+  const fields = ['profession', 'experience', 'crn', 'education'];
+  fields.forEach(f => {
+    document.getElementById(`perfil-${f}-display`).style.display = perfilEditMode ? 'none' : 'block';
+    document.getElementById(`perfil-${f}-input`).style.display = perfilEditMode ? 'block' : 'none';
+  });
+  document.getElementById('perfil-bio-display').style.display = perfilEditMode ? 'none' : 'block';
+  document.getElementById('perfil-bio-input').style.display = perfilEditMode ? 'block' : 'none';
+  document.getElementById('perfil-specialties-input').style.display = perfilEditMode ? 'block' : 'none';
+  document.getElementById('perfil-edit-buttons').style.display = perfilEditMode ? 'flex' : 'none';
+  document.getElementById('perfil-toggle-edit-btn').textContent = perfilEditMode ? 'Cancelar edição' : 'Editar perfil';
+}
+
+function cancelPerfilEdit() {
+  if (perfilData) {
+    document.getElementById('perfil-profession-input').value = perfilData.profession || 'Nutricionista';
+    document.getElementById('perfil-experience-input').value = perfilData.experience_years || '';
+    document.getElementById('perfil-crn-input').value = perfilData.crn || '';
+    document.getElementById('perfil-education-input').value = perfilData.education || '';
+    document.getElementById('perfil-bio-input').value = perfilData.bio || '';
+    document.getElementById('perfil-specialties-input').value = perfilData.specialties || '';
+  }
+  perfilEditMode = true;
+  togglePerfilEditMode();
+}
+
+async function savePerfilProfessional() {
+  const btn = document.getElementById('perfil-save-btn');
+  setButtonLoading('perfil-save-btn', true);
+  try {
+    const payload = {
+      profession: document.getElementById('perfil-profession-input').value.trim(),
+      experience_years: parseInt(document.getElementById('perfil-experience-input').value) || null,
+      crn: document.getElementById('perfil-crn-input').value.trim(),
+      education: document.getElementById('perfil-education-input').value.trim(),
+      bio: document.getElementById('perfil-bio-input').value.trim(),
+      specialties: document.getElementById('perfil-specialties-input').value.trim()
+    };
+    await api.updateProfile(payload);
+    Toast.success('Perfil atualizado com sucesso!');
+    perfilEditMode = true;
+    togglePerfilEditMode();
+    loadPerfilScreen();
+  } catch (err) {
+    console.error('Erro ao salvar perfil:', err);
+    Toast.error(err.message || 'Erro ao salvar perfil');
+  } finally {
+    setButtonLoading('perfil-save-btn', false);
+  }
+}
+
+async function savePerfilEmail(e) {
+  e.preventDefault();
+  const form = e.target;
+  const newEmail = form.new_email.value.trim();
+  const password = form.password.value;
+  if (!newEmail || !password) return Toast.error('Preencha todos os campos');
+  try {
+    await api.changeEmail(newEmail, password);
+    Toast.success('Email alterado com sucesso!');
+    closeModal('modal-change-email');
+    form.reset();
+    loadPerfilScreen();
+  } catch (err) {
+    Toast.error(err.message || 'Erro ao alterar email');
+  }
+}
+
+async function savePerfilPassword(e) {
+  e.preventDefault();
+  const form = e.target;
+  const currentPassword = form.current_password.value;
+  const newPassword = form.new_password.value;
+  const confirmPassword = form.confirm_password.value;
+  if (!currentPassword || !newPassword || !confirmPassword) return Toast.error('Preencha todos os campos');
+  if (newPassword !== confirmPassword) return Toast.error('As senhas não coincidem');
+  if (newPassword.length < 8) return Toast.error('A nova senha deve ter pelo menos 8 caracteres');
+  try {
+    await api.changePassword(currentPassword, newPassword);
+    Toast.success('Senha alterada com sucesso!');
+    closeModal('modal-change-password');
+    form.reset();
+  } catch (err) {
+    Toast.error(err.message || 'Erro ao alterar senha');
+  }
+}
+
+async function confirmPerfilDeleteAccount(e) {
+  e.preventDefault();
+  const form = e.target;
+  const password = form.password.value;
+  if (!password) return Toast.error('Digite sua senha para confirmar');
+  if (!confirm('Tem certeza absoluta? Todos os seus dados serão perdidos permanentemente.')) return;
+  try {
+    await api.deleteAccount(password);
+    Toast.success('Conta deletada. Redirecionando...');
+    closeModal('modal-delete-account');
+    logout();
+  } catch (err) {
+    Toast.error(err.message || 'Erro ao deletar conta');
+  }
+}
+
+function handlePerfilPhotoUpload(input) {
+  if (input.files && input.files[0]) {
+    Toast.info('Upload de foto ainda não disponível.');
+  }
+}
+
     return { total: entries.length, counts, since: entries[0]?.ts };
   }
 };

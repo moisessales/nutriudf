@@ -34,6 +34,7 @@ const reportRoutes = require('./src/routes/reportRoutes');
 const foodRoutes = require('./src/routes/foodRoutes');
 const dashboardRoutes = require('./src/routes/dashboardRoutes');
 const consultationRoutes = require('./src/routes/consultationRoutes');
+const profileRoutes = require('./src/routes/profileRoutes');
 
 const app = express();
 const isProd = process.env.NODE_ENV === 'production';
@@ -169,6 +170,7 @@ app.use('/api/v1/reports', reportRoutes);
 app.use('/api/v1/foods', foodRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/consultations', consultationRoutes);
+app.use('/api/v1/profile', profileRoutes);
 
 // Compatibilidade: /api/* ➜ mesmas rotas (sem duplicar middleware chain)
 app.use('/api/auth/login', authLimiter);
@@ -182,6 +184,7 @@ app.use('/api/reports', reportRoutes);
 app.use('/api/foods', foodRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/consultations', consultationRoutes);
+app.use('/api/profile', profileRoutes);
 
 // Swagger — lazy load (módulo pesado, ~2MB)
 app.use('/api/docs', (req, res, next) => {
